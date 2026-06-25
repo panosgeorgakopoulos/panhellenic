@@ -23,6 +23,8 @@ body {
     color: var(--text-main);
     line-height: 1.6;
     padding: 2rem 1rem;
+    overflow-x: hidden;
+    font-size: 16px;
 }
 
 .container {
@@ -49,7 +51,7 @@ h1 {
 .card {
     background: var(--surface);
     border-radius: 12px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     padding: 2rem;
     margin-bottom: 2rem;
 }
@@ -72,11 +74,12 @@ label {
     color: var(--text-main);
 }
 
-input[type="number"], input[type="text"] {
+input[type="number"], input[type="text"], select {
     padding: 0.75rem;
     border: 1px solid var(--border);
     border-radius: 8px;
     font-size: 1rem;
+    min-height: 44px;
     transition: border-color 0.2s, box-shadow 0.2s;
 }
 
@@ -102,14 +105,18 @@ button.primary-btn, a.primary-btn {
     font-size: 1rem;
     font-weight: 600;
     border-radius: 8px;
+    min-height: 44px;
     cursor: pointer;
-    transition: background-color 0.2s;
+    transition: background-color 0.2s, transform 0.1s;
     text-decoration: none;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 button.primary-btn:hover, a.primary-btn:hover {
     background-color: var(--primary-hover);
+    transform: translateY(-1px);
 }
 
 .average-display {
@@ -180,6 +187,10 @@ tbody tr:hover {
     border-radius: 6px;
     cursor: pointer;
     font-size: 0.875rem;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     transition: all 0.2s;
 }
 
@@ -209,6 +220,47 @@ tbody tr:hover {
     .input-grid { grid-template-columns: 1fr; }
     .controls { flex-direction: column; align-items: stretch; }
     .average-display { text-align: center; }
+
+    /* Card-like Table */
+    #resultsTable, #resultsTable tbody, #resultsTable tr, #resultsTable td {
+        display: block;
+        width: 100%;
+    }
+    #resultsTable thead {
+        display: none;
+    }
+    #resultsTable tr {
+        margin-bottom: 1rem;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        padding: 0.5rem;
+    }
+    #resultsTable td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid var(--border);
+        text-align: right;
+        padding: 0.75rem;
+    }
+    #resultsTable td:last-child {
+        border-bottom: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.5rem;
+    }
+    #resultsTable td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: var(--text-muted);
+        text-align: left;
+        margin-right: 1rem;
+    }
+    .btn-sm {
+        width: 100%;
+    }
 }
 
 .analysis-wrapper {
@@ -444,7 +496,7 @@ tbody tr:hover {
 .zscore-badge {
     display: block;
     margin-top: 6px;
-    font-size: 0.82rem;
+    font-size: 0.85rem;
     min-height: 1.2em;
     letter-spacing: 0.2px;
     transition: opacity 0.2s;
@@ -632,5 +684,120 @@ tbody tr:hover {
     }
     .dashboard-container {
         max-width: 100%;
+    }
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.site-footer {
+    background-color: #111827;
+    color: #F3F4F6;
+    padding: 3rem 1rem 1rem;
+    margin-top: 4rem;
+    font-family: 'Inter', -apple-system, sans-serif;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-col h4 {
+    color: #FFFFFF;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.footer-col h4::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 40px;
+    height: 2px;
+    background-color: var(--primary);
+}
+
+.footer-col p {
+    color: #9CA3AF;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 0.75rem;
+}
+
+.footer-col ul li a {
+    color: #9CA3AF;
+    text-decoration: none;
+    transition: color 0.2s;
+    font-size: 0.95rem;
+}
+
+.footer-col ul li a:hover {
+    color: #FFFFFF;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #374151;
+    border-radius: 6px;
+    background-color: #1F2937;
+    color: #FFFFFF;
+    font-size: 0.9rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    min-height: auto;
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2);
+}
+
+.contact-form button {
+    margin-top: 0.25rem;
+    padding: 0.75rem;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid #374151;
+    color: #6B7280;
+    font-size: 0.85rem;
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
     }
 }

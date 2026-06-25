@@ -278,18 +278,18 @@ function calculateAndRender() {
 
         const tr = document.createElement('tr');
         tr.innerHTML = `
-            <td><strong>${school.name}</strong></td>
-            <td>${school.institution_short || school.institution} - ${school.city}</td>
-            <td><strong>${userPoints}</strong></td>
-            <td>
+            <td data-label="Σχολή"><strong>${school.name}</strong></td>
+            <td data-label="Ίδρυμα & Πόλη">${school.institution_short || school.institution} - ${school.city}</td>
+            <td data-label="Τα Μόρια σου"><strong>${userPoints}</strong></td>
+            <td data-label="Βάση 2025">
                 ${actualBase > 0 ? actualBase : '-'} <br>
                 <small class="text-muted">(έτος ${recentYear})</small>
             </td>
-            <td class="${deviationClass}">${deviationText} <br><small class="text-muted">(από βάση ${recentYear})</small></td>
-            <td>${getAdvancedPredictionBadge(probPct)}</td>
-            <td>
+            <td data-label="Απόκλιση" class="${deviationClass}">${deviationText} <br><small class="text-muted">(από βάση ${recentYear})</small></td>
+            <td data-label="Πρόβλεψη (%)">${getAdvancedPredictionBadge(probPct)}</td>
+            <td data-label="Ενέργεια">
                 <button class="btn-sm" onclick="toggleChart(${index}, ${userPoints}, ${est.base_estimate}, ${est.sigma})">Προηγμένη Ανάλυση</button>
-                <a href="detailed_prediction.html?school_id=${school.id}&score=${userPoints}&field=${activeFieldId}&grades=${encodeURIComponent(JSON.stringify(currentGrades))}" class="btn-sm" style="display:inline-block; margin-top:4px; text-decoration:none; color:var(--primary); border: 1px solid var(--primary); background: transparent;">Επεξήγηση Πρόβλεψης</a>
+                <a href="detailed_prediction.html?school_id=${school.id}&score=${userPoints}&field=${activeFieldId}&grades=${encodeURIComponent(JSON.stringify(currentGrades))}" class="btn-sm" style="display:inline-block; margin-top:4px; text-decoration:none; color:var(--primary); border: 1px solid var(--primary); background: transparent; text-align: center;">Επεξήγηση Πρόβλεψης</a>
             </td>
         `;
         tbody.appendChild(tr);
