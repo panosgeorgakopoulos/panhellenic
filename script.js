@@ -2,20 +2,24 @@ let schools = [];
 let statsData = {};
 let activeCharts = {};
 let normalizationData = {};
+let schoolWeightsData = {};
 
 let activeFieldId = document.body.getAttribute('data-field');
 
 // Load data from external JSON files
 async function loadData() {
     try {
-        const [schoolsRes, statsRes, normRes] = await Promise.all([
+        const [schoolsRes, statsRes, normRes, weightsRes] = await Promise.all([
             fetch('schools_data_final.json'), // using the updated JSON as requested
             fetch('stats_data.json'),
-            fetch('normalization_factors.json')
+            fetch('normalization_factors.json'),
+            fetch('weights_data.json')
         ]);
         schools = await schoolsRes.json();
         statsData = await statsRes.json();
         normalizationData = await normRes.json();
+        const weightsData = await weightsRes.json();
+        schoolWeightsData = weightsData.special_school_weights || {};
         
         if (activeFieldId) {
             calculateAndRender();
@@ -224,30 +228,31 @@ function calculateAndRender() {
         if (searchTerm && !searchStr.includes(searchTerm)) return;
 
         // Dynamic points calculation based on field
+        const customWeights = schoolWeightsData[school.id] || {};
         let userPoints = 0;
         if (activeFieldId === "1") {
-            const wLang = school.weights.glossa || 0.25;
-            const wArx = school.weights.arxaia || 0.25;
-            const wIst = school.weights.istoria || 0.25;
-            const wLat = school.weights.latinika || 0.25;
+            const wLang = customWeights.glossa || 0.25;
+            const wArx = customWeights.arxaia || 0.25;
+            const wIst = customWeights.istoria || 0.25;
+            const wLat = customWeights.latinika || 0.25;
             userPoints = Math.round((currentGrades.gradeLang * wLang + currentGrades.gradeArx * wArx + currentGrades.gradeIst * wIst + currentGrades.gradeLat * wLat) * 1000);
         } else if (activeFieldId === "2") {
-            const wLang = school.weights.glossa || 0.25;
-            const wPhy = school.weights.fysiki || 0.25;
-            const wChem = school.weights.ximeia || 0.25;
-            const wMath = school.weights.mathimatika || 0.25;
+            const wLang = customWeights.glossa || 0.25;
+            const wPhy = customWeights.fysiki || 0.25;
+            const wChem = customWeights.ximeia || 0.25;
+            const wMath = customWeights.mathimatika || 0.25;
             userPoints = Math.round((currentGrades.gradeLang * wLang + currentGrades.gradePhy * wPhy + currentGrades.gradeChem * wChem + currentGrades.gradeMath * wMath) * 1000);
         } else if (activeFieldId === "3") {
-            const wLang = school.weights.glossa || 0.25;
-            const wPhy = school.weights.fysiki || 0.25;
-            const wChem = school.weights.ximeia || 0.25;
-            const wBio = school.weights.viologia || 0.25;
+            const wLang = customWeights.glossa || 0.25;
+            const wPhy = customWeights.fysiki || 0.25;
+            const wChem = customWeights.ximeia || 0.25;
+            const wBio = customWeights.viologia || 0.25;
             userPoints = Math.round((currentGrades.gradeLang * wLang + currentGrades.gradePhy * wPhy + currentGrades.gradeChem * wChem + currentGrades.gradeBio * wBio) * 1000);
         } else if (activeFieldId === "4") {
-            const wLang = school.weights.glossa || 0.25;
-            const wMath = school.weights.mathimatika || 0.25;
-            const wPli = school.weights.pliroforiki || 0.25;
-            const wOik = school.weights.oikonomia || 0.25;
+            const wLang = customWeights.glossa || 0.25;
+            const wMath = customWeights.mathimatika || 0.25;
+            const wPli = customWeights.pliroforiki || 0.25;
+            const wOik = customWeights.oikonomia || 0.25;
             userPoints = Math.round((currentGrades.gradeLang * wLang + currentGrades.gradeMath * wMath + currentGrades.gradePli * wPli + currentGrades.gradeOik * wOik) * 1000);
         }
         
