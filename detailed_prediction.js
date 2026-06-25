@@ -49,7 +49,7 @@ async function loadDetailedPrediction() {
         const schools = await schoolsRes.json();
         const normData = await normRes.json();
         
-        const school = schools.find(s => String(s.id) === String(schoolId));
+        const school = schools.find(s => parseInt(s.id, 10) === parseInt(schoolId, 10));
         if (!school) {
             document.getElementById('loadingCard').innerHTML = '<h3 class="text-danger">Σφάλμα: Η σχολή δεν βρέθηκε.</h3>';
             return;
