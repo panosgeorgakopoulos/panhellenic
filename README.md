@@ -1,119 +1,68 @@
-# Panhellenic Exams Data Analysis & Visualization
+# Panhellenic Probabilistic Decision Platform 🎓📊
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+An advanced, data-driven decision-support system for the Greek Panhellenic Exams. 
 
-A collection of tools for fetching, processing, and visualizing Greek **Panhellenic Examinations** (Πανελλήνιες) results. This repository provides datasets and scripts to explore admission statistics, score distributions, and trends across fields of study and universities in Greece.
+This platform moves beyond simple deterministic "point calculators" by introducing **probabilistic modeling, historical volatility analysis, and Explainable AI (XAI)** to help students evaluate their university admission chances with statistical confidence.
 
-## Table of Contents
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-  - [Fetching data](#fetching-data)
-  - [Analysis examples](#analysis-examples)
-  - [Visualization](#visualization)
-- [Data Sources](#data-sources)
-- [Repository Structure](#repository-structure)
-- [Contributing](#contributing)
-- [License](#license)
-
-## Features
-- Scrape or load official Panhellenic exam results (candidates, scores, admitted students).
-- Clean, structured datasets per year, scientific field, and department.
-- Statistical summaries: highest/lowest admission scores, base scores, number of admitted per school.
-- Interactive and static visualizations (score distribution histograms, heatmaps of demand, time series).
-- Jupyter notebooks with ready-to-run exploratory analyses.
-- Modular Python package that can be reused for custom reports.
-
-## Installation
-
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/panosgeorgakopoulos/panhellenic.git
-   cd panhellenic
-   ```
-
-2. **Create a virtual environment** (recommended):
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
-   ```
-
-3. **Install dependencies**:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-## Usage
-
-### Fetching data
-The package can automatically download the latest published statistics from official sources (e.g., [minedu.gov.gr](https://www.minedu.gov.gr/)).
-
-```python
-from panhellenic import fetch_results
-
-# Fetch results for a given year and scientific field
-df = fetch_results(year=2023, field="humanities")
-df.head()
-```
-
-Alternatively, pre-fetched CSV files are available in the `data/` directory.
-
-### Analysis examples
-Open the provided Jupyter notebooks to explore common questions:
-
-- **What were the minimum/maximum admission scores per department?**
-- **How has the demand for Computer Science schools changed over the last 5 years?**
-- **Which cities have the highest concentration of high-performing candidates?**
-
-```bash
-jupyter notebook notebooks/exploratory_analysis.ipynb
-```
-
-### Visualization
-Generate static or interactive charts using the built-in plotting utilities:
-
-```python
-from panhellenic.visualization import plot_score_distribution
-
-plot_score_distribution(year=2022, field="science", interactive=True)
-```
-
-Example output:
-![score distribution](images/score_distribution_example.png)
-
-## Data Sources
-Data is collected from the official announcements of the Greek Ministry of Education and Religious Affairs. Refer to the [data/README.md](data/README.md) for a detailed description of each file and the scraping methodology.
-
-## Repository Structure
-```
-panhellenic/
-├── data/                # Raw and processed datasets (CSV)
-├── images/              # Visualization examples
-├── notebooks/           # Jupyter notebooks for analysis
-├── panhellenic/         # Main Python package
-│   ├── __init__.py
-│   ├── fetch.py
-│   ├── process.py
-│   └── visualize.py
-├── requirements.txt
-├── setup.py
-└── README.md
-```
-
-## Contributing
-Contributions are welcome! Please follow these steps:
-1. Fork the repository.
-2. Create a feature branch (`git checkout -b feature/amazing-feature`).
-3. Commit your changes (`git commit -m 'Add some amazing feature'`).
-4. Push to the branch (`git push origin feature/amazing-feature`).
-5. Open a Pull Request.
-
-For major changes, please open an issue first to discuss what you would like to change.
-
-## License
-This project is licensed under the MIT License – see the [LICENSE](LICENSE) file for details.
+![App Preview](https://img.shields.io/badge/Status-Active-success)
+![Tech Stack](https://img.shields.io/badge/Tech_Stack-Vanilla_JS_|_Python_|_HTML_|_CSS-blue)
+![License](https://img.shields.io/badge/License-MIT-green)
 
 ---
 
-*Maintained by [Panos Georgakopoulos](https://github.com/panosgeorgakopoulos).*
+## 🌟 Key Features
+
+* **Probabilistic Admission Engine**: Uses a Sigmoid/Logistic function to calculate admission probability (0-100%) rather than a binary Pass/Fail, factoring in historical score distributions.
+* **Explainable AI (XAI) Dashboard**: A dedicated analysis page (`detailed_prediction.html`) that breaks down the probability calculation using natural language summaries and a Waterfall Chart (via Chart.js).
+* **Volatility & Trend Analysis**: Calculates the historical standard deviation (Volatility Index) and weighted multi-year trends of university base cutoffs to adjust risk margins.
+* **Statistical Normalization (Z-Scores)**: Contextualizes user grades against national multi-year statistics (Mean $\mu$, Standard Deviation $\sigma$), providing real-time performance badges (e.g., *"Top 15% (+1.2σ)"*).
+* **Dynamic Subject Weights**: Accurately calculates points per school by dynamically fetching specific subject coefficients (weights) mapped to individual university departments.
+* **Modern UI/UX**:
+    * Multi-page architecture mapped to the 4 Scientific Fields.
+    * Full **Dark Mode** support with `localStorage` memory.
+    * Mobile-first responsive design (table-to-card transformations).
+    * Accessible, touch-friendly interfaces.
+
+---
+
+## 🏗️ Architecture & Tech Stack
+
+The application uses a **decoupled architecture**, ensuring lightning-fast client-side performance while keeping data processing heavily automated on the backend.
+
+### Frontend (Client-Side)
+* **HTML5 / CSS3**: CSS Variables for theming, CSS Grid/Flexbox for responsive layouts.
+* **Vanilla JavaScript (ES6+)**: Handles dynamic DOM manipulation, URL routing, JSON fetching, and algorithmic probability calculations without heavy frameworks.
+* **Chart.js**: Powers the visual analytics and risk gauges.
+
+### Data Pipeline (Python Backend)
+The static JSON files consumed by the frontend are generated via robust Python scripts that scrape, parse, and mathematically process raw government data.
+* **Python 3.x** (`pandas`, `BeautifulSoup`, `statistics`)
+* Automated extraction of weights from legacy PHP files to structured JSON.
+* Multi-sheet Excel parsing for historical bases and grade frequencies.
+
+---
+
+## 📂 Project Structure
+
+```text
+📦 panhellenic-decision-platform
+ ┣ 📂 older_βάσεις/             # Raw historical cutoff data (Excel/CSV)
+ ┣ 📂 stats/                    # Raw national grade distributions
+ ┣ 📂 weights/                  # Legacy PHP files containing subject coefficients
+ ┃
+ ┣ 📜 build_complete_schools_db.py # Parses cutoffs & fields -> schools_data_final.json
+ ┣ 📜 build_normalization.py       # Computes μ, σ -> normalization_factors.json
+ ┣ 📜 extract_weights_to_json.py   # Extracts coefficients -> weights_data.json
+ ┃
+ ┣ 📜 index.html                # Welcome / Landing Screen
+ ┣ 📜 field_1.html (to 4)       # Field-Specific Calculators
+ ┣ 📜 detailed_prediction.html  # XAI Analytics Dashboard
+ ┃
+ ┣ 📜 script.js                 # Core frontend logic & data fetching
+ ┣ 📜 detailed_prediction.js    # Chart rendering & Natural Language Generation
+ ┣ 📜 styles.css                # Global styles & Dark Mode system
+ ┃
+ ┣ 📜 schools_data_final.json   # Generated Database: Schools, History, Trends
+ ┣ 📜 normalization_factors.json# Generated Database: Subject Statistics
+ ┣ 📜 weights_data.json         # Generated Database: School Coefficients
+ ┗ 📜 .nojekyll                 # Bypasses GitHub Pages build errors
