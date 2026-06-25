@@ -94,10 +94,28 @@ function calculateAdmissionProbability(userScore, schoolData, baseEstimate) {
  * Risk Classification UI
  */
 function getAdvancedPredictionBadge(probPct) {
-    if (probPct > 85) return `<span class="badge bg-success">High Certainty (Safety) - ${probPct}%</span>`;
-    if (probPct >= 50) return `<span class="badge" style="background-color: #D9F99D; color: #3F6212;">Competitive (Target) - ${probPct}%</span>`;
-    if (probPct >= 15) return `<span class="badge" style="background-color: #FED7AA; color: #9A3412;">Marginal (Reach) - ${probPct}%</span>`;
-    return `<span class="badge bg-danger">Low Probability (High Risk) - ${probPct}%</span>`;
+    let badgeHtml = '';
+    let barColor = '';
+    if (probPct > 85) {
+        badgeHtml = `<span class="badge bg-success">High Certainty (Safety) - ${probPct}%</span>`;
+        barColor = 'var(--success)';
+    } else if (probPct >= 50) {
+        badgeHtml = `<span class="badge" style="background-color: #D9F99D; color: #3F6212;">Competitive (Target) - ${probPct}%</span>`;
+        barColor = '#84CC16';
+    } else if (probPct >= 15) {
+        badgeHtml = `<span class="badge" style="background-color: #FED7AA; color: #9A3412;">Marginal (Reach) - ${probPct}%</span>`;
+        barColor = '#F97316';
+    } else {
+        badgeHtml = `<span class="badge bg-danger">Low Probability (High Risk) - ${probPct}%</span>`;
+        barColor = 'var(--danger)';
+    }
+    
+    let barHtml = `
+    <div class="prob-bar-track">
+        <div class="prob-bar-fill" style="width: ${probPct}%; background: ${barColor};"></div>
+    </div>`;
+    
+    return badgeHtml + barHtml;
 }
 
 function normalizeString(str) {
@@ -286,7 +304,7 @@ function calculateAndRender() {
                 <small class="text-muted">(έτος ${recentYear})</small>
             </td>
             <td data-label="Απόκλιση" class="${deviationClass}">${deviationText} <br><small class="text-muted">(από βάση ${recentYear})</small></td>
-            <td data-label="Πρόβλεψη (%)">${getAdvancedPredictionBadge(probPct)}</td>
+            <td data-label="Πρόβλεψη (%)" style="text-align: center; vertical-align: middle;">${getAdvancedPredictionBadge(probPct)}</td>
             <td data-label="Ενέργεια">
                 <button class="btn-sm" onclick="toggleChart(${index}, ${userPoints}, ${est.base_estimate}, ${est.sigma})">Προηγμένη Ανάλυση</button>
                 <a href="detailed_prediction.html?school_id=${school.id}&score=${userPoints}&field=${activeFieldId}&grades=${encodeURIComponent(JSON.stringify(currentGrades))}" class="btn-sm" style="display:inline-block; margin-top:4px; text-decoration:none; color:var(--primary); border: 1px solid var(--primary); background: transparent; text-align: center;">Επεξήγηση Πρόβλεψης</a>

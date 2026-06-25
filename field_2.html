@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="el">
 <head>
+    <script>
+    (function() {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+    })();
+</script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Πανελλήνιες 2026 - 2ο Πεδίο (Θετικών Σπουδών)</title>
@@ -10,6 +21,51 @@
     <script src="script.js" defer></script>
 </head>
 <body data-field="2">
+<nav class="top-navbar">
+    <div class="navbar-container">
+        <a href="index.html" class="nav-logo">Panhellenic</a>
+        <div class="nav-links" id="navLinks">
+            <a href="field_1.html">1ο Πεδίο</a>
+            <a href="field_2.html">2ο Πεδίο</a>
+            <a href="field_3.html">3ο Πεδίο</a>
+            <a href="field_4.html">4ο Πεδίο</a>
+        </div>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" style="background:none; border:none; font-size:1.25rem; cursor:pointer; padding:0.25rem;">🌙</button>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+</nav>
+<script>
+    document.getElementById('hamburgerBtn').addEventListener('click', function() {
+        document.getElementById('navLinks').classList.toggle('active');
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const themeBtn = document.getElementById('themeToggle');
+        if (!themeBtn) return;
+        
+        const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+        themeBtn.textContent = currentTheme === 'dark' ? '☀️' : '🌙';
+
+        themeBtn.addEventListener('click', () => {
+            let theme = document.documentElement.getAttribute('data-theme');
+            if (theme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+                themeBtn.textContent = '🌙';
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                themeBtn.textContent = '☀️';
+            }
+        });
+    });
+
+</script>
+
 
 <div class="container">
     <header style="position: relative;">
