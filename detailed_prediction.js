@@ -41,7 +41,6 @@ function calculateScoreEstimationDetailed(school) {
     }
     
     mu_p = sumW > 0 ? (mu_p / sumW) : 10000;
-    
     const volatility = school.volatility_index || school.historical_variance || 150;
     const sigma = Math.max(volatility, 50); 
     
@@ -76,6 +75,15 @@ function renderDashboard(school, userScore) {
     const finalPct = Math.round(finalP * 100);
     const trendDiff = finalPct - basePct;
     
+    // Calculate Volatility Margin Bounds (±1σ)
+    let probHigh = 1 / (1 + Math.exp(-k * (userScore - (finalX0 - est.sigma))));
+    let probLow = 1 / (1 + Math.exp(-k * (userScore - (finalX0 + est.sigma))));
+    probHigh = Math.max(0.01, Math.min(0.99, probHigh));
+    probLow = Math.max(0.01, Math.min(0.99, probLow));
+    
+    const pctHigh = Math.round(probHigh * 100);
+    const pctLow = Math.round(probLow * 100);
+
     // Final Badge
     const badgeEl = document.getElementById('finalProbBadge');
     badgeEl.innerText = `${finalPct}%`;
@@ -83,7 +91,7 @@ function renderDashboard(school, userScore) {
     else if (finalPct > 35) badgeEl.style.color = 'var(--warning)';
     else badgeEl.style.color = 'var(--danger)';
 
-    // Dynamic XAI Engine
+    // Dynamic Explainability Engine (XAI)
     let xaiHtml = `Αξιολογώντας τα <strong style="color:var(--primary)">${userScore}</strong> μόριά σου απέναντι στην αναμενόμενη βάση των <strong>${Math.round(est.base_estimate)}</strong> μορίων, προκύπτει μία βασική στατιστική πιθανότητα εισαγωγής της τάξης του <strong>${basePct}%</strong>.<br><br>`;
     
     if (trend !== 0) {
@@ -95,23 +103,23 @@ function renderDashboard(school, userScore) {
         }
     }
     
-    xaiHtml += `Επιπρόσθετα, η σχολή παρουσιάζει μεταβλητότητα <strong>±${Math.round(est.sigma)} μορίων</strong>, η οποία διαμορφώνει το εύρος ρίσκου και καταλήγει στην τελική εκτίμηση του <strong>${finalPct}%</strong>.`;
+    xaiHtml += `Τέλος, η σχολή παρουσιάζει ιστορική μεταβλητότητα <strong>±${Math.round(est.sigma)} μορίων</strong>. Αυτό εισάγει ένα περιθώριο αβεβαιότητας (Volatility Margin), το οποίο διαμορφώνει το εύρος πιθανοτήτων από ${pctLow}% έως ${pctHigh}%, καταλήγοντας στην πιο πιθανή τελική εκτίμηση του <strong>${finalPct}%</strong>.`;
     
     document.getElementById('xaiText').innerHTML = xaiHtml;
 
     // Actionable Advice Engine
     let adviceHtml = "";
     if (finalPct > 85) {
-        adviceHtml = `<span style="font-size: 2rem;">🛡️</span><br><strong>Σύσταση Ασφαλείας (Safety):</strong> Η συγκεκριμένη επιλογή θεωρείται εξαιρετικά ασφαλής. Μπορείς να την τοποθετήσεις στο μηχανογραφικό σου ως ισχυρό "μαξιλάρι" σε περίπτωση που δεν περάσεις στις πρώτες σου επιλογές.`;
+        adviceHtml = `<span style="font-size: 2rem;">🛡️</span><br><strong>Σύσταση (Safety):</strong> Η συγκεκριμένη επιλογή θεωρείται εξαιρετικά ασφαλής. Μπορείς να την τοποθετήσεις στο μηχανογραφικό σου ως ισχυρό "μαξιλάρι" σε περίπτωση που δεν περάσεις στις πρώτες σου επιλογές.`;
     } else if (finalPct > 45) {
-        adviceHtml = `<span style="font-size: 2rem;">🎯</span><br><strong>Σύσταση Στόχου (Target):</strong> Πρόκειται για μια ιδιαίτερα ανταγωνιστική, αλλά ρεαλιστική επιλογή. Τα μόριά σου βρίσκονται ακριβώς στο πεδίο μάχης της συγκεκριμένης βάσης. Αξίζει να την δηλώσεις ψηλά.`;
+        adviceHtml = `<span style="font-size: 2rem;">🎯</span><br><strong>Σύσταση (Target):</strong> Πρόκειται για μια ιδιαίτερα ανταγωνιστική, αλλά ρεαλιστική επιλογή. Τα μόριά σου βρίσκονται ακριβώς στο πεδίο μάχης της συγκεκριμένης βάσης. Αξίζει να την δηλώσεις ψηλά.`;
     } else {
-        adviceHtml = `<span style="font-size: 2rem;">⚠️</span><br><strong>Σύσταση Ρίσκου (Reach):</strong> Πρόκειται για υψηλού ρίσκου επιλογή. Οι πιθανότητές σου είναι περιορισμένες βάσει ιστορικών δεδομένων. Μπορείς να την δηλώσεις, αλλά είναι ζωτικής σημασίας να επιλέξεις σίγουρα και πιο ασφαλείς εναλλακτικές αμέσως μετά.`;
+        adviceHtml = `<span style="font-size: 2rem;">⚠️</span><br><strong>Σύσταση (Reach):</strong> Πρόκειται για υψηλού ρίσκου επιλογή. Οι πιθανότητές σου είναι περιορισμένες. Βεβαιώσου ότι έχεις δηλώσει ασφαλείς εναλλακτικές αμέσως μετά.`;
     }
     document.getElementById('adviceText').innerHTML = adviceHtml;
 
     // Risk Gauge Rendering
-    const maxRisk = 300; // arbitrary high volatility cap for UI
+    const maxRisk = 300; 
     let riskPct = (volatility / maxRisk) * 100;
     riskPct = Math.max(0, Math.min(100, riskPct));
     
@@ -127,15 +135,12 @@ function renderDashboard(school, userScore) {
         (riskPct > 33 ? 'Η βάση εμφανίζει κανονικές διακυμάνσεις.' : 'Η βάση είναι εξαιρετικά σταθερή (Χαμηλό ρίσκο).')
     }`;
 
-    // Chart.js Waterfall Rendering
-    renderWaterfallChart(basePct, finalPct, trendDiff);
+    // Chart.js Waterfall Rendering (4 Steps)
+    renderWaterfallChart(basePct, finalPct, trendDiff, pctLow, pctHigh);
 }
 
-function renderWaterfallChart(basePct, finalPct, trendDiff) {
+function renderWaterfallChart(basePct, finalPct, trendDiff, pctLow, pctHigh) {
     const ctx = document.getElementById('waterfallChartCanvas').getContext('2d');
-    
-    // To fake a waterfall in Chart.js with floating bars:
-    // dataset data expects [min, max] arrays.
     
     let trendBarData;
     let trendColor;
@@ -151,17 +156,19 @@ function renderWaterfallChart(basePct, finalPct, trendDiff) {
     new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ['Βασική Πιθανότητα', 'Επίδραση Τάσης (Trend)', 'Τελική Πιθανότητα'],
+            labels: ['Βασική Πιθανότητα', 'Επίδραση Τάσης', 'Περιθώριο Αβεβαιότητας', 'Τελική Πιθανότητα'],
             datasets: [{
                 label: 'Ποσοστό (%)',
                 data: [
                     [0, basePct],
                     trendBarData,
+                    [pctLow, pctHigh], // Volatility Margin spread
                     [0, finalPct]
                 ],
                 backgroundColor: [
                     '#4F46E5', // Primary
                     trendColor,
+                    'rgba(245, 158, 11, 0.4)', // Warning light for uncertainty spread
                     finalPct > 50 ? '#10B981' : (finalPct > 20 ? '#F59E0B' : '#EF4444')
                 ],
                 borderRadius: 4,
@@ -178,10 +185,13 @@ function renderWaterfallChart(basePct, finalPct, trendDiff) {
                     callbacks: {
                         label: function(context) {
                             let val = context.raw;
-                            if (Array.isArray(val)) {
-                                return `Διαφορά: ${Math.round(val[1] - val[0])}%`;
+                            if (context.dataIndex === 1) {
+                                return `Διαφορά Τάσης: ${Math.round(val[1] - val[0])}%`;
                             }
-                            return `Πιθανότητα: ${val}%`;
+                            if (context.dataIndex === 2) {
+                                return `Εύρος ±1σ: ${val[0]}% έως ${val[1]}%`;
+                            }
+                            return `Πιθανότητα: ${val[1] || val}%`;
                         }
                     }
                 }
