@@ -246,7 +246,7 @@ function calculateAndRender() {
         if (searchTerm && !searchStr.includes(searchTerm)) return;
 
         // Dynamic points calculation based on field
-        const customWeights = schoolWeightsData[school.id] || {};
+        const customWeights = (schoolWeightsData[school.id] && schoolWeightsData[school.id][activeFieldId]) || {};
         let userPoints = 0;
         if (activeFieldId === "1") {
             const wLang = customWeights.glossa || 0.25;

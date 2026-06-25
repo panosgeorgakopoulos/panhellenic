@@ -24,6 +24,10 @@ def extract_weights():
     }
     
     for file_path in files:
+        # Determine the field ID from the filename
+        match_field = re.search(r'barititas(\d)\.php', file_path)
+        field_id = match_field.group(1) if match_field else "1"
+
         with open(file_path, 'rb') as f:
             soup = BeautifulSoup(f.read(), 'html.parser')
             
@@ -47,35 +51,29 @@ def extract_weights():
                 for row in rows:
                     cells = row.find_all('td')
                     if len(cells) >= 2:
-                        # Extract text from innermost elements or direct text
                         subj_text = cells[0].get_text(strip=True)
                         weight_text = cells[-1].get_text(strip=True)
                         
-                        # sometimes text is nested deeply
-                        # let's try to map the subject
                         for greek_name, json_key in SUBJECT_MAP.items():
                             if greek_name in subj_text:
                                 try:
-                                    # Convert 30 (percent) to 0.30
                                     val = float(weight_text.replace(',', '.'))
                                     school_weights[json_key] = val / 100.0
                                 except ValueError:
                                     pass
                                 break
                         else:
-                            # Handling special subjects (Eidikou mathimata)
-                            # E.g. "Αγγλικά", "Ελεύθερο Σχέδιο"
                             if weight_text.replace('.', '', 1).isdigit():
                                 try:
                                     val = float(weight_text.replace(',', '.'))
-                                    # Just use the greek name as key if not found
-                                    # Or a slugified version
                                     school_weights[subj_text] = val / 100.0
                                 except ValueError:
                                     pass
 
             if school_weights:
-                weights_data["special_school_weights"][school_id] = school_weights
+                if school_id not in weights_data["special_school_weights"]:
+                    weights_data["special_school_weights"][school_id] = {}
+                weights_data["special_school_weights"][school_id][field_id] = school_weights
                 
     with open('weights_data.json', 'w', encoding='utf-8') as f:
         json.dump(weights_data, f, ensure_ascii=False, indent=2)
