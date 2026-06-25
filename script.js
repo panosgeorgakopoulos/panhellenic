@@ -9,12 +9,14 @@ let activeFieldId = document.body.getAttribute('data-field');
 // Load data from external JSON files
 async function loadData() {
     try {
-        const [schoolsRes, normRes, weightsRes] = await Promise.all([
+        const [schoolsRes, statsRes, normRes, weightsRes] = await Promise.all([
             fetch('schools_data_final.json'), // using the updated JSON as requested
+            fetch('stats_data.json'),
             fetch('normalization_factors.json'),
             fetch('weights_data.json')
         ]);
         schools = await schoolsRes.json();
+        statsData = await statsRes.json();
         normalizationData = await normRes.json();
         const weightsData = await weightsRes.json();
         schoolWeightsData = weightsData.special_school_weights || {};
