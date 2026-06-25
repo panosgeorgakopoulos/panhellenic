@@ -8,3 +8,9 @@ stats_for field3/
 *2023/
 *2022/
 .DS_Store
+weights/
+*.xls
+*.xlsx
+*.csv
+*.php
+*.py
