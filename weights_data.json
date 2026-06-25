@@ -1,0 +1,2780 @@
+{
+  "special_school_weights": {
+    "353": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "viologia": 0.25
+    },
+    "1001": {
+      "glossa": 0.2,
+      "fysiki": 0.2,
+      "ximeia": 0.3,
+      "viologia": 0.3
+    },
+    "326": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "viologia": 0.25
+    },
+    "673": {
+      "glossa": 0.4,
+      "fysiki": 0.2,
+      "ximeia": 0.2,
+      "viologia": 0.2
+    },
+    "1610": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "viologia": 0.25
+    },
+    "1241": {
+      "glossa": 0.34,
+      "fysiki": 0.22,
+      "ximeia": 0.22,
+      "viologia": 0.22
+    },
+    "1276": {
+      "glossa": 0.2,
+      "fysiki": 0.23,
+      "ximeia": 0.25,
+      "viologia": 0.32
+    },
+    "1669": {
+      "glossa": 0.25,
+      "arxaia": 0.25,
+      "istoria": 0.25,
+      "latinika": 0.25
+    },
+    "614": {
+      "glossa": 0.24,
+      "arxaia": 0.24,
+      "istoria": 0.24,
+      "latinika": 0.28,
+      "Ειδικό Μάθημα20": 0.2
+    },
+    "613": {
+      "glossa": 0.24,
+      "arxaia": 0.24,
+      "istoria": 0.24,
+      "latinika": 0.28,
+      "Ειδικό Μάθημα20": 0.2
+    },
+    "872": {
+      "glossa": 0.3,
+      "fysiki": 0.2,
+      "ximeia": 0.2,
+      "mathimatika": 0.3
+    },
+    "869": {
+      "glossa": 0.3,
+      "fysiki": 0.2,
+      "ximeia": 0.2,
+      "mathimatika": 0.3
+    },
+    "877": {
+      "glossa": 0.2,
+      "fysiki": 0.3,
+      "ximeia": 0.2,
+      "viologia": 0.3
+    },
+    "871": {
+      "glossa": 0.2,
+      "fysiki": 0.3,
+      "ximeia": 0.2,
+      "viologia": 0.3
+    },
+    "668": {
+      "glossa": 0.3,
+      "arxaia": 0.2,
+      "istoria": 0.3,
+      "latinika": 0.2
+    },
+    "870": {
+      "glossa": 0.3,
+      "fysiki": 0.2,
+      "ximeia": 0.2,
+      "mathimatika": 0.3
+    },
+    "176": {
+      "glossa": 0.3,
+      "arxaia": 0.2,
+      "istoria": 0.3,
+      "latinika": 0.2
+    },
+    "1609": {
+      "glossa": 0.25,
+      "arxaia": 0.25,
+      "istoria": 0.25,
+      "latinika": 0.25
+    },
+    "336": {
+      "glossa": 0.2,
+      "fysiki": 0.25,
+      "ximeia": 0.2,
+      "mathimatika": 0.35
+    },
+    "356": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "mathimatika": 0.25
+    },
+    "310": {
+      "glossa": 0.2,
+      "fysiki": 0.3,
+      "ximeia": 0.2,
+      "mathimatika": 0.3
+    },
+    "674": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "mathimatika": 0.25,
+      "Ελεύθερο Σχέδιο10": 0.1,
+      "Γραμμικό Σχέδιο10": 0.1
+    },
+    "1424": {
+      "glossa": 0.25,
+      "fysiki": 0.2,
+      "ximeia": 0.25,
+      "viologia": 0.3
+    },
+    "212": {
+      "glossa": 0.2,
+      "fysiki": 0.2,
+      "ximeia": 0.25,
+      "viologia": 0.35
+    },
+    "1061": {
+      "glossa": 0.3,
+      "fysiki": 0.2,
+      "ximeia": 0.3,
+      "viologia": 0.2
+    },
+    "1627": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "mathimatika": 0.25
+    },
+    "124": {
+      "glossa": 0.25,
+      "arxaia": 0.25,
+      "istoria": 0.25,
+      "latinika": 0.25
+    },
+    "1004": {
+      "glossa": 0.25,
+      "mathimatika": 0.25,
+      "pliroforiki": 0.25,
+      "oikonomia": 0.25
+    },
+    "150": {
+      "glossa": 0.2,
+      "mathimatika": 0.3,
+      "pliroforiki": 0.2,
+      "oikonomia": 0.3
+    },
+    "1549": {
+      "glossa": 0.25,
+      "mathimatika": 0.25,
+      "pliroforiki": 0.25,
+      "oikonomia": 0.25
+    },
+    "179": {
+      "glossa": 0.3,
+      "arxaia": 0.2,
+      "istoria": 0.3,
+      "latinika": 0.2,
+      "Ειδικό Μάθημα10": 0.1
+    },
+    "161": {
+      "glossa": 0.2,
+      "arxaia": 0.25,
+      "istoria": 0.35,
+      "latinika": 0.2,
+      "Ειδικό Μάθημα20": 0.2
+    },
+    "355": {
+      "glossa": 0.3,
+      "arxaia": 0.2,
+      "istoria": 0.3,
+      "latinika": 0.2,
+      "Ειδικό Μάθημα20": 0.2
+    },
+    "1063": {
+      "glossa": 0.2,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "mathimatika": 0.3
+    },
+    "669": {
+      "glossa": 0.3,
+      "mathimatika": 0.3,
+      "pliroforiki": 0.2,
+      "oikonomia": 0.2
+    },
+    "1427": {
+      "glossa": 0.2,
+      "mathimatika": 0.25,
+      "pliroforiki": 0.25,
+      "oikonomia": 0.3
+    },
+    "352": {
+      "glossa": 0.28,
+      "mathimatika": 0.28,
+      "pliroforiki": 0.22,
+      "oikonomia": 0.22
+    },
+    "320": {
+      "glossa": 0.25,
+      "mathimatika": 0.25,
+      "pliroforiki": 0.2,
+      "oikonomia": 0.3
+    },
+    "1005": {
+      "glossa": 0.2,
+      "mathimatika": 0.2,
+      "pliroforiki": 0.3,
+      "oikonomia": 0.3
+    },
+    "1514": {
+      "glossa": 0.2,
+      "mathimatika": 0.2,
+      "pliroforiki": 0.25,
+      "oikonomia": 0.35
+    },
+    "1655": {
+      "glossa": 0.24,
+      "mathimatika": 0.28,
+      "pliroforiki": 0.2,
+      "oikonomia": 0.28
+    },
+    "1603": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "mathimatika": 0.25
+    },
+    "1605": {
+      "glossa": 0.2,
+      "mathimatika": 0.2,
+      "pliroforiki": 0.3,
+      "oikonomia": 0.3
+    },
+    "670": {
+      "glossa": 0.3,
+      "mathimatika": 0.2,
+      "pliroforiki": 0.2,
+      "oikonomia": 0.3,
+      "Ειδικό Μάθημα20": 0.2
+    },
+    "1283": {
+      "glossa": 0.25,
+      "mathimatika": 0.25,
+      "pliroforiki": 0.25,
+      "oikonomia": 0.25,
+      "Ειδικό Μάθημα20": 0.2
+    },
+    "1656": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "mathimatika": 0.25
+    },
+    "240": {
+      "glossa": 0.3,
+      "fysiki": 0.2,
+      "ximeia": 0.2,
+      "mathimatika": 0.3
+    },
+    "1607": {
+      "glossa": 0.3,
+      "fysiki": 0.2,
+      "ximeia": 0.2,
+      "mathimatika": 0.3
+    },
+    "1544": {
+      "glossa": 0.2,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "mathimatika": 0.3
+    },
+    "1282": {
+      "glossa": 0.3,
+      "fysiki": 0.2,
+      "ximeia": 0.2,
+      "mathimatika": 0.3
+    },
+    "1518": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "mathimatika": 0.25
+    },
+    "154": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "viologia": 0.25
+    },
+    "1551": {
+      "glossa": 0.4,
+      "arxaia": 0.2,
+      "istoria": 0.2,
+      "latinika": 0.2,
+      "Ειδικό Μάθημα10": 0.1
+    },
+    "342": {
+      "glossa": 0.25,
+      "arxaia": 0.25,
+      "istoria": 0.25,
+      "latinika": 0.25
+    },
+    "216": {
+      "glossa": 0.26,
+      "fysiki": 0.27,
+      "ximeia": 0.2,
+      "mathimatika": 0.27
+    },
+    "401": {
+      "glossa": 0.3,
+      "fysiki": 0.25,
+      "ximeia": 0.2,
+      "viologia": 0.25,
+      "Αγωνίσματα20": 0.2
+    },
+    "403": {
+      "glossa": 0.3,
+      "fysiki": 0.25,
+      "ximeia": 0.2,
+      "viologia": 0.25,
+      "Αγωνίσματα20": 0.2
+    },
+    "404": {
+      "glossa": 0.3,
+      "fysiki": 0.25,
+      "ximeia": 0.2,
+      "viologia": 0.25,
+      "Αγωνίσματα20": 0.2
+    },
+    "402": {
+      "glossa": 0.3,
+      "fysiki": 0.25,
+      "ximeia": 0.2,
+      "viologia": 0.25,
+      "Αγωνίσματα20": 0.2
+    },
+    "405": {
+      "glossa": 0.3,
+      "fysiki": 0.25,
+      "ximeia": 0.2,
+      "viologia": 0.25,
+      "Αγωνίσματα20": 0.2
+    },
+    "134": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "viologia": 0.25
+    },
+    "1286": {
+      "glossa": 0.35,
+      "fysiki": 0.25,
+      "ximeia": 0.2,
+      "viologia": 0.2
+    },
+    "136": {
+      "glossa": 0.4,
+      "fysiki": 0.2,
+      "ximeia": 0.2,
+      "viologia": 0.2
+    },
+    "160": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "viologia": 0.25
+    },
+    "162": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "viologia": 0.25
+    },
+    "675": {
+      "glossa": 0.35,
+      "fysiki": 0.2,
+      "ximeia": 0.2,
+      "mathimatika": 0.25,
+      "Ελεύθερο Σχέδιο10": 0.1,
+      "Γραμμικό Σχέδιο10": 0.1
+    },
+    "1626": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "mathimatika": 0.25,
+      "Ελεύθερο Σχέδιο10": 0.1,
+      "Γραμμικό Σχέδιο10": 0.1
+    },
+    "801": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "viologia": 0.25
+    },
+    "806": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "viologia": 0.25
+    },
+    "1211": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.2,
+      "mathimatika": 0.3
+    },
+    "1212": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.2,
+      "mathimatika": 0.3
+    },
+    "1662": {
+      "glossa": 0.27,
+      "fysiki": 0.27,
+      "ximeia": 0.26,
+      "mathimatika": 0.2
+    },
+    "146": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "viologia": 0.25
+    },
+    "362": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "viologia": 0.25
+    },
+    "169": {
+      "glossa": 0.3,
+      "fysiki": 0.25,
+      "ximeia": 0.2,
+      "viologia": 0.25
+    },
+    "168": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "viologia": 0.25
+    },
+    "886": {
+      "glossa": 0.35,
+      "mathimatika": 0.2,
+      "pliroforiki": 0.25,
+      "oikonomia": 0.2
+    },
+    "887": {
+      "glossa": 0.25,
+      "mathimatika": 0.2,
+      "pliroforiki": 0.25,
+      "oikonomia": 0.3
+    },
+    "173": {
+      "glossa": 0.28,
+      "fysiki": 0.22,
+      "ximeia": 0.22,
+      "viologia": 0.28
+    },
+    "163": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "viologia": 0.25
+    },
+    "159": {
+      "glossa": 0.3,
+      "arxaia": 0.2,
+      "istoria": 0.3,
+      "latinika": 0.2
+    },
+    "1302": {
+      "glossa": 0.3,
+      "arxaia": 0.2,
+      "istoria": 0.25,
+      "latinika": 0.25
+    },
+    "1606": {
+      "glossa": 0.2,
+      "mathimatika": 0.2,
+      "pliroforiki": 0.3,
+      "oikonomia": 0.3
+    },
+    "347": {
+      "glossa": 0.25,
+      "mathimatika": 0.25,
+      "pliroforiki": 0.25,
+      "oikonomia": 0.25
+    },
+    "672": {
+      "glossa": 0.2,
+      "mathimatika": 0.33,
+      "pliroforiki": 0.2,
+      "oikonomia": 0.27
+    },
+    "1654": {
+      "glossa": 0.2,
+      "mathimatika": 0.3,
+      "pliroforiki": 0.2,
+      "oikonomia": 0.3
+    },
+    "337": {
+      "glossa": 0.25,
+      "mathimatika": 0.25,
+      "pliroforiki": 0.25,
+      "oikonomia": 0.25
+    },
+    "1604": {
+      "glossa": 0.2,
+      "mathimatika": 0.2,
+      "pliroforiki": 0.25,
+      "oikonomia": 0.35
+    },
+    "1513": {
+      "glossa": 0.2,
+      "mathimatika": 0.25,
+      "pliroforiki": 0.25,
+      "oikonomia": 0.3
+    },
+    "1545": {
+      "glossa": 0.2,
+      "mathimatika": 0.3,
+      "pliroforiki": 0.2,
+      "oikonomia": 0.3
+    },
+    "1430": {
+      "glossa": 0.24,
+      "mathimatika": 0.24,
+      "pliroforiki": 0.25,
+      "oikonomia": 0.27
+    },
+    "1244": {
+      "glossa": 0.2,
+      "mathimatika": 0.3,
+      "pliroforiki": 0.2,
+      "oikonomia": 0.3
+    },
+    "314": {
+      "glossa": 0.25,
+      "mathimatika": 0.25,
+      "pliroforiki": 0.25,
+      "oikonomia": 0.25
+    },
+    "181": {
+      "glossa": 0.3,
+      "arxaia": 0.22,
+      "istoria": 0.24,
+      "latinika": 0.24
+    },
+    "389": {
+      "glossa": 0.24,
+      "fysiki": 0.28,
+      "ximeia": 0.2,
+      "mathimatika": 0.28
+    },
+    "222": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "mathimatika": 0.25
+    },
+    "1624": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "mathimatika": 0.25
+    },
+    "224": {
+      "glossa": 0.2,
+      "fysiki": 0.3,
+      "ximeia": 0.2,
+      "mathimatika": 0.3
+    },
+    "230": {
+      "glossa": 0.2,
+      "fysiki": 0.3,
+      "ximeia": 0.2,
+      "mathimatika": 0.3
+    },
+    "344": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.2,
+      "mathimatika": 0.3
+    },
+    "1625": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.2,
+      "mathimatika": 0.3
+    },
+    "390": {
+      "glossa": 0.24,
+      "fysiki": 0.28,
+      "ximeia": 0.2,
+      "mathimatika": 0.28
+    },
+    "1622": {
+      "glossa": 0.2,
+      "fysiki": 0.3,
+      "ximeia": 0.2,
+      "mathimatika": 0.3
+    },
+    "1542": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "mathimatika": 0.25
+    },
+    "238": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.2,
+      "mathimatika": 0.3
+    },
+    "880": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "viologia": 0.25
+    },
+    "879": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.2,
+      "mathimatika": 0.3
+    },
+    "888": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.2,
+      "mathimatika": 0.3
+    },
+    "878": {
+      "glossa": 0.25,
+      "fysiki": 0.3,
+      "ximeia": 0.25,
+      "viologia": 0.2
+    },
+    "864": {
+      "glossa": 0.3,
+      "fysiki": 0.3,
+      "ximeia": 0.2,
+      "viologia": 0.2
+    },
+    "862": {
+      "glossa": 0.3,
+      "fysiki": 0.3,
+      "ximeia": 0.2,
+      "viologia": 0.2
+    },
+    "863": {
+      "glossa": 0.3,
+      "fysiki": 0.3,
+      "ximeia": 0.2,
+      "viologia": 0.2
+    },
+    "409": {
+      "glossa": 0.2,
+      "fysiki": 0.2,
+      "Μουσική Εκτέλεση και Ερμηνεία40": 0.4,
+      "Μουσική Αντίληψη, Θεωρία και Αρμονία20": 0.2
+    },
+    "1664": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "mathimatika": 0.25
+    },
+    "408": {
+      "glossa": 0.3,
+      "fysiki": 0.2,
+      "Μουσική Εκτέλεση και Ερμηνεία20": 0.2,
+      "Μουσική Αντίληψη, Θεωρία και Αρμονία30": 0.3
+    },
+    "1248": {
+      "glossa": 0.3,
+      "fysiki": 0.2,
+      "Μουσική Εκτέλεση και Ερμηνεία30": 0.3,
+      "Μουσική Αντίληψη, Θεωρία και Αρμονία20": 0.2
+    },
+    "406": {
+      "glossa": 0.25,
+      "fysiki": 0.2,
+      "Μουσική Εκτέλεση και Ερμηνεία25": 0.25,
+      "Μουσική Αντίληψη, Θεωρία και Αρμονία30": 0.3
+    },
+    "407": {
+      "glossa": 0.2,
+      "fysiki": 0.2,
+      "Μουσική Εκτέλεση και Ερμηνεία30": 0.3,
+      "Μουσική Αντίληψη, Θεωρία και Αρμονία30": 0.3
+    },
+    "157": {
+      "glossa": 0.2,
+      "mathimatika": 0.3,
+      "pliroforiki": 0.2,
+      "oikonomia": 0.3,
+      "Αγγλικά20": 0.2
+    },
+    "180": {
+      "glossa": 0.3,
+      "mathimatika": 0.3,
+      "pliroforiki": 0.2,
+      "oikonomia": 0.2
+    },
+    "144": {
+      "glossa": 0.23,
+      "mathimatika": 0.3,
+      "pliroforiki": 0.2,
+      "oikonomia": 0.27
+    },
+    "312": {
+      "glossa": 0.25,
+      "mathimatika": 0.25,
+      "pliroforiki": 0.25,
+      "oikonomia": 0.25
+    },
+    "315": {
+      "glossa": 0.2,
+      "mathimatika": 0.3,
+      "pliroforiki": 0.2,
+      "oikonomia": 0.3
+    },
+    "612": {
+      "glossa": 0.25,
+      "mathimatika": 0.25,
+      "pliroforiki": 0.2,
+      "oikonomia": 0.3,
+      "Αγγλικά20": 0.2
+    },
+    "152": {
+      "glossa": 0.25,
+      "mathimatika": 0.25,
+      "pliroforiki": 0.25,
+      "oikonomia": 0.25
+    },
+    "867": {
+      "glossa": 0.25,
+      "mathimatika": 0.25,
+      "pliroforiki": 0.2,
+      "oikonomia": 0.3
+    },
+    "309": {
+      "glossa": 0.22,
+      "mathimatika": 0.34,
+      "pliroforiki": 0.2,
+      "oikonomia": 0.24
+    },
+    "350": {
+      "glossa": 0.27,
+      "mathimatika": 0.25,
+      "pliroforiki": 0.25,
+      "oikonomia": 0.23
+    },
+    "317": {
+      "glossa": 0.3,
+      "mathimatika": 0.3,
+      "pliroforiki": 0.2,
+      "oikonomia": 0.2
+    },
+    "311": {
+      "glossa": 0.3,
+      "mathimatika": 0.3,
+      "pliroforiki": 0.2,
+      "oikonomia": 0.2
+    },
+    "345": {
+      "glossa": 0.25,
+      "mathimatika": 0.25,
+      "pliroforiki": 0.25,
+      "oikonomia": 0.25
+    },
+    "1548": {
+      "glossa": 0.2,
+      "mathimatika": 0.2,
+      "pliroforiki": 0.25,
+      "oikonomia": 0.35
+    },
+    "97": {
+      "glossa": 0.2,
+      "mathimatika": 0.28,
+      "pliroforiki": 0.2,
+      "oikonomia": 0.32
+    },
+    "319": {
+      "glossa": 0.26,
+      "mathimatika": 0.26,
+      "pliroforiki": 0.2,
+      "oikonomia": 0.28
+    },
+    "321": {
+      "glossa": 0.25,
+      "mathimatika": 0.3,
+      "pliroforiki": 0.2,
+      "oikonomia": 0.25
+    },
+    "1602": {
+      "glossa": 0.2,
+      "mathimatika": 0.25,
+      "pliroforiki": 0.2,
+      "oikonomia": 0.35
+    },
+    "361": {
+      "glossa": 0.25,
+      "mathimatika": 0.25,
+      "pliroforiki": 0.25,
+      "oikonomia": 0.25
+    },
+    "400": {
+      "glossa": 0.2,
+      "mathimatika": 0.2,
+      "pliroforiki": 0.3,
+      "oikonomia": 0.3
+    },
+    "313": {
+      "glossa": 0.25,
+      "mathimatika": 0.25,
+      "pliroforiki": 0.25,
+      "oikonomia": 0.25
+    },
+    "1546": {
+      "glossa": 0.2,
+      "mathimatika": 0.2,
+      "pliroforiki": 0.25,
+      "oikonomia": 0.35
+    },
+    "322": {
+      "glossa": 0.23,
+      "mathimatika": 0.3,
+      "pliroforiki": 0.22,
+      "oikonomia": 0.25
+    },
+    "316": {
+      "glossa": 0.2,
+      "mathimatika": 0.2,
+      "pliroforiki": 0.3,
+      "oikonomia": 0.3
+    },
+    "1601": {
+      "glossa": 0.25,
+      "mathimatika": 0.25,
+      "pliroforiki": 0.25,
+      "oikonomia": 0.25
+    },
+    "128": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "viologia": 0.25
+    },
+    "142": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "viologia": 0.25
+    },
+    "164": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "viologia": 0.25
+    },
+    "140": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "viologia": 0.25
+    },
+    "130": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "viologia": 0.25
+    },
+    "132": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "viologia": 0.25
+    },
+    "143": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "viologia": 0.25
+    },
+    "334": {
+      "glossa": 0.3,
+      "fysiki": 0.3,
+      "ximeia": 0.2,
+      "viologia": 0.2
+    },
+    "178": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "viologia": 0.25
+    },
+    "156": {
+      "glossa": 0.3,
+      "fysiki": 0.3,
+      "ximeia": 0.2,
+      "viologia": 0.2
+    },
+    "341": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "viologia": 0.25
+    },
+    "166": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "viologia": 0.25
+    },
+    "158": {
+      "glossa": 0.4,
+      "fysiki": 0.2,
+      "ximeia": 0.2,
+      "viologia": 0.2
+    },
+    "1517": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "viologia": 0.25
+    },
+    "1453": {
+      "glossa": 0.2,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "viologia": 0.3
+    },
+    "1434": {
+      "glossa": 0.25,
+      "fysiki": 0.2,
+      "ximeia": 0.25,
+      "viologia": 0.3
+    },
+    "276": {
+      "glossa": 0.2,
+      "fysiki": 0.3,
+      "ximeia": 0.3,
+      "viologia": 0.2
+    },
+    "1064": {
+      "glossa": 0.3,
+      "fysiki": 0.2,
+      "ximeia": 0.2,
+      "mathimatika": 0.3
+    },
+    "333": {
+      "glossa": 0.2,
+      "fysiki": 0.3,
+      "ximeia": 0.2,
+      "mathimatika": 0.3
+    },
+    "338": {
+      "glossa": 0.2,
+      "fysiki": 0.3,
+      "ximeia": 0.2,
+      "mathimatika": 0.3
+    },
+    "1630": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.2,
+      "mathimatika": 0.3
+    },
+    "1554": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "mathimatika": 0.25
+    },
+    "366": {
+      "glossa": 0.2,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "mathimatika": 0.3
+    },
+    "339": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.2,
+      "mathimatika": 0.3
+    },
+    "412": {
+      "glossa": 0.2,
+      "fysiki": 0.3,
+      "ximeia": 0.2,
+      "mathimatika": 0.3
+    },
+    "330": {
+      "glossa": 0.2,
+      "fysiki": 0.25,
+      "ximeia": 0.2,
+      "mathimatika": 0.35
+    },
+    "1250": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "mathimatika": 0.25
+    },
+    "99": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "mathimatika": 0.25
+    },
+    "98": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "mathimatika": 0.25
+    },
+    "369": {
+      "glossa": 0.25,
+      "fysiki": 0.27,
+      "ximeia": 0.21,
+      "viologia": 0.27
+    },
+    "889": {
+      "glossa": 0.2,
+      "fysiki": 0.3,
+      "ximeia": 0.2,
+      "mathimatika": 0.3
+    },
+    "354": {
+      "glossa": 0.25,
+      "arxaia": 0.2,
+      "istoria": 0.3,
+      "latinika": 0.25
+    },
+    "1435": {
+      "glossa": 0.3,
+      "arxaia": 0.2,
+      "istoria": 0.3,
+      "latinika": 0.2
+    },
+    "876": {
+      "glossa": 0.2,
+      "fysiki": 0.3,
+      "ximeia": 0.2,
+      "viologia": 0.3
+    },
+    "329": {
+      "glossa": 0.22,
+      "fysiki": 0.22,
+      "ximeia": 0.22,
+      "mathimatika": 0.34
+    },
+    "1547": {
+      "glossa": 0.2,
+      "fysiki": 0.2,
+      "ximeia": 0.2,
+      "mathimatika": 0.4
+    },
+    "218": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "mathimatika": 0.25
+    },
+    "318": {
+      "glossa": 0.2,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "mathimatika": 0.3
+    },
+    "1436": {
+      "glossa": 0.2,
+      "fysiki": 0.3,
+      "ximeia": 0.3,
+      "mathimatika": 0.2
+    },
+    "882": {
+      "glossa": 0.3,
+      "fysiki": 0.3,
+      "ximeia": 0.2,
+      "viologia": 0.2
+    },
+    "883": {
+      "glossa": 0.3,
+      "fysiki": 0.3,
+      "ximeia": 0.2,
+      "viologia": 0.2
+    },
+    "881": {
+      "glossa": 0.3,
+      "fysiki": 0.3,
+      "ximeia": 0.2,
+      "viologia": 0.2
+    },
+    "818": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "mathimatika": 0.25
+    },
+    "817": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "mathimatika": 0.25
+    },
+    "1008": {
+      "glossa": 0.2,
+      "fysiki": 0.3,
+      "ximeia": 0.2,
+      "mathimatika": 0.3
+    },
+    "367": {
+      "glossa": 0.3,
+      "fysiki": 0.25,
+      "ximeia": 0.2,
+      "viologia": 0.25
+    },
+    "1455": {
+      "glossa": 0.2,
+      "mathimatika": 0.2,
+      "pliroforiki": 0.3,
+      "oikonomia": 0.3,
+      "Αγγλικά10": 0.1
+    },
+    "375": {
+      "glossa": 0.25,
+      "mathimatika": 0.25,
+      "pliroforiki": 0.25,
+      "oikonomia": 0.25,
+      "Αγγλικά10": 0.1
+    },
+    "677": {
+      "glossa": 0.35,
+      "fysiki": 0.25,
+      "ximeia": 0.2,
+      "mathimatika": 0.2
+    },
+    "155": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "mathimatika": 0.25
+    },
+    "1456": {
+      "glossa": 0.3,
+      "arxaia": 0.2,
+      "istoria": 0.3,
+      "latinika": 0.2
+    },
+    "1439": {
+      "glossa": 0.2,
+      "fysiki": 0.3,
+      "ximeia": 0.2,
+      "mathimatika": 0.3
+    },
+    "262": {
+      "glossa": 0.2,
+      "fysiki": 0.3,
+      "ximeia": 0.2,
+      "mathimatika": 0.3
+    },
+    "1519": {
+      "glossa": 0.28,
+      "fysiki": 0.22,
+      "ximeia": 0.22,
+      "mathimatika": 0.28
+    },
+    "1011": {
+      "glossa": 0.4,
+      "fysiki": 0.2,
+      "ximeia": 0.2,
+      "viologia": 0.2
+    },
+    "127": {
+      "glossa": 0.3,
+      "arxaia": 0.2,
+      "istoria": 0.25,
+      "latinika": 0.25,
+      "Αγγλικά20": 0.2
+    },
+    "129": {
+      "glossa": 0.25,
+      "arxaia": 0.25,
+      "istoria": 0.25,
+      "latinika": 0.25,
+      "Αγγλικά20": 0.2
+    },
+    "131": {
+      "glossa": 0.3,
+      "arxaia": 0.2,
+      "istoria": 0.2,
+      "latinika": 0.3,
+      "Γαλλικά20": 0.2
+    },
+    "133": {
+      "glossa": 0.35,
+      "arxaia": 0.2,
+      "istoria": 0.2,
+      "latinika": 0.25,
+      "Γαλλικά20": 0.2
+    },
+    "135": {
+      "glossa": 0.3,
+      "arxaia": 0.2,
+      "istoria": 0.25,
+      "latinika": 0.25,
+      "Γερμανικά20": 0.2
+    },
+    "137": {
+      "glossa": 0.3,
+      "arxaia": 0.2,
+      "istoria": 0.3,
+      "latinika": 0.2,
+      "Γερμανικά20": 0.2
+    },
+    "1423": {
+      "glossa": 0.3,
+      "arxaia": 0.2,
+      "istoria": 0.3,
+      "latinika": 0.2
+    },
+    "147": {
+      "glossa": 0.3,
+      "arxaia": 0.2,
+      "istoria": 0.3,
+      "latinika": 0.2,
+      "Ειδικό Μάθημα20": 0.2
+    },
+    "174": {
+      "glossa": 0.25,
+      "arxaia": 0.25,
+      "istoria": 0.25,
+      "latinika": 0.25
+    },
+    "148": {
+      "glossa": 0.3,
+      "arxaia": 0.2,
+      "istoria": 0.3,
+      "latinika": 0.2,
+      "Ειδικό Μάθημα10": 0.1
+    },
+    "153": {
+      "glossa": 0.3,
+      "arxaia": 0.2,
+      "istoria": 0.3,
+      "latinika": 0.2,
+      "Ειδικό Μάθημα10": 0.1
+    },
+    "101": {
+      "glossa": 0.3,
+      "arxaia": 0.3,
+      "istoria": 0.2,
+      "latinika": 0.2
+    },
+    "103": {
+      "glossa": 0.25,
+      "arxaia": 0.25,
+      "istoria": 0.25,
+      "latinika": 0.25
+    },
+    "780": {
+      "glossa": 0.25,
+      "arxaia": 0.25,
+      "istoria": 0.25,
+      "latinika": 0.25
+    },
+    "384": {
+      "glossa": 0.25,
+      "arxaia": 0.2,
+      "istoria": 0.35,
+      "latinika": 0.2
+    },
+    "183": {
+      "glossa": 0.35,
+      "arxaia": 0.2,
+      "istoria": 0.2,
+      "latinika": 0.25,
+      "Ισπανικά20": 0.2
+    },
+    "1284": {
+      "glossa": 0.25,
+      "arxaia": 0.25,
+      "istoria": 0.3,
+      "latinika": 0.2
+    },
+    "104": {
+      "glossa": 0.25,
+      "arxaia": 0.25,
+      "istoria": 0.3,
+      "latinika": 0.2
+    },
+    "177": {
+      "glossa": 0.25,
+      "arxaia": 0.25,
+      "istoria": 0.25,
+      "latinika": 0.25
+    },
+    "110": {
+      "glossa": 0.3,
+      "arxaia": 0.26,
+      "istoria": 0.24,
+      "latinika": 0.2
+    },
+    "112": {
+      "glossa": 0.25,
+      "arxaia": 0.25,
+      "istoria": 0.25,
+      "latinika": 0.25
+    },
+    "114": {
+      "glossa": 0.25,
+      "arxaia": 0.25,
+      "istoria": 0.3,
+      "latinika": 0.2
+    },
+    "116": {
+      "glossa": 0.25,
+      "arxaia": 0.25,
+      "istoria": 0.25,
+      "latinika": 0.25
+    },
+    "145": {
+      "glossa": 0.2,
+      "arxaia": 0.2,
+      "istoria": 0.4,
+      "latinika": 0.2
+    },
+    "182": {
+      "glossa": 0.25,
+      "arxaia": 0.2,
+      "istoria": 0.25,
+      "latinika": 0.3,
+      "Ιταλικά20": 0.2
+    },
+    "139": {
+      "glossa": 0.3,
+      "arxaia": 0.2,
+      "istoria": 0.2,
+      "latinika": 0.3,
+      "Ιταλικά20": 0.2
+    },
+    "165": {
+      "glossa": 0.3,
+      "arxaia": 0.2,
+      "istoria": 0.3,
+      "latinika": 0.2
+    },
+    "167": {
+      "glossa": 0.25,
+      "arxaia": 0.25,
+      "istoria": 0.25,
+      "latinika": 0.25
+    },
+    "671": {
+      "glossa": 0.3,
+      "arxaia": 0.2,
+      "istoria": 0.3,
+      "latinika": 0.2
+    },
+    "1652": {
+      "glossa": 0.25,
+      "arxaia": 0.25,
+      "istoria": 0.25,
+      "latinika": 0.25
+    },
+    "1301": {
+      "glossa": 0.3,
+      "arxaia": 0.2,
+      "istoria": 0.3,
+      "latinika": 0.2
+    },
+    "105": {
+      "glossa": 0.3,
+      "arxaia": 0.2,
+      "istoria": 0.3,
+      "latinika": 0.2
+    },
+    "107": {
+      "glossa": 0.25,
+      "arxaia": 0.3,
+      "istoria": 0.2,
+      "latinika": 0.25
+    },
+    "187": {
+      "glossa": 0.3,
+      "arxaia": 0.2,
+      "istoria": 0.3,
+      "latinika": 0.2
+    },
+    "1006": {
+      "glossa": 0.3,
+      "arxaia": 0.2,
+      "istoria": 0.3,
+      "latinika": 0.2
+    },
+    "126": {
+      "glossa": 0.3,
+      "arxaia": 0.2,
+      "istoria": 0.3,
+      "latinika": 0.2
+    },
+    "348": {
+      "glossa": 0.3,
+      "arxaia": 0.2,
+      "istoria": 0.3,
+      "latinika": 0.2
+    },
+    "149": {
+      "glossa": 0.3,
+      "arxaia": 0.2,
+      "istoria": 0.3,
+      "latinika": 0.2
+    },
+    "117": {
+      "glossa": 0.25,
+      "arxaia": 0.25,
+      "istoria": 0.25,
+      "latinika": 0.25
+    },
+    "119": {
+      "glossa": 0.3,
+      "arxaia": 0.3,
+      "istoria": 0.2,
+      "latinika": 0.2
+    },
+    "121": {
+      "glossa": 0.25,
+      "arxaia": 0.25,
+      "istoria": 0.25,
+      "latinika": 0.25
+    },
+    "866": {
+      "glossa": 0.3,
+      "arxaia": 0.3,
+      "istoria": 0.2,
+      "latinika": 0.2
+    },
+    "385": {
+      "glossa": 0.4,
+      "arxaia": 0.2,
+      "istoria": 0.2,
+      "latinika": 0.2,
+      "Ειδικό Μάθημα 120": 0.2,
+      "Ειδικό Μάθημα 220": 0.2
+    },
+    "1007": {
+      "glossa": 0.3,
+      "arxaia": 0.25,
+      "istoria": 0.25,
+      "latinika": 0.2
+    },
+    "373": {
+      "glossa": 0.25,
+      "arxaia": 0.2,
+      "istoria": 0.35,
+      "latinika": 0.2
+    },
+    "351": {
+      "glossa": 0.25,
+      "arxaia": 0.25,
+      "istoria": 0.25,
+      "latinika": 0.25
+    },
+    "123": {
+      "glossa": 0.2,
+      "arxaia": 0.3,
+      "istoria": 0.3,
+      "latinika": 0.2
+    },
+    "411": {
+      "glossa": 0.3,
+      "arxaia": 0.2,
+      "istoria": 0.3,
+      "latinika": 0.2
+    },
+    "125": {
+      "glossa": 0.3,
+      "arxaia": 0.2,
+      "istoria": 0.3,
+      "latinika": 0.2
+    },
+    "357": {
+      "glossa": 0.3,
+      "arxaia": 0.2,
+      "istoria": 0.3,
+      "latinika": 0.2
+    },
+    "413": {
+      "glossa": 0.25,
+      "arxaia": 0.25,
+      "istoria": 0.3,
+      "latinika": 0.2
+    },
+    "416": {
+      "glossa": 0.25,
+      "arxaia": 0.2,
+      "istoria": 0.3,
+      "latinika": 0.25
+    },
+    "192": {
+      "glossa": 0.3,
+      "arxaia": 0.25,
+      "istoria": 0.25,
+      "latinika": 0.2
+    },
+    "188": {
+      "glossa": 0.3,
+      "arxaia": 0.2,
+      "istoria": 0.3,
+      "latinika": 0.2
+    },
+    "109": {
+      "glossa": 0.26,
+      "arxaia": 0.26,
+      "istoria": 0.22,
+      "latinika": 0.26
+    },
+    "111": {
+      "glossa": 0.27,
+      "arxaia": 0.27,
+      "istoria": 0.2,
+      "latinika": 0.26
+    },
+    "113": {
+      "glossa": 0.25,
+      "arxaia": 0.29,
+      "istoria": 0.21,
+      "latinika": 0.25
+    },
+    "189": {
+      "glossa": 0.3,
+      "arxaia": 0.3,
+      "istoria": 0.2,
+      "latinika": 0.2
+    },
+    "175": {
+      "glossa": 0.3,
+      "arxaia": 0.3,
+      "istoria": 0.2,
+      "latinika": 0.2
+    },
+    "115": {
+      "glossa": 0.26,
+      "arxaia": 0.26,
+      "istoria": 0.22,
+      "latinika": 0.26
+    },
+    "1010": {
+      "glossa": 0.35,
+      "arxaia": 0.25,
+      "istoria": 0.2,
+      "latinika": 0.2
+    },
+    "122": {
+      "glossa": 0.4,
+      "arxaia": 0.2,
+      "istoria": 0.2,
+      "latinika": 0.2
+    },
+    "102": {
+      "glossa": 0.4,
+      "arxaia": 0.2,
+      "istoria": 0.2,
+      "latinika": 0.2
+    },
+    "138": {
+      "glossa": 0.3,
+      "arxaia": 0.25,
+      "istoria": 0.25,
+      "latinika": 0.2
+    },
+    "120": {
+      "glossa": 0.3,
+      "arxaia": 0.3,
+      "istoria": 0.2,
+      "latinika": 0.2
+    },
+    "171": {
+      "glossa": 0.3,
+      "arxaia": 0.25,
+      "istoria": 0.25,
+      "latinika": 0.2
+    },
+    "170": {
+      "glossa": 0.3,
+      "arxaia": 0.2,
+      "istoria": 0.3,
+      "latinika": 0.2
+    },
+    "1668": {
+      "glossa": 0.25,
+      "arxaia": 0.25,
+      "istoria": 0.25,
+      "latinika": 0.25
+    },
+    "172": {
+      "glossa": 0.35,
+      "arxaia": 0.25,
+      "istoria": 0.2,
+      "latinika": 0.2
+    },
+    "1251": {
+      "glossa": 0.3,
+      "arxaia": 0.25,
+      "istoria": 0.25,
+      "latinika": 0.2
+    },
+    "151": {
+      "glossa": 0.35,
+      "arxaia": 0.25,
+      "istoria": 0.2,
+      "latinika": 0.2
+    },
+    "1550": {
+      "glossa": 0.35,
+      "arxaia": 0.25,
+      "istoria": 0.2,
+      "latinika": 0.2
+    },
+    "875": {
+      "glossa": 0.35,
+      "arxaia": 0.25,
+      "istoria": 0.2,
+      "latinika": 0.2
+    },
+    "227": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.2,
+      "mathimatika": 0.3
+    },
+    "225": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.2,
+      "mathimatika": 0.3
+    },
+    "1288": {
+      "glossa": 0.2,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "viologia": 0.3
+    },
+    "1002": {
+      "glossa": 0.2,
+      "fysiki": 0.3,
+      "ximeia": 0.2,
+      "mathimatika": 0.3
+    },
+    "1633": {
+      "glossa": 0.2,
+      "fysiki": 0.2,
+      "ximeia": 0.3,
+      "viologia": 0.3
+    },
+    "327": {
+      "glossa": 0.2,
+      "fysiki": 0.35,
+      "ximeia": 0.25,
+      "viologia": 0.2
+    },
+    "851": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "viologia": 0.25
+    },
+    "231": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "mathimatika": 0.25,
+      "Ελεύθερο Σχέδιο10": 0.1,
+      "Γραμμικό Σχέδιο10": 0.1
+    },
+    "236": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "mathimatika": 0.25,
+      "Ελεύθερο Σχέδιο10": 0.1,
+      "Γραμμικό Σχέδιο10": 0.1
+    },
+    "233": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "mathimatika": 0.25,
+      "Ελεύθερο Σχέδιο10": 0.1,
+      "Γραμμικό Σχέδιο10": 0.1
+    },
+    "779": {
+      "glossa": 0.35,
+      "fysiki": 0.25,
+      "ximeia": 0.2,
+      "mathimatika": 0.2,
+      "Ελεύθερο Σχέδιο10": 0.1,
+      "Γραμμικό Σχέδιο10": 0.1
+    },
+    "234": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "mathimatika": 0.25,
+      "Ελεύθερο Σχέδιο10": 0.1,
+      "Γραμμικό Σχέδιο10": 0.1
+    },
+    "232": {
+      "glossa": 0.3,
+      "fysiki": 0.2,
+      "ximeia": 0.2,
+      "mathimatika": 0.3,
+      "Ελεύθερο Σχέδιο8": 0.08,
+      "Γραμμικό Σχέδιο12": 0.12
+    },
+    "370": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "mathimatika": 0.25,
+      "Ελεύθερο Σχέδιο10": 0.1,
+      "Γραμμικό Σχέδιο10": 0.1
+    },
+    "277": {
+      "glossa": 0.22,
+      "fysiki": 0.2,
+      "ximeia": 0.25,
+      "viologia": 0.33
+    },
+    "282": {
+      "glossa": 0.24,
+      "fysiki": 0.24,
+      "ximeia": 0.25,
+      "viologia": 0.27
+    },
+    "279": {
+      "glossa": 0.2,
+      "fysiki": 0.2,
+      "ximeia": 0.27,
+      "viologia": 0.33
+    },
+    "281": {
+      "glossa": 0.22,
+      "fysiki": 0.22,
+      "ximeia": 0.28,
+      "viologia": 0.28
+    },
+    "280": {
+      "glossa": 0.2,
+      "fysiki": 0.2,
+      "ximeia": 0.25,
+      "viologia": 0.35
+    },
+    "325": {
+      "glossa": 0.2,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "viologia": 0.3
+    },
+    "284": {
+      "glossa": 0.2,
+      "fysiki": 0.2,
+      "ximeia": 0.3,
+      "viologia": 0.3
+    },
+    "285": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "mathimatika": 0.25
+    },
+    "287": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "mathimatika": 0.25
+    },
+    "283": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "mathimatika": 0.25
+    },
+    "1242": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.2,
+      "viologia": 0.3
+    },
+    "1657": {
+      "glossa": 0.2,
+      "fysiki": 0.2,
+      "ximeia": 0.3,
+      "viologia": 0.3
+    },
+    "1634": {
+      "glossa": 0.2,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "viologia": 0.3
+    },
+    "273": {
+      "glossa": 0.2,
+      "fysiki": 0.2,
+      "ximeia": 0.3,
+      "viologia": 0.3
+    },
+    "1511": {
+      "glossa": 0.24,
+      "fysiki": 0.24,
+      "ximeia": 0.28,
+      "viologia": 0.24
+    },
+    "1289": {
+      "glossa": 0.2,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "viologia": 0.3
+    },
+    "1552": {
+      "glossa": 0.2,
+      "fysiki": 0.2,
+      "ximeia": 0.3,
+      "viologia": 0.3
+    },
+    "1422": {
+      "glossa": 0.2,
+      "fysiki": 0.25,
+      "ximeia": 0.3,
+      "viologia": 0.25
+    },
+    "360": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "viologia": 0.25
+    },
+    "274": {
+      "glossa": 0.2,
+      "fysiki": 0.2,
+      "ximeia": 0.3,
+      "viologia": 0.3
+    },
+    "275": {
+      "glossa": 0.2,
+      "fysiki": 0.2,
+      "ximeia": 0.3,
+      "viologia": 0.3
+    },
+    "497": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.2,
+      "mathimatika": 0.3
+    },
+    "507": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.2,
+      "mathimatika": 0.3
+    },
+    "477": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.2,
+      "mathimatika": 0.3
+    },
+    "776": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.2,
+      "mathimatika": 0.3
+    },
+    "324": {
+      "glossa": 0.2,
+      "fysiki": 0.2,
+      "ximeia": 0.3,
+      "viologia": 0.3
+    },
+    "1428": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "viologia": 0.25
+    },
+    "200": {
+      "glossa": 0.2,
+      "fysiki": 0.2,
+      "ximeia": 0.3,
+      "viologia": 0.3
+    },
+    "1278": {
+      "glossa": 0.2,
+      "fysiki": 0.2,
+      "ximeia": 0.3,
+      "viologia": 0.3
+    },
+    "684": {
+      "glossa": 0.2,
+      "fysiki": 0.2,
+      "ximeia": 0.3,
+      "viologia": 0.3
+    },
+    "1452": {
+      "glossa": 0.23,
+      "fysiki": 0.23,
+      "ximeia": 0.28,
+      "viologia": 0.26
+    },
+    "1635": {
+      "glossa": 0.2,
+      "fysiki": 0.25,
+      "ximeia": 0.3,
+      "viologia": 0.25
+    },
+    "1512": {
+      "glossa": 0.2,
+      "fysiki": 0.2,
+      "ximeia": 0.3,
+      "viologia": 0.3
+    },
+    "1429": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "viologia": 0.25
+    },
+    "372": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "viologia": 0.25
+    },
+    "328": {
+      "glossa": 0.25,
+      "fysiki": 0.2,
+      "ximeia": 0.3,
+      "viologia": 0.25
+    },
+    "288": {
+      "glossa": 0.22,
+      "fysiki": 0.27,
+      "ximeia": 0.28,
+      "viologia": 0.23
+    },
+    "323": {
+      "glossa": 0.25,
+      "fysiki": 0.2,
+      "ximeia": 0.25,
+      "viologia": 0.3
+    },
+    "685": {
+      "glossa": 0.2,
+      "fysiki": 0.2,
+      "ximeia": 0.3,
+      "viologia": 0.3
+    },
+    "246": {
+      "glossa": 0.2,
+      "fysiki": 0.3,
+      "ximeia": 0.2,
+      "mathimatika": 0.3
+    },
+    "387": {
+      "glossa": 0.2,
+      "fysiki": 0.3,
+      "ximeia": 0.2,
+      "mathimatika": 0.3
+    },
+    "217": {
+      "glossa": 0.2,
+      "fysiki": 0.3,
+      "ximeia": 0.2,
+      "mathimatika": 0.3
+    },
+    "220": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.2,
+      "mathimatika": 0.3
+    },
+    "1660": {
+      "glossa": 0.3,
+      "fysiki": 0.2,
+      "ximeia": 0.2,
+      "mathimatika": 0.3
+    },
+    "219": {
+      "glossa": 0.2,
+      "fysiki": 0.3,
+      "ximeia": 0.2,
+      "mathimatika": 0.3
+    },
+    "1564": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.2,
+      "mathimatika": 0.3
+    },
+    "223": {
+      "glossa": 0.2,
+      "fysiki": 0.3,
+      "ximeia": 0.2,
+      "mathimatika": 0.3
+    },
+    "1522": {
+      "glossa": 0.25,
+      "fysiki": 0.27,
+      "ximeia": 0.2,
+      "mathimatika": 0.28
+    },
+    "331": {
+      "glossa": 0.2,
+      "fysiki": 0.3,
+      "ximeia": 0.2,
+      "mathimatika": 0.3
+    },
+    "221": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.2,
+      "mathimatika": 0.3
+    },
+    "827": {
+      "glossa": 0.25,
+      "fysiki": 0.35,
+      "ximeia": 0.2,
+      "viologia": 0.2
+    },
+    "821": {
+      "glossa": 0.25,
+      "fysiki": 0.35,
+      "ximeia": 0.2,
+      "viologia": 0.2
+    },
+    "884": {
+      "glossa": 0.25,
+      "fysiki": 0.35,
+      "ximeia": 0.2,
+      "viologia": 0.2
+    },
+    "826": {
+      "glossa": 0.25,
+      "fysiki": 0.35,
+      "ximeia": 0.2,
+      "viologia": 0.2
+    },
+    "243": {
+      "glossa": 0.2,
+      "fysiki": 0.25,
+      "ximeia": 0.2,
+      "mathimatika": 0.35
+    },
+    "245": {
+      "glossa": 0.2,
+      "fysiki": 0.25,
+      "ximeia": 0.2,
+      "mathimatika": 0.35
+    },
+    "249": {
+      "glossa": 0.2,
+      "fysiki": 0.25,
+      "ximeia": 0.2,
+      "mathimatika": 0.35
+    },
+    "1555": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "mathimatika": 0.25
+    },
+    "1432": {
+      "glossa": 0.2,
+      "fysiki": 0.25,
+      "ximeia": 0.2,
+      "mathimatika": 0.35
+    },
+    "247": {
+      "glossa": 0.2,
+      "fysiki": 0.27,
+      "ximeia": 0.2,
+      "mathimatika": 0.33
+    },
+    "252": {
+      "glossa": 0.2,
+      "fysiki": 0.25,
+      "ximeia": 0.2,
+      "mathimatika": 0.35
+    },
+    "248": {
+      "glossa": 0.2,
+      "fysiki": 0.25,
+      "ximeia": 0.2,
+      "mathimatika": 0.35
+    },
+    "251": {
+      "glossa": 0.2,
+      "fysiki": 0.25,
+      "ximeia": 0.2,
+      "mathimatika": 0.35
+    },
+    "241": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "mathimatika": 0.25
+    },
+    "388": {
+      "glossa": 0.2,
+      "fysiki": 0.3,
+      "ximeia": 0.25,
+      "viologia": 0.25
+    },
+    "272": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "mathimatika": 0.25
+    },
+    "340": {
+      "glossa": 0.26,
+      "fysiki": 0.26,
+      "ximeia": 0.2,
+      "mathimatika": 0.28
+    },
+    "215": {
+      "glossa": 0.21,
+      "fysiki": 0.27,
+      "ximeia": 0.2,
+      "mathimatika": 0.32
+    },
+    "1541": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "mathimatika": 0.25
+    },
+    "242": {
+      "glossa": 0.2,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "mathimatika": 0.3
+    },
+    "1623": {
+      "glossa": 0.2,
+      "fysiki": 0.25,
+      "ximeia": 0.3,
+      "mathimatika": 0.25
+    },
+    "476": {
+      "glossa": 0.2,
+      "fysiki": 0.3,
+      "ximeia": 0.3,
+      "mathimatika": 0.2
+    },
+    "391": {
+      "glossa": 0.2,
+      "fysiki": 0.3,
+      "ximeia": 0.2,
+      "mathimatika": 0.3
+    },
+    "1620": {
+      "glossa": 0.3,
+      "fysiki": 0.2,
+      "ximeia": 0.2,
+      "mathimatika": 0.3
+    },
+    "363": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "mathimatika": 0.25
+    },
+    "228": {
+      "glossa": 0.25,
+      "fysiki": 0.2,
+      "ximeia": 0.2,
+      "mathimatika": 0.35
+    },
+    "213": {
+      "glossa": 0.2,
+      "fysiki": 0.3,
+      "ximeia": 0.2,
+      "mathimatika": 0.3
+    },
+    "209": {
+      "glossa": 0.22,
+      "fysiki": 0.26,
+      "ximeia": 0.2,
+      "mathimatika": 0.32
+    },
+    "392": {
+      "glossa": 0.25,
+      "fysiki": 0.28,
+      "ximeia": 0.2,
+      "mathimatika": 0.27
+    },
+    "332": {
+      "glossa": 0.2,
+      "fysiki": 0.3,
+      "ximeia": 0.2,
+      "mathimatika": 0.3
+    },
+    "1659": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.2,
+      "mathimatika": 0.3
+    },
+    "211": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "mathimatika": 0.25
+    },
+    "210": {
+      "glossa": 0.24,
+      "fysiki": 0.26,
+      "ximeia": 0.24,
+      "mathimatika": 0.26
+    },
+    "1523": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "mathimatika": 0.25
+    },
+    "1619": {
+      "glossa": 0.2,
+      "fysiki": 0.3,
+      "ximeia": 0.2,
+      "mathimatika": 0.3
+    },
+    "290": {
+      "glossa": 0.2,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "viologia": 0.3
+    },
+    "393": {
+      "glossa": 0.2,
+      "fysiki": 0.3,
+      "ximeia": 0.2,
+      "mathimatika": 0.3
+    },
+    "229": {
+      "glossa": 0.2,
+      "fysiki": 0.3,
+      "ximeia": 0.2,
+      "mathimatika": 0.3
+    },
+    "811": {
+      "glossa": 0.25,
+      "fysiki": 0.3,
+      "ximeia": 0.25,
+      "viologia": 0.2
+    },
+    "816": {
+      "glossa": 0.25,
+      "fysiki": 0.3,
+      "ximeia": 0.25,
+      "viologia": 0.2
+    },
+    "201": {
+      "glossa": 0.2,
+      "fysiki": 0.27,
+      "ximeia": 0.2,
+      "mathimatika": 0.33
+    },
+    "394": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.2,
+      "mathimatika": 0.3
+    },
+    "208": {
+      "glossa": 0.2,
+      "fysiki": 0.25,
+      "ximeia": 0.2,
+      "mathimatika": 0.35
+    },
+    "203": {
+      "glossa": 0.25,
+      "fysiki": 0.2,
+      "ximeia": 0.2,
+      "mathimatika": 0.35
+    },
+    "207": {
+      "glossa": 0.26,
+      "fysiki": 0.26,
+      "ximeia": 0.2,
+      "mathimatika": 0.28
+    },
+    "205": {
+      "glossa": 0.2,
+      "fysiki": 0.25,
+      "ximeia": 0.2,
+      "mathimatika": 0.35
+    },
+    "1524": {
+      "glossa": 0.25,
+      "fysiki": 0.27,
+      "ximeia": 0.2,
+      "mathimatika": 0.28
+    },
+    "1621": {
+      "glossa": 0.26,
+      "fysiki": 0.27,
+      "ximeia": 0.2,
+      "mathimatika": 0.27
+    },
+    "676": {
+      "glossa": 0.2,
+      "fysiki": 0.2,
+      "ximeia": 0.4,
+      "mathimatika": 0.2,
+      "Ελεύθερο Σχέδιο10": 0.1
+    },
+    "253": {
+      "glossa": 0.2,
+      "fysiki": 0.33,
+      "ximeia": 0.2,
+      "mathimatika": 0.27
+    },
+    "261": {
+      "glossa": 0.2,
+      "fysiki": 0.27,
+      "ximeia": 0.2,
+      "mathimatika": 0.33
+    },
+    "255": {
+      "glossa": 0.2,
+      "fysiki": 0.33,
+      "ximeia": 0.2,
+      "mathimatika": 0.27
+    },
+    "259": {
+      "glossa": 0.2,
+      "fysiki": 0.33,
+      "ximeia": 0.2,
+      "mathimatika": 0.27
+    },
+    "1628": {
+      "glossa": 0.2,
+      "fysiki": 0.3,
+      "ximeia": 0.23,
+      "mathimatika": 0.27
+    },
+    "1437": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "mathimatika": 0.25
+    },
+    "257": {
+      "glossa": 0.2,
+      "fysiki": 0.3,
+      "ximeia": 0.2,
+      "mathimatika": 0.3
+    },
+    "1632": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "viologia": 0.25
+    },
+    "263": {
+      "glossa": 0.2,
+      "fysiki": 0.25,
+      "ximeia": 0.35,
+      "viologia": 0.2
+    },
+    "270": {
+      "glossa": 0.2,
+      "fysiki": 0.27,
+      "ximeia": 0.27,
+      "viologia": 0.26
+    },
+    "265": {
+      "glossa": 0.2,
+      "fysiki": 0.25,
+      "ximeia": 0.35,
+      "viologia": 0.2
+    },
+    "269": {
+      "glossa": 0.2,
+      "fysiki": 0.25,
+      "ximeia": 0.35,
+      "viologia": 0.2
+    },
+    "1629": {
+      "glossa": 0.2,
+      "fysiki": 0.26,
+      "ximeia": 0.28,
+      "viologia": 0.26
+    },
+    "267": {
+      "glossa": 0.2,
+      "fysiki": 0.2,
+      "ximeia": 0.4,
+      "viologia": 0.2
+    },
+    "235": {
+      "glossa": 0.2,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "mathimatika": 0.3
+    },
+    "237": {
+      "glossa": 0.2,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "mathimatika": 0.3
+    },
+    "1563": {
+      "glossa": 0.2,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "mathimatika": 0.3
+    },
+    "239": {
+      "glossa": 0.2,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "mathimatika": 0.3
+    },
+    "214": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "mathimatika": 0.25
+    },
+    "1391": {
+      "glossa": 0.2,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "viologia": 0.3
+    },
+    "678": {
+      "glossa": 0.2,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "viologia": 0.3
+    },
+    "1615": {
+      "glossa": 0.2,
+      "fysiki": 0.2,
+      "ximeia": 0.25,
+      "viologia": 0.35
+    },
+    "1425": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "viologia": 0.25
+    },
+    "679": {
+      "glossa": 0.25,
+      "fysiki": 0.2,
+      "ximeia": 0.2,
+      "viologia": 0.35
+    },
+    "1426": {
+      "glossa": 0.25,
+      "fysiki": 0.2,
+      "ximeia": 0.25,
+      "viologia": 0.3
+    },
+    "294": {
+      "glossa": 0.24,
+      "fysiki": 0.24,
+      "ximeia": 0.26,
+      "viologia": 0.26
+    },
+    "1516": {
+      "glossa": 0.2,
+      "fysiki": 0.2,
+      "ximeia": 0.3,
+      "viologia": 0.3
+    },
+    "1613": {
+      "glossa": 0.2,
+      "fysiki": 0.2,
+      "ximeia": 0.3,
+      "viologia": 0.3
+    },
+    "1653": {
+      "glossa": 0.2,
+      "fysiki": 0.2,
+      "ximeia": 0.3,
+      "viologia": 0.3
+    },
+    "680": {
+      "glossa": 0.3,
+      "fysiki": 0.2,
+      "ximeia": 0.2,
+      "viologia": 0.3
+    },
+    "1670": {
+      "glossa": 0.22,
+      "fysiki": 0.26,
+      "ximeia": 0.26,
+      "viologia": 0.26
+    },
+    "1558": {
+      "glossa": 0.22,
+      "fysiki": 0.22,
+      "ximeia": 0.27,
+      "viologia": 0.29
+    },
+    "295": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "viologia": 0.25
+    },
+    "302": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "viologia": 0.25
+    },
+    "304": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "viologia": 0.25
+    },
+    "297": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "viologia": 0.25
+    },
+    "301": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "viologia": 0.25
+    },
+    "300": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "viologia": 0.25
+    },
+    "299": {
+      "glossa": 0.2,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "viologia": 0.3
+    },
+    "831": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "viologia": 0.25
+    },
+    "307": {
+      "glossa": 0.2,
+      "fysiki": 0.2,
+      "ximeia": 0.27,
+      "viologia": 0.33
+    },
+    "308": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "viologia": 0.25
+    },
+    "841": {
+      "glossa": 0.2,
+      "fysiki": 0.2,
+      "ximeia": 0.27,
+      "viologia": 0.33
+    },
+    "1245": {
+      "glossa": 0.35,
+      "fysiki": 0.2,
+      "ximeia": 0.2,
+      "viologia": 0.25
+    },
+    "1515": {
+      "glossa": 0.3,
+      "fysiki": 0.2,
+      "ximeia": 0.2,
+      "viologia": 0.3
+    },
+    "1274": {
+      "glossa": 0.26,
+      "fysiki": 0.28,
+      "ximeia": 0.2,
+      "viologia": 0.26
+    },
+    "681": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "viologia": 0.25
+    },
+    "1614": {
+      "glossa": 0.22,
+      "fysiki": 0.22,
+      "ximeia": 0.25,
+      "viologia": 0.31
+    },
+    "1553": {
+      "glossa": 0.22,
+      "fysiki": 0.23,
+      "ximeia": 0.25,
+      "viologia": 0.3
+    },
+    "306": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "viologia": 0.25
+    },
+    "682": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "viologia": 0.25
+    },
+    "1617": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "viologia": 0.25
+    },
+    "1651": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "viologia": 0.25
+    },
+    "1618": {
+      "glossa": 0.25,
+      "fysiki": 0.2,
+      "ximeia": 0.25,
+      "viologia": 0.3
+    },
+    "1249": {
+      "glossa": 0.25,
+      "fysiki": 0.2,
+      "ximeia": 0.25,
+      "viologia": 0.3
+    },
+    "1433": {
+      "glossa": 0.2,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "viologia": 0.3
+    },
+    "1272": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "viologia": 0.25
+    },
+    "190": {
+      "glossa": 0.25,
+      "fysiki": 0.2,
+      "ximeia": 0.2,
+      "viologia": 0.35
+    },
+    "303": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "viologia": 0.25
+    },
+    "305": {
+      "glossa": 0.2,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "viologia": 0.3
+    },
+    "836": {
+      "glossa": 0.2,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "viologia": 0.3
+    },
+    "289": {
+      "glossa": 0.2,
+      "fysiki": 0.2,
+      "ximeia": 0.3,
+      "viologia": 0.3
+    },
+    "291": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "viologia": 0.25
+    },
+    "293": {
+      "glossa": 0.2,
+      "fysiki": 0.2,
+      "ximeia": 0.3,
+      "viologia": 0.3
+    },
+    "846": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "viologia": 0.25
+    },
+    "683": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "viologia": 0.25
+    },
+    "1616": {
+      "glossa": 0.2,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "viologia": 0.3
+    },
+    "1438": {
+      "glossa": 0.25,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "viologia": 0.25
+    },
+    "1273": {
+      "glossa": 0.2,
+      "fysiki": 0.25,
+      "ximeia": 0.25,
+      "viologia": 0.3
+    },
+    "1520": {
+      "glossa": 0.2,
+      "fysiki": 0.3,
+      "ximeia": 0.2,
+      "viologia": 0.3
+    }
+  }
+}

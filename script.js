@@ -259,10 +259,17 @@ function calculateAndRender() {
         const probFloat = calculateAdmissionProbability(userPoints, school, est.base_estimate);
         const probPct = Math.round(probFloat * 100);
 
-        const base2025 = school.history && school.history['2025'] ? school.history['2025'] : 0;
-        const deviation = userPoints - base2025;
-        const deviationText = base2025 > 0 ? (deviation >= 0 ? `+${deviation}` : deviation) : '-';
-        const deviationClass = base2025 > 0 ? (deviation >= 0 ? 'text-success' : 'text-danger') : 'text-muted';
+        let actualBase = school.base_score || 0;
+        let recentYear = '2025';
+        if (school.history) {
+            if (school.history['2025']) { actualBase = school.history['2025']; recentYear = '2025'; }
+            else if (school.history['2024']) { actualBase = school.history['2024']; recentYear = '2024'; }
+            else if (school.history['2023']) { actualBase = school.history['2023']; recentYear = '2023'; }
+        }
+
+        const deviation = userPoints - actualBase;
+        const deviationText = actualBase > 0 ? (deviation >= 0 ? `+${deviation}` : deviation) : '-';
+        const deviationClass = actualBase > 0 ? (deviation >= 0 ? 'text-success' : 'text-danger') : 'text-muted';
 
         const tr = document.createElement('tr');
         tr.innerHTML = `
@@ -270,10 +277,10 @@ function calculateAndRender() {
             <td>${school.institution_short || school.institution} - ${school.city}</td>
             <td><strong>${userPoints}</strong></td>
             <td>
-                ${Math.round(est.base_estimate)} <br>
-                <small class="text-muted">80% CI: [${Math.round(est.lower_bound)} - ${Math.round(est.upper_bound)}]</small>
+                ${actualBase > 0 ? actualBase : '-'} <br>
+                <small class="text-muted">(έτος ${recentYear})</small>
             </td>
-            <td class="${deviationClass}">${deviationText} <br><small class="text-muted">(από 2025)</small></td>
+            <td class="${deviationClass}">${deviationText} <br><small class="text-muted">(από βάση ${recentYear})</small></td>
             <td>${getAdvancedPredictionBadge(probPct)}</td>
             <td>
                 <button class="btn-sm" onclick="toggleChart(${index}, ${userPoints}, ${est.base_estimate}, ${est.sigma})">Προηγμένη Ανάλυση</button>
