@@ -3,14 +3,25 @@ async function loadDetailedPrediction() {
     const schoolId = params.get('school_id');
     const userScore = parseFloat(params.get('score'));
     
+    const grades = {
+        lang: parseFloat(params.get('lang')) || 0,
+        phy: parseFloat(params.get('phy')) || 0,
+        chem: parseFloat(params.get('chem')) || 0,
+        bio: parseFloat(params.get('bio')) || 0
+    };
+
     if (!schoolId || isNaN(userScore)) {
         document.getElementById('loadingCard').innerHTML = '<h3 class="text-danger">Σφάλμα: Λείπουν παράμετροι. Παρακαλώ επιστρέψτε στην αρχική σελίδα.</h3>';
         return;
     }
 
     try {
-        const res = await fetch('schools.json');
-        const schools = await res.json();
+        const [schoolsRes, normRes] = await Promise.all([
+            fetch('schools.json'),
+            fetch('normalization_factors.json')
+        ]);
+        const schools = await schoolsRes.json();
+        const normData = await normRes.json();
         
         const school = schools.find(s => String(s.id) === String(schoolId));
         if (!school) {
@@ -18,7 +29,7 @@ async function loadDetailedPrediction() {
             return;
         }
 
-        renderDashboard(school, userScore);
+        renderDashboard(school, userScore, grades, normData);
     } catch (error) {
         console.error(error);
         document.getElementById('loadingCard').innerHTML = '<h3 class="text-danger">Σφάλμα φόρτωσης δεδομένων.</h3>';
@@ -50,7 +61,7 @@ function calculateProb(score, target, volatility) {
     return Math.max(0.01, Math.min(0.99, p));
 }
 
-function renderDashboard(school, userScore) {
+function renderDashboard(school, userScore, grades, normData) {
     document.getElementById('loadingCard').style.display = 'none';
     document.getElementById('contentWrapper').style.display = 'block';
     
@@ -129,6 +140,9 @@ function renderDashboard(school, userScore) {
 
     // Chart.js Waterfall Rendering
     renderWaterfallChart(baseProb, trendEffect, volatilityEffect, finalProb);
+
+    // Render Subject Performance Breakdown
+    renderPerformanceBreakdown(grades, normData);
 }
 
 // 4. & 5. Chart Update & Color Formatting
@@ -180,6 +194,61 @@ function renderWaterfallChart(baseProb, trendEffect, volatilityEffect, finalProb
             }
         }
     });
+}
+
+// Subject Performance Breakdown Render
+function renderPerformanceBreakdown(grades, normData) {
+    const container = document.getElementById('perfBreakdown');
+    if (!container) return;
+    
+    // We only have 3ο Πεδίο right now in this app
+    const FIELD_KEY = '\u0398\u0395\u03a4\u0399\u039a\u03a9\u039d \u03a3\u03a0\u039f\u03a5\u0394\u03a9\u039d \u039a\u0391\u0399 \u03a3\u03a0\u039f\u03a5\u0394\u03a9\u039d \u03a5\u0393\u0395\u0399\u0391\u03a3 (\u0395.\u03a0. \u03a3\u03a0\u039f\u03a5\u0394\u03a9\u039d \u03a5\u0393\u0395\u0399\u0391\u03a3)';
+    const fieldData = normData[FIELD_KEY];
+    
+    if (!fieldData || Object.values(grades).every(g => g === 0)) {
+        container.innerHTML = '<p class="text-muted">Δεν υπάρχουν διαθέσιμα δεδομένα βαθμολογίας.</p>';
+        return;
+    }
+
+    const subjectMap = [
+        { key: 'lang', label: 'Νεοελληνική Γλώσσα', statKey: '\u039d\u0395\u039f\u0395\u039b\u039b\u0397\u039d\u0399\u039a\u0397 \u0393\u039b\u03a9\u03a3\u03a3\u0391 \u039a\u0391\u0399 \u039b\u039f\u0393\u039f\u03a4\u0395\u03a7\u039d\u0399\u0391 \u0393.\u03a0.' },
+        { key: 'phy', label: 'Φυσική', statKey: '\u03a6\u03a5\u03a3\u0399\u039a\u0397 \u039f.\u03a0.' },
+        { key: 'chem', label: 'Χημεία', statKey: '\u03a7\u0397\u039c\u0395\u0399\u0391 \u039f.\u03a0.' },
+        { key: 'bio', label: 'Βιολογία', statKey: '\u0392\u0399\u039f\u039b\u039f\u0393\u0399\u0391 \u039f.\u03a0.' }
+    ];
+
+    let html = '';
+
+    subjectMap.forEach(sub => {
+        const grade = grades[sub.key];
+        const stats = fieldData[sub.statKey];
+        if (!stats) return;
+
+        const z = (grade - stats.mean) / stats.std;
+        
+        let color = '#3B82F6'; // default blue
+        if (z >= 1.5) color = 'var(--success)';
+        else if (z < -0.5) color = 'var(--danger)';
+        else if (z < 0.5) color = 'var(--warning)';
+
+        const avgPct = (stats.mean / 20) * 100;
+        const gradePct = (grade / 20) * 100;
+        
+        html += `
+            <div class="perf-row">
+                <div class="perf-label">${sub.label}</div>
+                <div class="perf-bar-track">
+                    <div class="perf-bar-avg" style="left: ${avgPct}%"></div>
+                    <div class="perf-bar-fill" style="width: ${gradePct}%; background: ${color};" data-grade="${grade}"></div>
+                </div>
+                <div class="perf-zscore" style="color: ${color}">
+                    ${z >= 0 ? '+' : ''}${z.toFixed(2)}σ
+                </div>
+            </div>
+        `;
+    });
+
+    container.innerHTML = html;
 }
 
 // Boot

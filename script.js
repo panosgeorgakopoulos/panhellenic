@@ -1,16 +1,19 @@
 let schools = [];
 let statsData = {};
 let activeCharts = {};
+let normalizationData = {};
 
 // Load data from external JSON files
 async function loadData() {
     try {
-        const [schoolsRes, statsRes] = await Promise.all([
+        const [schoolsRes, statsRes, normRes] = await Promise.all([
             fetch('schools.json'),
-            fetch('stats_data.json') // Kept for compatibility if needed elsewhere
+            fetch('stats_data.json'),
+            fetch('normalization_factors.json')
         ]);
         schools = await schoolsRes.json();
         statsData = await statsRes.json();
+        normalizationData = await normRes.json();
         calculateAndRender();
         setupInteractiveSteppers();
     } catch (error) {
@@ -90,7 +93,65 @@ function getAdvancedPredictionBadge(probPct) {
 
 function normalizeString(str) {
     if (!str) return '';
-    return str.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+    return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+}
+
+/**
+ * Z-Score Calculation & Badge Rendering
+ * Uses normalization_factors.json for the 3ο Πεδίο (Ε.Π. ΣΠΟΥΔΩΝ ΥΓΕΙΑΣ)
+ */
+const FIELD_KEY = '\u0398\u0395\u03a4\u0399\u039a\u03a9\u039d \u03a3\u03a0\u039f\u03a5\u0394\u03a9\u039d \u039a\u0391\u0399 \u03a3\u03a0\u039f\u03a5\u0394\u03a9\u039d \u03a5\u0393\u0395\u0399\u0391\u03a3 (\u0395.\u03a0. \u03a3\u03a0\u039f\u03a5\u0394\u03a9\u039d \u03a5\u0393\u0395\u0399\u0391\u03a3)';
+
+// Map input IDs to their normalization subject keys
+const GRADE_TO_SUBJECT = {
+    gradeLang: '\u039d\u0395\u039f\u0395\u039b\u039b\u0397\u039d\u0399\u039a\u0397 \u0393\u039b\u03a9\u03a3\u03a3\u0391 \u039a\u0391\u0399 \u039b\u039f\u0393\u039f\u03a4\u0395\u03a7\u039d\u0399\u0391 \u0393.\u03a0.',
+    gradePhy:  '\u03a6\u03a5\u03a3\u0399\u039a\u0397 \u039f.\u03a0.',
+    gradeChem: '\u03a7\u0397\u039c\u0395\u0399\u0391 \u039f.\u03a0.',
+    gradeBio:  '\u0392\u0399\u039f\u039b\u039f\u0393\u0399\u0391 \u039f.\u03a0.'
+};
+
+const BADGE_ID_MAP = {
+    gradeLang: 'zBadgeLang',
+    gradePhy:  'zBadgePhy',
+    gradeChem: 'zBadgeChem',
+    gradeBio:  'zBadgeBio'
+};
+
+function zScoreToPercentile(z) {
+    // Approximate percentile from Z-score using the error function approximation
+    const t = 1 / (1 + 0.2316419 * Math.abs(z));
+    const d = 0.3989422804 * Math.exp(-z * z / 2);
+    const p = d * t * (0.3193815 + t * (-0.3565638 + t * (1.781478 + t * (-1.8212560 + t * 1.3302744))));
+    return z > 0 ? Math.round((1 - p) * 100) : Math.round(p * 100);
+}
+
+function updateZScoreBadges() {
+    const fieldData = normalizationData[FIELD_KEY];
+    if (!fieldData) return;
+
+    for (const [inputId, subjectKey] of Object.entries(GRADE_TO_SUBJECT)) {
+        const badgeEl = document.getElementById(BADGE_ID_MAP[inputId]);
+        if (!badgeEl) continue;
+
+        const subjectStats = fieldData[subjectKey];
+        if (!subjectStats) {
+            badgeEl.innerHTML = '';
+            continue;
+        }
+
+        const grade = parseFloat(document.getElementById(inputId).value) || 0;
+        const z = (grade - subjectStats.mean) / subjectStats.std;
+        const pct = zScoreToPercentile(z);
+
+        let color, label;
+        if (z >= 1.5)      { color = 'var(--success)'; label = `Top ${100 - pct}%`; }
+        else if (z >= 0.5)  { color = '#3B82F6';       label = `\u0386\u03bd\u03c9 \u03bc\u03ad\u03c3\u03bf\u03c5`; }
+        else if (z >= -0.5) { color = 'var(--warning)'; label = `\u039c\u03ad\u03c3\u03bf\u03c2 \u03cc\u03c1\u03bf\u03c2`; }
+        else                { color = 'var(--danger)';  label = `\u039a\u03ac\u03c4\u03c9 \u03bc\u03ad\u03c3\u03bf\u03c5`; }
+
+        const sign = z >= 0 ? '+' : '';
+        badgeEl.innerHTML = `<span style="color:${color}; font-weight:600;">${label}</span> <span style="color:var(--text-muted);">(${sign}${z.toFixed(1)}\u03c3)</span>`;
+    }
 }
 
 function calculateAndRender() {
@@ -106,6 +167,9 @@ function calculateAndRender() {
 
     const avg = (gLang + gPhy + gChem + gBio) / 4;
     document.getElementById('avgDisplay').innerText = `Μέσος Όρος: ${avg.toFixed(2)}`;
+
+    // Update Z-Score Badges
+    updateZScoreBadges();
 
     const tbody = document.getElementById('resultsBody');
     const searchTerm = normalizeString(document.getElementById('searchInput').value);
@@ -149,7 +213,7 @@ function calculateAndRender() {
             <td>${getAdvancedPredictionBadge(probPct)}</td>
             <td>
                 <button class="btn-sm" onclick="toggleChart(${index}, ${userPoints}, ${est.base_estimate}, ${est.sigma})">Προηγμένη Ανάλυση</button>
-                <a href="detailed_prediction.html?school_id=${school.id}&score=${userPoints}" class="btn-sm" style="display:inline-block; margin-top:4px; text-decoration:none; color:var(--primary); border: 1px solid var(--primary); background: transparent;">Επεξήγηση Πρόβλεψης</a>
+                <a href="detailed_prediction.html?school_id=${school.id}&score=${userPoints}&lang=${gLang}&phy=${gPhy}&chem=${gChem}&bio=${gBio}" class="btn-sm" style="display:inline-block; margin-top:4px; text-decoration:none; color:var(--primary); border: 1px solid var(--primary); background: transparent;">Επεξήγηση Πρόβλεψης</a>
             </td>
         `;
         tbody.appendChild(tr);
