@@ -1,14 +1,40 @@
+const FIELD_KEYS = {
+    "1": "\u0391\u039d\u0398\u03a1\u03a9\u03a0\u0399\u03a3\u03a4\u0399\u039a\u03a9\u039d \u03a3\u03a0\u039f\u03a5\u0394\u03a9\u039d",
+    "2": "\u0398\u0395\u03a4\u0399\u039a\u03a9\u039d \u03a3\u03a0\u039f\u03a5\u0394\u03a9\u039d \u039a\u0391\u0399 \u03a3\u03a0\u039f\u03a5\u0394\u03a9\u039d \u03a5\u0393\u0395\u0399\u0391\u03a3 (\u0395.\u03a0. \u0398\u0395\u03a4\u0399\u039a\u03a9\u039d \u03a3\u03a0\u039f\u03a5\u0394\u03a9\u039d)",
+    "3": "\u0398\u0395\u03a4\u0399\u039a\u03a9\u039d \u03a3\u03a0\u039f\u03a5\u0394\u03a9\u039d \u039a\u0391\u0399 \u03a3\u03a0\u039f\u03a5\u0394\u03a9\u039d \u03a5\u0393\u0395\u0399\u0391\u03a3 (\u0395.\u03a0. \u03a3\u03a0\u039f\u03a5\u0394\u03a9\u039d \u03a5\u0393\u0395\u0399\u0391\u03a3)",
+    "4": "\u03a3\u03a0\u039f\u03a5\u0394\u03a9\u039d \u039f\u0399\u039a\u039f\u039d\u039f\u039c\u0399\u0391\u03a3 \u039a\u0391\u0399 \u03a0\u039b\u0397\u03a1\u039f\u03a6\u039f\u03a1\u0399\u039a\u0397\u03a3"
+};
+
+const SUBJECT_LABELS = {
+    gradeLang: { label: 'Νεοελληνική Γλώσσα', statKey: '\u039d\u0395\u039f\u0395\u039b\u039b\u0397\u039d\u0399\u039a\u0397 \u0393\u039b\u03a9\u03a3\u03a3\u0391 \u039a\u0391\u0399 \u039b\u039f\u0393\u039f\u03a4\u0395\u03a7\u039d\u0399\u0391 \u0393.\u03a0.' },
+    gradeArx: { label: 'Αρχαία Ελληνικά', statKey: '\u0391\u03a1\u03a7\u0391\u0399\u0391 \u0395\u039b\u039b\u0397\u039d\u0399\u039a\u0391 \u039f.\u03a0.' },
+    gradeIst: { label: 'Ιστορία', statKey: '\u0399\u03a3\u03a4\u039f\u03a1\u0399\u0391 \u039f.\u03a0.' },
+    gradeLat: { label: 'Λατινικά', statKey: '\u039b\u0391\u03a4\u0399\u039d\u0399\u039a\u0391 \u039f.\u03a0.' },
+    gradePhy: { label: 'Φυσική', statKey: '\u03a6\u03a5\u03a3\u0399\u039a\u0397 \u039f.\u03a0.' },
+    gradeChem: { label: 'Χημεία', statKey: '\u03a7\u0397\u039c\u0395\u0399\u0391 \u039f.\u03a0.' },
+    gradeMath: { label: 'Μαθηματικά', statKey: '\u039c\u0391\u0398\u0397\u039c\u0391\u03a4\u0399\u039a\u0391 \u039f.\u03a0.' },
+    gradeBio: { label: 'Βιολογία', statKey: '\u0392\u0399\u039f\u039b\u039f\u0393\u0399\u0391 \u039f.\u03a0.' },
+    gradePli: { label: 'Πληροφορική', statKey: '\u03a0\u039b\u0397\u03a1\u039f\u03a6\u039f\u03a1\u0399\u039a\u0397 \u039f.\u03a0.' },
+    gradeOik: { label: 'Οικονομία', statKey: '\u039f\u0399\u039a\u039f\u039d\u039f\u039c\u0399\u0391 \u039f.\u03a0.' }
+};
+
 async function loadDetailedPrediction() {
     const params = new URLSearchParams(window.location.search);
     const schoolId = params.get('school_id');
     const userScore = parseFloat(params.get('score'));
-    
-    const grades = {
-        lang: parseFloat(params.get('lang')) || 0,
-        phy: parseFloat(params.get('phy')) || 0,
-        chem: parseFloat(params.get('chem')) || 0,
-        bio: parseFloat(params.get('bio')) || 0
-    };
+    const fieldId = params.get('field') || "3";
+    let grades = {};
+    try {
+        grades = JSON.parse(params.get('grades') || "{}");
+    } catch (e) {
+        // Fallback for old URL format if accessed from history
+        grades = {
+            gradeLang: parseFloat(params.get('lang')) || 0,
+            gradePhy: parseFloat(params.get('phy')) || 0,
+            gradeChem: parseFloat(params.get('chem')) || 0,
+            gradeBio: parseFloat(params.get('bio')) || 0
+        };
+    }
 
     if (!schoolId || isNaN(userScore)) {
         document.getElementById('loadingCard').innerHTML = '<h3 class="text-danger">Σφάλμα: Λείπουν παράμετροι. Παρακαλώ επιστρέψτε στην αρχική σελίδα.</h3>';
@@ -29,7 +55,7 @@ async function loadDetailedPrediction() {
             return;
         }
 
-        renderDashboard(school, userScore, grades, normData);
+        renderDashboard(school, userScore, fieldId, grades, normData);
     } catch (error) {
         console.error(error);
         document.getElementById('loadingCard').innerHTML = '<h3 class="text-danger">Σφάλμα φόρτωσης δεδομένων.</h3>';
@@ -61,7 +87,7 @@ function calculateProb(score, target, volatility) {
     return Math.max(0.01, Math.min(0.99, p));
 }
 
-function renderDashboard(school, userScore, grades, normData) {
+function renderDashboard(school, userScore, fieldId, grades, normData) {
     document.getElementById('loadingCard').style.display = 'none';
     document.getElementById('contentWrapper').style.display = 'block';
     
@@ -142,7 +168,7 @@ function renderDashboard(school, userScore, grades, normData) {
     renderWaterfallChart(baseProb, trendEffect, volatilityEffect, finalProb);
 
     // Render Subject Performance Breakdown
-    renderPerformanceBreakdown(grades, normData);
+    renderPerformanceBreakdown(grades, fieldId, normData);
 }
 
 // 4. & 5. Chart Update & Color Formatting
@@ -197,32 +223,26 @@ function renderWaterfallChart(baseProb, trendEffect, volatilityEffect, finalProb
 }
 
 // Subject Performance Breakdown Render
-function renderPerformanceBreakdown(grades, normData) {
+function renderPerformanceBreakdown(grades, fieldId, normData) {
     const container = document.getElementById('perfBreakdown');
     if (!container) return;
     
-    // We only have 3ο Πεδίο right now in this app
-    const FIELD_KEY = '\u0398\u0395\u03a4\u0399\u039a\u03a9\u039d \u03a3\u03a0\u039f\u03a5\u0394\u03a9\u039d \u039a\u0391\u0399 \u03a3\u03a0\u039f\u03a5\u0394\u03a9\u039d \u03a5\u0393\u0395\u0399\u0391\u03a3 (\u0395.\u03a0. \u03a3\u03a0\u039f\u03a5\u0394\u03a9\u039d \u03a5\u0393\u0395\u0399\u0391\u03a3)';
-    const fieldData = normData[FIELD_KEY];
+    const fieldKey = FIELD_KEYS[fieldId];
+    const fieldData = normData[fieldKey];
     
     if (!fieldData || Object.values(grades).every(g => g === 0)) {
-        container.innerHTML = '<p class="text-muted">Δεν υπάρχουν διαθέσιμα δεδομένα βαθμολογίας.</p>';
+        container.innerHTML = '<p class="text-muted">Δεν υπάρχουν διαθέσιμα δεδομένα βαθμολογίας για το επιλεγμένο πεδίο.</p>';
         return;
     }
 
-    const subjectMap = [
-        { key: 'lang', label: 'Νεοελληνική Γλώσσα', statKey: '\u039d\u0395\u039f\u0395\u039b\u039b\u0397\u039d\u0399\u039a\u0397 \u0393\u039b\u03a9\u03a3\u03a3\u0391 \u039a\u0391\u0399 \u039b\u039f\u0393\u039f\u03a4\u0395\u03a7\u039d\u0399\u0391 \u0393.\u03a0.' },
-        { key: 'phy', label: 'Φυσική', statKey: '\u03a6\u03a5\u03a3\u0399\u039a\u0397 \u039f.\u03a0.' },
-        { key: 'chem', label: 'Χημεία', statKey: '\u03a7\u0397\u039c\u0395\u0399\u0391 \u039f.\u03a0.' },
-        { key: 'bio', label: 'Βιολογία', statKey: '\u0392\u0399\u039f\u039b\u039f\u0393\u0399\u0391 \u039f.\u03a0.' }
-    ];
-
     let html = '';
 
-    subjectMap.forEach(sub => {
-        const grade = grades[sub.key];
+    for (const [key, grade] of Object.entries(grades)) {
+        const sub = SUBJECT_LABELS[key];
+        if (!sub) continue;
+        
         const stats = fieldData[sub.statKey];
-        if (!stats) return;
+        if (!stats) continue;
 
         const z = (grade - stats.mean) / stats.std;
         
@@ -246,7 +266,7 @@ function renderPerformanceBreakdown(grades, normData) {
                 </div>
             </div>
         `;
-    });
+    }
 
     container.innerHTML = html;
 }

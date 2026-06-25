@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Πανελλήνιες 2026 - 3ο Πεδίο (Επιστημών Υγείας)</title>
+    <!-- Chart.js for data visualization -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body data-field="3">
+
+<div class="container">
+    <header style="position: relative;">
+        <a href="index.html" class="btn-sm" style="position: absolute; top: 0; right: 0; text-decoration: none;">&larr; Αρχική</a>
+        <h1>3ο Πεδίο</h1>
+        <p class="subtitle">Επιστημών Υγείας & Ζωής</p>
+    </header>
+
+    <div class="card">
+        <div class="input-grid">
+            <div class="input-group">
+                <label for="gradeLang">Νεοελληνική Γλώσσα</label>
+                <div class="stepper-wrapper">
+                    <button class="stepper-btn minus" data-target="gradeLang">-</button>
+                    <input type="number" id="gradeLang" min="0" max="20" step="0.1" value="18.5">
+                    <button class="stepper-btn plus" data-target="gradeLang">+</button>
+                </div>
+                <span class="zscore-badge" id="zBadgeLang"></span>
+            </div>
+            <div class="input-group">
+                <label for="gradePhy">Φυσική</label>
+                <div class="stepper-wrapper">
+                    <button class="stepper-btn minus" data-target="gradePhy">-</button>
+                    <input type="number" id="gradePhy" min="0" max="20" step="0.1" value="19.0">
+                    <button class="stepper-btn plus" data-target="gradePhy">+</button>
+                </div>
+                <span class="zscore-badge" id="zBadgePhy"></span>
+            </div>
+            <div class="input-group">
+                <label for="gradeChem">Χημεία</label>
+                <div class="stepper-wrapper">
+                    <button class="stepper-btn minus" data-target="gradeChem">-</button>
+                    <input type="number" id="gradeChem" min="0" max="20" step="0.1" value="18.8">
+                    <button class="stepper-btn plus" data-target="gradeChem">+</button>
+                </div>
+                <span class="zscore-badge" id="zBadgeChem"></span>
+            </div>
+            <div class="input-group">
+                <label for="gradeBio">Βιολογία</label>
+                <div class="stepper-wrapper">
+                    <button class="stepper-btn minus" data-target="gradeBio">-</button>
+                    <input type="number" id="gradeBio" min="0" max="20" step="0.1" value="19.2">
+                    <button class="stepper-btn plus" data-target="gradeBio">+</button>
+                </div>
+                <span class="zscore-badge" id="zBadgeBio"></span>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button class="primary-btn" id="calcBtn">Υπολογισμός Μορίων & Πρόβλεψη</button>
+            <div class="average-display" id="avgDisplay">Μέσος Όρος: --</div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h3 style="margin-bottom: 1rem; color: var(--primary);">Μακροοικονομικά & Συστημικά Μοντέλα (Systemic Modifiers)</h3>
+        <div class="input-grid">
+            <div class="input-group">
+                <label for="natPerfDelta">Μεταβολή Εθνικών Επιδόσεων (%)</label>
+                <input type="number" id="natPerfDelta" min="-20" max="20" step="0.5" value="0" placeholder="π.χ. -3 για πιο δύσκολα θέματα">
+                <small class="text-muted" style="margin-top: 4px; font-size: 0.85rem;">(-) δυσκολότερα θέματα / (+) ευκολότερα</small>
+            </div>
+            <div class="input-group">
+                <label for="seatDelta">Μεταβολή Θέσεων Εισακτέων (%)</label>
+                <input type="number" id="seatDelta" min="-20" max="20" step="0.5" value="0" placeholder="π.χ. 2 για αύξηση θέσεων">
+                <small class="text-muted" style="margin-top: 4px; font-size: 0.85rem;">(-) λιγότερες θέσεις / (+) περισσότερες</small>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="filters">
+            <input type="text" id="searchInput" placeholder="Αναζήτηση σχολής ή πόλης...">
+        </div>
+
+        <div class="table-responsive">
+            <table id="resultsTable">
+                <thead>
+                    <tr>
+                        <th>Σχολή</th>
+                        <th>Ίδρυμα & Πόλη</th>
+                        <th>Τα Μόρια σου</th>
+                        <th>Βάση 2025</th>
+                        <th>Απόκλιση</th>
+                        <th>Πρόβλεψη (%)</th>
+                        <th>Ενέργεια</th>
+                    </tr>
+                </thead>
+                <tbody id="resultsBody">
+                    <!-- Results will be injected here via JS -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <footer class="ethics-footer">
+        <p>⚠️ <strong>Αποποίηση Ευθύνης (Ethics Layer):</strong> Οι παραπάνω προβλέψεις αποτελούν <span class="highlight">στατιστικές εκτιμήσεις (probabilistic estimates)</span> βασισμένες σε ιστορική μεταβλητότητα (Volatility) και αλγόριθμους τάσης. Σε καμία περίπτωση δεν αποτελούν εγγύηση εισαγωγής.</p>
+    </footer>
+</div>
+
+</body>
+</html>

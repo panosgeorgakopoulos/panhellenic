@@ -3,19 +3,24 @@ let statsData = {};
 let activeCharts = {};
 let normalizationData = {};
 
+let activeFieldId = document.body.getAttribute('data-field');
+
 // Load data from external JSON files
 async function loadData() {
     try {
         const [schoolsRes, statsRes, normRes] = await Promise.all([
-            fetch('schools.json'),
+            fetch('schools_data_final.json'), // using the updated JSON as requested
             fetch('stats_data.json'),
             fetch('normalization_factors.json')
         ]);
         schools = await schoolsRes.json();
         statsData = await statsRes.json();
         normalizationData = await normRes.json();
-        calculateAndRender();
-        setupInteractiveSteppers();
+        
+        if (activeFieldId) {
+            calculateAndRender();
+            setupInteractiveSteppers();
+        }
     } catch (error) {
         console.error("Error loading data:", error);
     }
@@ -96,26 +101,45 @@ function normalizeString(str) {
     return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
 }
 
-/**
- * Z-Score Calculation & Badge Rendering
- * Uses normalization_factors.json for the 3ο Πεδίο (Ε.Π. ΣΠΟΥΔΩΝ ΥΓΕΙΑΣ)
- */
-const FIELD_KEY = '\u0398\u0395\u03a4\u0399\u039a\u03a9\u039d \u03a3\u03a0\u039f\u03a5\u0394\u03a9\u039d \u039a\u0391\u0399 \u03a3\u03a0\u039f\u03a5\u0394\u03a9\u039d \u03a5\u0393\u0395\u0399\u0391\u03a3 (\u0395.\u03a0. \u03a3\u03a0\u039f\u03a5\u0394\u03a9\u039d \u03a5\u0393\u0395\u0399\u0391\u03a3)';
-
-// Map input IDs to their normalization subject keys
-const GRADE_TO_SUBJECT = {
-    gradeLang: '\u039d\u0395\u039f\u0395\u039b\u039b\u0397\u039d\u0399\u039a\u0397 \u0393\u039b\u03a9\u03a3\u03a3\u0391 \u039a\u0391\u0399 \u039b\u039f\u0393\u039f\u03a4\u0395\u03a7\u039d\u0399\u0391 \u0393.\u03a0.',
-    gradePhy:  '\u03a6\u03a5\u03a3\u0399\u039a\u0397 \u039f.\u03a0.',
-    gradeChem: '\u03a7\u0397\u039c\u0395\u0399\u0391 \u039f.\u03a0.',
-    gradeBio:  '\u0392\u0399\u039f\u039b\u039f\u0393\u0399\u0391 \u039f.\u03a0.'
+// Map field IDs to normalization JSON keys
+const FIELD_KEYS = {
+    "1": "\u0391\u039d\u0398\u03a1\u03a9\u03a0\u0399\u03a3\u03a4\u0399\u039a\u03a9\u039d \u03a3\u03a0\u039f\u03a5\u0394\u03a9\u039d",
+    "2": "\u0398\u0395\u03a4\u0399\u039a\u03a9\u039d \u03a3\u03a0\u039f\u03a5\u0394\u03a9\u039d \u039a\u0391\u0399 \u03a3\u03a0\u039f\u03a5\u0394\u03a9\u039d \u03a5\u0393\u0395\u0399\u0391\u03a3 (\u0395.\u03a0. \u0398\u0395\u03a4\u0399\u039a\u03a9\u039d \u03a3\u03a0\u039f\u03a5\u0394\u03a9\u039d)",
+    "3": "\u0398\u0395\u03a4\u0399\u039a\u03a9\u039d \u03a3\u03a0\u039f\u03a5\u0394\u03a9\u039d \u039a\u0391\u0399 \u03a3\u03a0\u039f\u03a5\u0394\u03a9\u039d \u03a5\u0393\u0395\u0399\u0391\u03a3 (\u0395.\u03a0. \u03a3\u03a0\u039f\u03a5\u0394\u03a9\u039d \u03a5\u0393\u0395\u0399\u0391\u03a3)",
+    "4": "\u03a3\u03a0\u039f\u03a5\u0394\u03a9\u039d \u039f\u0399\u039a\u039f\u039d\u039f\u039c\u0399\u0391\u03a3 \u039a\u0391\u0399 \u03a0\u039b\u0397\u03a1\u039f\u03a6\u039f\u03a1\u0399\u039a\u0397\u03a3"
 };
 
-const BADGE_ID_MAP = {
-    gradeLang: 'zBadgeLang',
-    gradePhy:  'zBadgePhy',
-    gradeChem: 'zBadgeChem',
-    gradeBio:  'zBadgeBio'
+// Map input IDs to their normalization subject keys based on Field
+const GRADE_TO_SUBJECT_MAP = {
+    "1": {
+        gradeLang: '\u039d\u0395\u039f\u0395\u039b\u039b\u0397\u039d\u0399\u039a\u0397 \u0393\u039b\u03a9\u03a3\u03a3\u0391 \u039a\u0391\u0399 \u039b\u039f\u0393\u039f\u03a4\u0395\u03a7\u039d\u0399\u0391 \u0393.\u03a0.',
+        gradeArx: '\u0391\u03a1\u03a7\u0391\u0399\u0391 \u0395\u039b\u039b\u0397\u039d\u0399\u039a\u0391 \u039f.\u03a0.',
+        gradeIst: '\u0399\u03a3\u03a4\u039f\u03a1\u0399\u0391 \u039f.\u03a0.',
+        gradeLat: '\u039b\u0391\u03a4\u0399\u039d\u0399\u039a\u0391 \u039f.\u03a0.'
+    },
+    "2": {
+        gradeLang: '\u039d\u0395\u039f\u0395\u039b\u039b\u0397\u039d\u0399\u039a\u0397 \u0393\u039b\u03a9\u03a3\u03a3\u0391 \u039a\u0391\u0399 \u039b\u039f\u0393\u039f\u03a4\u0395\u03a7\u039d\u0399\u0391 \u0393.\u03a0.',
+        gradePhy:  '\u03a6\u03a5\u03a3\u0399\u039a\u0397 \u039f.\u03a0.',
+        gradeChem: '\u03a7\u0397\u039c\u0395\u0399\u0391 \u039f.\u03a0.',
+        gradeMath: '\u039c\u0391\u0398\u0397\u039c\u0391\u03a4\u0399\u039a\u0391 \u039f.\u03a0.'
+    },
+    "3": {
+        gradeLang: '\u039d\u0395\u039f\u0395\u039b\u039b\u0397\u039d\u0399\u039a\u0397 \u0393\u039b\u03a9\u03a3\u03a3\u0391 \u039a\u0391\u0399 \u039b\u039f\u0393\u039f\u03a4\u0395\u03a7\u039d\u0399\u0391 \u0393.\u03a0.',
+        gradePhy:  '\u03a6\u03a5\u03a3\u0399\u039a\u0397 \u039f.\u03a0.',
+        gradeChem: '\u03a7\u0397\u039c\u0395\u0399\u0391 \u039f.\u03a0.',
+        gradeBio:  '\u0392\u0399\u039f\u039b\u039f\u0393\u0399\u0391 \u039f.\u03a0.'
+    },
+    "4": {
+        gradeLang: '\u039d\u0395\u039f\u0395\u039b\u039b\u0397\u039d\u0399\u039a\u0397 \u0393\u039b\u03a9\u03a3\u03a3\u0391 \u039a\u0391\u0399 \u039b\u039f\u0393\u039f\u03a4\u0395\u03a7\u039d\u0399\u0391 \u0393.\u03a0.',
+        gradeMath: '\u039c\u0391\u0398\u0397\u039c\u0391\u03a4\u0399\u039a\u0391 \u039f.\u03a0.',
+        gradePli:  '\u03a0\u039b\u0397\u03a1\u039f\u03a6\u039f\u03a1\u0399\u039a\u0397 \u039f.\u03a0.',
+        gradeOik:  '\u039f\u0399\u039a\u039f\u039d\u039f\u039c\u0399\u0391 \u039f.\u03a0.'
+    }
 };
+
+function getActiveGradeMap() {
+    return GRADE_TO_SUBJECT_MAP[activeFieldId] || {};
+}
 
 function zScoreToPercentile(z) {
     // Approximate percentile from Z-score using the error function approximation
@@ -126,11 +150,16 @@ function zScoreToPercentile(z) {
 }
 
 function updateZScoreBadges() {
-    const fieldData = normalizationData[FIELD_KEY];
+    if (!activeFieldId) return;
+    const fieldKey = FIELD_KEYS[activeFieldId];
+    const fieldData = normalizationData[fieldKey];
     if (!fieldData) return;
 
-    for (const [inputId, subjectKey] of Object.entries(GRADE_TO_SUBJECT)) {
-        const badgeEl = document.getElementById(BADGE_ID_MAP[inputId]);
+    const gradeMap = getActiveGradeMap();
+
+    for (const [inputId, subjectKey] of Object.entries(gradeMap)) {
+        const badgeId = inputId.replace('grade', 'zBadge'); // dynamic badge id (e.g. gradeLang -> zBadgeLang)
+        const badgeEl = document.getElementById(badgeId);
         if (!badgeEl) continue;
 
         const subjectStats = fieldData[subjectKey];
@@ -155,18 +184,28 @@ function updateZScoreBadges() {
 }
 
 function calculateAndRender() {
-    const gLang = parseFloat(document.getElementById('gradeLang').value) || 0;
-    const gPhy = parseFloat(document.getElementById('gradePhy').value) || 0;
-    const gChem = parseFloat(document.getElementById('gradeChem').value) || 0;
-    const gBio = parseFloat(document.getElementById('gradeBio').value) || 0;
+    if (!activeFieldId) return; // Do nothing if not on a field page
+
+    const gradeMap = getActiveGradeMap();
+    let sumGrades = 0;
+    let inputsFound = 0;
+    const currentGrades = {};
+
+    for (const inputId in gradeMap) {
+        const val = parseFloat(document.getElementById(inputId)?.value) || 0;
+        sumGrades += val;
+        inputsFound++;
+        currentGrades[inputId] = val;
+    }
 
     const natPerfInput = parseFloat(document.getElementById('natPerfDelta')?.value) || 0;
     const seatDeltaInput = parseFloat(document.getElementById('seatDelta')?.value) || 0;
     const natPerfDelta = natPerfInput / 100;
     const seatDelta = seatDeltaInput / 100;
 
-    const avg = (gLang + gPhy + gChem + gBio) / 4;
-    document.getElementById('avgDisplay').innerText = `Μέσος Όρος: ${avg.toFixed(2)}`;
+    const avg = inputsFound > 0 ? sumGrades / inputsFound : 0;
+    const avgDisplay = document.getElementById('avgDisplay');
+    if (avgDisplay) avgDisplay.innerText = `\u039c\u03ad\u03c3\u03bf\u03c2 \u038c\u03c1\u03bf\u03c2: ${avg.toFixed(2)}`;
 
     // Update Z-Score Badges
     updateZScoreBadges();
@@ -177,16 +216,41 @@ function calculateAndRender() {
     tbody.innerHTML = '';
 
     schools.forEach((school, index) => {
+        // Multi-Field Filtering Logic
+        const schoolFields = school.fields || [];
+        if (!schoolFields.includes(parseInt(activeFieldId))) return; // Hide schools not in this field
+
         const searchStr = normalizeString(`${school.name} ${school.city} ${school.institution} ${school.institution_short || ''}`);
         if (searchTerm && !searchStr.includes(searchTerm)) return;
 
-        const wLang = school.weights.glossa || 0.25;
-        const wPhy = school.weights.fysiki || 0.25;
-        const wChem = school.weights.ximeia || 0.25;
-        const wBio = school.weights.viologia || 0.25;
-
-        // Candidate Points
-        const userPoints = Math.round((gLang * wLang + gPhy * wPhy + gChem * wChem + gBio * wBio) * 1000);
+        // Dynamic points calculation based on field
+        let userPoints = 0;
+        if (activeFieldId === "1") {
+            const wLang = school.weights.glossa || 0.25;
+            const wArx = school.weights.arxaia || 0.25;
+            const wIst = school.weights.istoria || 0.25;
+            const wLat = school.weights.latinika || 0.25;
+            userPoints = Math.round((currentGrades.gradeLang * wLang + currentGrades.gradeArx * wArx + currentGrades.gradeIst * wIst + currentGrades.gradeLat * wLat) * 1000);
+        } else if (activeFieldId === "2") {
+            const wLang = school.weights.glossa || 0.25;
+            const wPhy = school.weights.fysiki || 0.25;
+            const wChem = school.weights.ximeia || 0.25;
+            const wMath = school.weights.mathimatika || 0.25;
+            userPoints = Math.round((currentGrades.gradeLang * wLang + currentGrades.gradePhy * wPhy + currentGrades.gradeChem * wChem + currentGrades.gradeMath * wMath) * 1000);
+        } else if (activeFieldId === "3") {
+            const wLang = school.weights.glossa || 0.25;
+            const wPhy = school.weights.fysiki || 0.25;
+            const wChem = school.weights.ximeia || 0.25;
+            const wBio = school.weights.viologia || 0.25;
+            userPoints = Math.round((currentGrades.gradeLang * wLang + currentGrades.gradePhy * wPhy + currentGrades.gradeChem * wChem + currentGrades.gradeBio * wBio) * 1000);
+        } else if (activeFieldId === "4") {
+            const wLang = school.weights.glossa || 0.25;
+            const wMath = school.weights.mathimatika || 0.25;
+            const wPli = school.weights.pliroforiki || 0.25;
+            const wOik = school.weights.oikonomia || 0.25;
+            userPoints = Math.round((currentGrades.gradeLang * wLang + currentGrades.gradeMath * wMath + currentGrades.gradePli * wPli + currentGrades.gradeOik * wOik) * 1000);
+        }
+        
         
         // F1: Estimation Intervals
         const est = calculateScoreEstimation(school, natPerfDelta, seatDelta);
@@ -213,7 +277,7 @@ function calculateAndRender() {
             <td>${getAdvancedPredictionBadge(probPct)}</td>
             <td>
                 <button class="btn-sm" onclick="toggleChart(${index}, ${userPoints}, ${est.base_estimate}, ${est.sigma})">Προηγμένη Ανάλυση</button>
-                <a href="detailed_prediction.html?school_id=${school.id}&score=${userPoints}&lang=${gLang}&phy=${gPhy}&chem=${gChem}&bio=${gBio}" class="btn-sm" style="display:inline-block; margin-top:4px; text-decoration:none; color:var(--primary); border: 1px solid var(--primary); background: transparent;">Επεξήγηση Πρόβλεψης</a>
+                <a href="detailed_prediction.html?school_id=${school.id}&score=${userPoints}&field=${activeFieldId}&grades=${encodeURIComponent(JSON.stringify(currentGrades))}" class="btn-sm" style="display:inline-block; margin-top:4px; text-decoration:none; color:var(--primary); border: 1px solid var(--primary); background: transparent;">Επεξήγηση Πρόβλεψης</a>
             </td>
         `;
         tbody.appendChild(tr);
@@ -326,15 +390,17 @@ function renderChart(index, userPoints, base_estimate, sigma) {
     });
 }
 
-// Event Listeners
-document.getElementById('calcBtn').addEventListener('click', calculateAndRender);
-document.getElementById('searchInput').addEventListener('input', calculateAndRender);
+// Event Listeners (only attach if on a calculator page)
+if (activeFieldId) {
+    document.getElementById('calcBtn')?.addEventListener('click', calculateAndRender);
+    document.getElementById('searchInput')?.addEventListener('input', calculateAndRender);
 
-// UI Modifiers event listeners
-const natInput = document.getElementById('natPerfDelta');
-if (natInput) natInput.addEventListener('input', calculateAndRender);
-const seatInput = document.getElementById('seatDelta');
-if (seatInput) seatInput.addEventListener('input', calculateAndRender);
+    // UI Modifiers event listeners
+    const natInput = document.getElementById('natPerfDelta');
+    if (natInput) natInput.addEventListener('input', calculateAndRender);
+    const seatInput = document.getElementById('seatDelta');
+    if (seatInput) seatInput.addEventListener('input', calculateAndRender);
+}
 
 // Phase 3: F7 - Interactive UI What-If Steppers
 function setupInteractiveSteppers() {
