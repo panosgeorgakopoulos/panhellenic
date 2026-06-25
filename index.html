@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Πανελλήνιες 2026 - Υπολογιστής & Πρόβλεψη Εισαγωγής (3ο Πεδίο)</title>
+    <!-- Chart.js for data visualization -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Πανελλήνιες 2026 - 3ο Πεδίο</h1>
+        <p class="subtitle">Υπολογιστής Μορίων & Πρόβλεψη Εισαγωγής (Επιστήμες Υγείας & Ζωής)</p>
+    </header>
+
+    <div class="card">
+        <div class="input-grid">
+            <div class="input-group">
+                <label for="gradeLang">Νεοελληνική Γλώσσα</label>
+                <input type="number" id="gradeLang" min="0" max="20" step="0.1" value="18.5">
+            </div>
+            <div class="input-group">
+                <label for="gradePhy">Φυσική</label>
+                <input type="number" id="gradePhy" min="0" max="20" step="0.1" value="19.0">
+            </div>
+            <div class="input-group">
+                <label for="gradeChem">Χημεία</label>
+                <input type="number" id="gradeChem" min="0" max="20" step="0.1" value="18.8">
+            </div>
+            <div class="input-group">
+                <label for="gradeBio">Βιολογία</label>
+                <input type="number" id="gradeBio" min="0" max="20" step="0.1" value="19.2">
+            </div>
+        </div>
+
+        <div class="controls">
+            <button class="primary-btn" id="calcBtn">Υπολογισμός Μορίων & Πρόβλεψη</button>
+            <div class="average-display" id="avgDisplay">Μέσος Όρος: 18.88</div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h3 style="margin-bottom: 1rem; color: var(--primary);">Μακροοικονομικά & Συστημικά Μοντέλα (Systemic Modifiers)</h3>
+        <div class="input-grid">
+            <div class="input-group">
+                <label for="natPerfDelta">Μεταβολή Εθνικών Επιδόσεων (%)</label>
+                <input type="number" id="natPerfDelta" min="-20" max="20" step="0.5" value="0" placeholder="π.χ. -3 για πιο δύσκολα θέματα">
+                <small class="text-muted" style="margin-top: 4px; font-size: 0.85rem;">(-) δυσκολότερα θέματα / (+) ευκολότερα</small>
+            </div>
+            <div class="input-group">
+                <label for="seatDelta">Μεταβολή Θέσεων Εισακτέων (%)</label>
+                <input type="number" id="seatDelta" min="-20" max="20" step="0.5" value="0" placeholder="π.χ. 2 για αύξηση θέσεων">
+                <small class="text-muted" style="margin-top: 4px; font-size: 0.85rem;">(-) λιγότερες θέσεις / (+) περισσότερες</small>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="filters">
+            <input type="text" id="searchInput" placeholder="Αναζήτηση σχολής ή πόλης (π.χ. Ιατρικής, Αθήνα)...">
+        </div>
+
+        <div class="table-responsive">
+            <table id="resultsTable">
+                <thead>
+                    <tr>
+                        <th>Σχολή</th>
+                        <th>Ίδρυμα & Πόλη</th>
+                        <th>Τα Μόρια σου</th>
+                        <th>Βάση 2025</th>
+                        <th>Απόκλιση</th>
+                        <th>Πρόβλεψη (%)</th>
+                        <th>Ενέργεια</th>
+                    </tr>
+                </thead>
+                <tbody id="resultsBody">
+                    <!-- Results will be injected here via JS -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
