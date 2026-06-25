@@ -21,19 +21,35 @@
         <div class="input-grid">
             <div class="input-group">
                 <label for="gradeLang">Νεοελληνική Γλώσσα</label>
-                <input type="number" id="gradeLang" min="0" max="20" step="0.1" value="18.5">
+                <div class="stepper-wrapper">
+                    <button class="stepper-btn minus" data-target="gradeLang">-</button>
+                    <input type="number" id="gradeLang" min="0" max="20" step="0.1" value="18.5">
+                    <button class="stepper-btn plus" data-target="gradeLang">+</button>
+                </div>
             </div>
             <div class="input-group">
                 <label for="gradePhy">Φυσική</label>
-                <input type="number" id="gradePhy" min="0" max="20" step="0.1" value="19.0">
+                <div class="stepper-wrapper">
+                    <button class="stepper-btn minus" data-target="gradePhy">-</button>
+                    <input type="number" id="gradePhy" min="0" max="20" step="0.1" value="19.0">
+                    <button class="stepper-btn plus" data-target="gradePhy">+</button>
+                </div>
             </div>
             <div class="input-group">
                 <label for="gradeChem">Χημεία</label>
-                <input type="number" id="gradeChem" min="0" max="20" step="0.1" value="18.8">
+                <div class="stepper-wrapper">
+                    <button class="stepper-btn minus" data-target="gradeChem">-</button>
+                    <input type="number" id="gradeChem" min="0" max="20" step="0.1" value="18.8">
+                    <button class="stepper-btn plus" data-target="gradeChem">+</button>
+                </div>
             </div>
             <div class="input-group">
                 <label for="gradeBio">Βιολογία</label>
-                <input type="number" id="gradeBio" min="0" max="20" step="0.1" value="19.2">
+                <div class="stepper-wrapper">
+                    <button class="stepper-btn minus" data-target="gradeBio">-</button>
+                    <input type="number" id="gradeBio" min="0" max="20" step="0.1" value="19.2">
+                    <button class="stepper-btn plus" data-target="gradeBio">+</button>
+                </div>
             </div>
         </div>
 
@@ -83,6 +99,10 @@
             </table>
         </div>
     </div>
+
+    <footer class="ethics-footer">
+        <p>⚠️ <strong>Αποποίηση Ευθύνης (Ethics Layer):</strong> Οι παραπάνω προβλέψεις αποτελούν <span class="highlight">στατιστικές εκτιμήσεις (probabilistic estimates)</span> βασισμένες σε ιστορική μεταβλητότητα (Volatility) και αλγόριθμους τάσης. Σε καμία περίπτωση δεν αποτελούν εγγύηση εισαγωγής. Ο χρήστης φέρει την αποκλειστική ευθύνη της συμπλήρωσης του Μηχανογραφικού του Δελτίου.</p>
+    </footer>
 </div>
 
 </body>

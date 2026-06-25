@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Πανελλήνιες 2026 - Επεξήγηση Πρόβλεψης (XAI)</title>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <script src="detailed_prediction.js" defer></script>
+</head>
+<body class="dashboard-body">
+
+<div class="container dashboard-container">
+    <div id="loadingCard" class="card text-center" style="margin-top: 2rem;">
+        <h3>⏳ Φόρτωση Προηγμένων Δεδομένων...</h3>
+    </div>
+
+    <div id="contentWrapper" style="display: none;">
+        <!-- Header Section -->
+        <header class="dashboard-header card">
+            <div class="header-top">
+                <div>
+                    <h4 class="text-muted">Αναλυτικό XAI Dashboard</h4>
+                    <h1 id="schoolTitle" style="margin-bottom: 0;"></h1>
+                    <p class="subtitle" id="schoolSubtitle"></p>
+                </div>
+                <div class="final-score-box">
+                    <span class="score-label">Τελική Πιθανότητα</span>
+                    <div id="finalProbBadge" class="score-value"></div>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="index.html" class="btn-sm" style="text-decoration:none;">&larr; Πίσω στην Αναζήτηση</a>
+                <button class="btn-sm primary-btn" onclick="window.print()">🖨️ Εκτύπωση / PDF</button>
+            </div>
+        </header>
+        
+        <!-- Dashboard Grid -->
+        <div class="dashboard-grid">
+            
+            <!-- XAI Natural Language Summary -->
+            <div class="card xai-summary-card">
+                <h3>🤖 Ανάλυση AI (XAI Summary)</h3>
+                <p id="xaiText" class="xai-text"></p>
+            </div>
+            
+            <!-- Actionable Advice -->
+            <div class="card advice-card">
+                <h3>💡 Στρατηγική & Συμβουλή</h3>
+                <div id="adviceText" class="advice-text"></div>
+            </div>
+
+            <!-- Visual Breakdown (Chart.js Waterfall) -->
+            <div class="card visual-card" style="grid-column: 1 / -1;">
+                <h3>📊 Σταδιακή Ανάλυση Πιθανότητας (Waterfall)</h3>
+                <p class="text-muted" style="margin-bottom: 1rem; font-size: 0.9rem;">
+                    Πώς διαμορφώνεται η πιθανότητά σου, ξεκινώντας από την καθαρή βαθμολογική διαφορά, συνυπολογίζοντας τις τάσεις της σχολής.
+                </p>
+                <div class="chart-wrapper" style="position: relative; height: 350px; width: 100%;">
+                    <canvas id="waterfallChartCanvas"></canvas>
+                </div>
+            </div>
+
+            <!-- Risk & Volatility Indicator -->
+            <div class="card risk-card" style="grid-column: 1 / -1;">
+                <h3>⚠️ Δείκτης Ρίσκου & Ιστορική Μεταβλητότητα</h3>
+                <div class="risk-gauge-wrapper">
+                    <div class="risk-gauge-track">
+                        <div id="riskGaugeFill" class="risk-gauge-fill"></div>
+                    </div>
+                    <div class="risk-gauge-labels">
+                        <span>Χαμηλό Ρίσκο (Σταθερή Βάση)</span>
+                        <span>Υψηλό Ρίσκο (Αστάθεια)</span>
+                    </div>
+                </div>
+                <p id="riskText" style="margin-top: 1rem; font-size: 1rem; color: var(--text-muted);"></p>
+            </div>
+
+        </div>
+
+        <footer class="ethics-footer">
+            <p>⚠️ <strong>Αποποίηση Ευθύνης (Ethics Layer):</strong> Οι παραπάνω προβλέψεις αποτελούν <span class="highlight">στατιστικές εκτιμήσεις (probabilistic estimates)</span> βασισμένες σε ιστορική μεταβλητότητα και αλγόριθμους τάσης. Σε καμία περίπτωση δεν αποτελούν εγγύηση εισαγωγής. Επικοινωνήστε με σχολικό σύμβουλο προσανατολισμού για την τελική υποβολή του μηχανογραφικού.</p>
+        </footer>
+    </div>
+</div>
+
+</body>
+</html>

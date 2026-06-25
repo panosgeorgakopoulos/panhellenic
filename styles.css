@@ -94,7 +94,7 @@ input[type="number"]:focus, input[type="text"]:focus {
     gap: 1rem;
 }
 
-button.primary-btn {
+button.primary-btn, a.primary-btn {
     background-color: var(--primary);
     color: white;
     border: none;
@@ -104,9 +104,11 @@ button.primary-btn {
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.2s;
+    text-decoration: none;
+    display: inline-block;
 }
 
-button.primary-btn:hover {
+button.primary-btn:hover, a.primary-btn:hover {
     background-color: var(--primary-hover);
 }
 
@@ -165,6 +167,7 @@ tbody tr:hover {
 
 .text-success { color: var(--success); font-weight: bold; }
 .text-danger { color: var(--danger); font-weight: bold; }
+.text-muted { color: var(--text-muted); }
 
 .bg-success { background-color: #D1FAE5; color: #065F46; }
 .bg-warning { background-color: #FEF3C7; color: #92400E; }
@@ -220,46 +223,233 @@ tbody tr:hover {
         grid-template-columns: 1fr;
     }
 }
-.stats-table-container {
-    background: #ffffff;
+
+/* Stepper UI */
+.stepper-wrapper {
+    display: flex;
+    align-items: center;
     border: 1px solid var(--border);
     border-radius: 8px;
-    padding: 1rem;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    overflow: hidden;
+    background: var(--surface);
+    transition: border-color 0.2s, box-shadow 0.2s;
 }
-.stats-table-container h4 {
-    font-size: 0.95rem;
-    margin-bottom: 0.75rem;
+
+.stepper-wrapper:focus-within {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.stepper-wrapper input {
+    flex: 1;
+    border: none !important;
+    border-radius: 0 !important;
+    text-align: center;
+    padding: 0.75rem 0.5rem !important;
+    box-shadow: none !important;
+    -moz-appearance: textfield;
+}
+
+.stepper-wrapper input::-webkit-outer-spin-button,
+.stepper-wrapper input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.stepper-btn {
+    background: var(--bg-color);
+    border: none;
+    color: var(--text-main);
+    padding: 0 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+
+.stepper-btn:hover {
+    background: #E5E7EB;
     color: var(--primary);
-    font-weight: 600;
 }
-.stats-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.85rem;
-}
-.stats-table th, .stats-table td {
-    padding: 0.5rem 0.75rem;
-    text-align: left;
-    border-bottom: 1px solid var(--border);
-}
-.stats-table th {
-    font-weight: 600;
-    background-color: var(--bg-color);
-    color: var(--text-muted);
-}
-.stats-badge {
-    display: inline-block;
-    padding: 0.125rem 0.375rem;
-    border-radius: 4px;
-    font-weight: 600;
-    font-size: 0.75rem;
-}
-.stats-badge.pass {
-    background-color: #D1FAE5;
-    color: #065F46;
-}
-.stats-badge.fail {
-    background-color: #FEE2E2;
+
+/* Ethics Footer */
+.ethics-footer {
+    margin-top: 3rem;
+    padding: 1.5rem;
+    background: #FEF2F2;
+    border-left: 4px solid var(--danger);
+    border-radius: 8px;
     color: #991B1B;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.ethics-footer .highlight {
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+/* =========================================
+   DASHBOARD UI (PHASE 4 PRO)
+========================================= */
+
+.dashboard-body {
+    background-color: #F8FAFC;
+}
+
+.dashboard-container {
+    max-width: 1400px;
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.dashboard-header .header-top {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.final-score-box {
+    background: var(--bg-color);
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    text-align: center;
+}
+
+.score-label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.score-value {
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+@media (max-width: 992px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+    .dashboard-header .header-top {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+}
+
+.xai-text {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: var(--text-main);
+}
+
+.advice-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    background: #EFF6FF;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid #3B82F6;
+}
+
+/* Risk Gauge Track */
+.risk-gauge-wrapper {
+    margin-top: 1.5rem;
+}
+
+.risk-gauge-track {
+    width: 100%;
+    height: 24px;
+    background: linear-gradient(to right, var(--success) 0%, var(--warning) 50%, var(--danger) 100%);
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    opacity: 0.3;
+}
+
+.risk-gauge-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: #000;
+    border-radius: 12px;
+    transition: width 1s ease-in-out, background-color 1s ease-in-out;
+    z-index: 2;
+}
+
+.risk-gauge-track::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, var(--success) 0%, var(--warning) 50%, var(--danger) 100%);
+    z-index: 1;
+}
+
+.risk-gauge-wrapper .risk-gauge-fill {
+    /* Overlaying color to simulate gauge pointer */
+    box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+}
+
+/* Modern trick for the gauge: we use the background color of the fill dynamically via JS, and drop the opacity of the track */
+.risk-gauge-track {
+    background: #E5E7EB;
+    opacity: 1;
+}
+
+.risk-gauge-fill {
+    background: var(--warning); /* Overridden by JS */
+}
+
+.risk-gauge-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+/* Print Styles */
+@media print {
+    body {
+        background: white;
+    }
+    .header-actions, .ethics-footer {
+        display: none !important;
+    }
+    .card {
+        box-shadow: none;
+        border: 1px solid #ccc;
+    }
+    .dashboard-container {
+        max-width: 100%;
+    }
 }
