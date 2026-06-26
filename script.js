@@ -247,7 +247,7 @@ function calculateAndRender() {
         const schoolFields = school.fields || [];
         if (!schoolFields.includes(parseInt(activeFieldId))) return; // Hide schools not in this field
 
-        const searchStr = normalizeString(`${school.name} ${school.city} ${school.institution} ${school.institution_short || ''}`);
+        const searchStr = normalizeString(`${school.name || ''} ${school.city || ''} ${school.institution || ''} ${school.institution_short || ''}`);
         if (searchTerm && !searchStr.includes(searchTerm)) return;
 
         // Dynamic points calculation based on field
@@ -303,7 +303,7 @@ function calculateAndRender() {
         const tr = document.createElement('tr');
         tr.innerHTML = `
             <td data-label="Σχολή"><strong>${school.name}</strong></td>
-            <td data-label="Ίδρυμα & Πόλη">${school.institution_short || school.institution} - ${school.city}</td>
+            <td data-label="Ίδρυμα & Πόλη">${school.institution_short || school.institution || ''} ${school.city ? '- ' + school.city : ''}</td>
             <td data-label="Τα Μόρια σου"><strong>${userPoints}</strong></td>
             <td data-label="Βάση 2025">
                 ${actualBase > 0 ? actualBase : '-'} <br>

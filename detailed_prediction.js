@@ -43,13 +43,16 @@ async function loadDetailedPrediction() {
 
     try {
         const [schoolsRes, normRes] = await Promise.all([
-            fetch('schools_data_final.json'),
+            fetch('schools_data_final.json?v=' + new Date().getTime()),
             fetch('normalization_factors.json')
         ]);
         const schools = await schoolsRes.json();
         const normData = await normRes.json();
         
+        console.log('Looking for ID:', schoolId);
         const school = schools.find(s => parseInt(s.id, 10) === parseInt(schoolId, 10));
+        console.log('Found:', school);
+        
         if (!school) {
             document.getElementById('loadingCard').innerHTML = '<h3 class="text-danger">Σφάλμα: Η σχολή δεν βρέθηκε.</h3>';
             return;
@@ -93,7 +96,7 @@ function renderDashboard(school, userScore, fieldId, grades, normData) {
     
     // Header
     document.getElementById('schoolTitle').innerText = school.name;
-    document.getElementById('schoolSubtitle').innerText = `${school.institution_short || school.institution} - ${school.city} | Τα Μόριά σου: ${userScore}`;
+    document.getElementById('schoolSubtitle').innerText = `${school.institution || ''} ${school.city ? '- ' + school.city : ''} | Τα Μόριά σου: ${userScore}`;
     
     // 1. Data Extraction
     const baseCutoff = calculateScoreEstimationDetailed(school);
