@@ -10,7 +10,7 @@ let activeFieldId = document.body.getAttribute('data-field');
 async function loadData() {
     try {
         const [schoolsRes, statsRes, normRes, weightsRes] = await Promise.all([
-            fetch('schools_data_final.json'), // using the updated JSON as requested
+            fetch('schools_data_final.json?v=' + new Date().getTime()),
             fetch('stats_data.json'),
             fetch('normalization_factors.json'),
             fetch('weights_data.json')
