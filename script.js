@@ -232,6 +232,11 @@ function calculateAndRender() {
     // Update Z-Score Badges
     updateZScoreBadges();
 
+    // Track Calculation in GA4
+    if (typeof gtag === 'function') {
+        gtag('event', 'calculate_score', { activeFieldId: activeFieldId });
+    }
+
     const tbody = document.getElementById('resultsBody');
     const searchTerm = normalizeString(document.getElementById('searchInput').value);
     
@@ -335,6 +340,10 @@ window.toggleChart = function(index, userPoints, base_estimate, sigma) {
     row.classList.toggle('active');
 
     if (row.classList.contains('active')) {
+        const school = schools[index];
+        if (typeof gtag === 'function' && school) {
+            gtag('event', 'view_detailed_analysis', { school_id: school.id });
+        }
         renderChart(index, userPoints, base_estimate, sigma);
     }
 };
@@ -463,3 +472,19 @@ function setupInteractiveSteppers() {
 
 // Initial load
 loadData();
+
+// Google Analytics - Theme Toggle Tracking
+document.addEventListener('DOMContentLoaded', () => {
+    const themeBtn = document.getElementById('themeToggle');
+    if (themeBtn) {
+        themeBtn.addEventListener('click', () => {
+            // Wait for inline script to update the data-theme attribute
+            setTimeout(() => {
+                const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+                if (typeof gtag === 'function') {
+                    gtag('event', 'toggle_theme', { theme: currentTheme });
+                }
+            }, 50);
+        });
+    }
+});
