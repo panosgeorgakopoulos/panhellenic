@@ -14,7 +14,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Σχετικά με την Πλατφόρμα - Panhellenic Probabilistic Decision Platform</title>
+    <title>Οδηγίες Χρήσης - Panhellenic Probabilistic Decision Platform</title>
     <link rel="stylesheet" href="styles.css">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-1HNT272ZT3"></script>
@@ -31,10 +31,10 @@
     <div class="navbar-container">
         <a href="index.html" class="nav-logo">Panhellenic</a>
         <div class="nav-links" id="navLinks">
-            <a href="field_1.html">1ο Πεδίο</a>
-            <a href="field_2.html">2ο Πεδίο</a>
-            <a href="field_3.html">3ο Πεδίο</a>
-            <a href="field_4.html">4ο Πεδίο</a>
+            <a href="field.html?id=1">1ο Πεδίο</a>
+            <a href="field.html?id=2">2ο Πεδίο</a>
+            <a href="field.html?id=3">3ο Πεδίο</a>
+            <a href="field.html?id=4">4ο Πεδίο</a>
         </div>
         <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" style="background:none; border:none; font-size:1.25rem; cursor:pointer; padding:0.25rem;">🌙</button>
         <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">
@@ -76,21 +76,29 @@
 <div class="container">
     <header style="position: relative;">
         <a href="index.html" class="btn-sm" style="position: absolute; top: 0; right: 0; text-decoration: none;">&larr; Αρχική</a>
-        <h1>Σχετικά με την Πλατφόρμα</h1>
-        <p class="subtitle">Γνωρίστε την ομάδα και το όραμά μας</p>
+        <h1>Οδηγίες Χρήσης</h1>
+        <p class="subtitle">Πώς να αξιοποιήσετε στο έπακρο την πλατφόρμα</p>
     </header>
 
     <div class="card">
-        <h2 style="color: var(--primary); margin-bottom: 1rem;">Το Όραμά μας</h2>
-        <p>Η <strong>Panhellenic Probabilistic Decision Platform</strong> δημιουργήθηκε με έναν ξεκάθαρο στόχο: να εκδημοκρατίσει την πρόσβαση σε προηγμένα εργαλεία ανάλυσης δεδομένων για τους μαθητές που συμμετέχουν στις Πανελλαδικές Εξετάσεις.</p>
-        <p style="margin-top: 1rem;">Σε μια εποχή όπου οι βάσεις και οι συντελεστές βαρύτητας αλλάζουν ραγδαία, οι παραδοσιακοί "πίνακες μορίων" δεν αρκούν πλέον. Η πλατφόρμα μας γεφυρώνει το χάσμα, προσφέροντας πληροφορίες επιπέδου data science με τρόπο απλό, κατανοητό και προσβάσιμο σε όλους.</p>
-        <br><br>
-        <h2 style="color: var(--primary); margin-bottom: 1rem;">Πώς Λειτουργούμε</h2>
-        <p>Χρησιμοποιούμε ιστορικά δεδομένα βάσεων (από το 2020 έως σήμερα), συνδυασμένα με προηγμένους αλγορίθμους μηχανικής μάθησης και μοντέλα μεταβλητότητας (volatility index) για να εκτιμήσουμε την πιθανότητα εισαγωγής σε κάθε σχολή. Η προσέγγισή μας είναι καθαρά πιθανοθεωρητική και προσφέρει <strong>Explainable AI (XAI)</strong>, δηλαδή δεν δίνει απλά ένα νούμερο, αλλά εξηγεί λεπτομερώς <em>γιατί</em> προκύπτει αυτό το νούμερο.</p>
-        <p style="margin-top: 1rem;">Παράλληλα, τα στατιστικά δεδομένα κανονικοποιούνται (Z-score normalization) επιτρέποντας στους υποψηφίους να δουν την πραγματική τους θέση (percentile) ανάλογα με την επίδοσή τους σε κάθε μάθημα.</p>
-        <br><br>
-        <h2 style="color: var(--primary); margin-bottom: 1rem;">Η Ομάδα</h2>
-        <p>Είμαι 3ο ετής φοιτητής Πληροφορικής με ενδιαφέρον στο software engineering. Δημιούργησα το Panhellenic ως ένα εργαλείο υποστήριξης αποφάσεων για υποψηφίους των Πανελληνίων, με στόχο να μετατρέψει τα ιστορικά δεδομένα βάσεων και τις επιδόσεις των μαθητών σε πιο κατανοητές και ποσοτικοποιημένες εκτιμήσεις πιθανότητας εισαγωγής. Το project συνδυάζει προγραμματισμό και στατιστική λογική για να προσφέρει μια πιο ρεαλιστική και τεκμηριωμένη εικόνα των επιλογών σχολών.</p>
+        <h2 style="color: var(--primary);">Βήμα 1: Επιλογή Επιστημονικού Πεδίου</h2>
+        <p>Από την αρχική οθόνη (Dashboard), επιλέξτε το Επιστημονικό Πεδίο που σας ενδιαφέρει (π.χ. 1ο Πεδίο Ανθρωπιστικών Σπουδών). Η πλατφόρμα θα σας μεταφέρει στον αντίστοιχο, προσαρμοσμένο υπολογιστή μορίων.</p>
+        <hr style="margin: 25px 0; border: 0; border-top: 1px solid var(--border);">
+        
+        <h2 style="color: var(--primary);">Βήμα 2: Εισαγωγή Βαθμολογιών (Άμεσο Feedback)</h2>
+        <p>Χρησιμοποιήστε τα ειδικά πεδία με τα κουμπιά (+) και (-) για να εισάγετε τις βαθμολογίες σας στα τέσσερα πανελλαδικώς εξεταζόμενα μαθήματα. Καθώς πληκτρολογείτε, η πλατφόρμα θα υπολογίζει <strong>αυτόματα</strong> τον Z-Score σας, δείχνοντάς σας πού βρίσκεστε σε σχέση με τον μέσο όρο (μ) της χρονιάς για το εκάστοτε μάθημα!</p>
+        <hr style="margin: 25px 0; border: 0; border-top: 1px solid var(--border);">
+
+        <h2 style="color: var(--primary);">Βήμα 3: Ρύθμιση Μακροοικονομικών Μοντέλων</h2>
+        <p>Η πλατφόρμα μας επιτρέπει "what-if" αναλύσεις. Αν πιστεύετε ότι τα θέματα φέτος ήταν γενικά δυσκολότερα, μπορείτε να εισάγετε μια αρνητική μεταβολή στο πεδίο <em>Μεταβολή Εθνικών Επιδόσεων</em> (π.χ. -2%). Αντίστοιχα, αν ακούσατε για αύξηση των εισακτέων, προσθέστε ένα θετικό ποσοστό στο <em>Μεταβολή Θέσεων Εισακτέων</em>. Ο αλγόριθμος θα προσαρμόσει την εκτιμώμενη βάση αναλόγως.</p>
+        <hr style="margin: 25px 0; border: 0; border-top: 1px solid var(--border);">
+
+        <h2 style="color: var(--primary);">Βήμα 4: Ανάλυση Σχολών</h2>
+        <p>Ο πίνακας στο κάτω μέρος ανανεώνεται άμεσα δείχνοντας τα μόρια σας για τη συγκεκριμένη σχολή, τη βάση του προηγούμενου έτους, την απόκλιση, και την <strong>Πρόβλεψη Πιθανότητας Εισαγωγής (%)</strong>. Μπορείτε να χρησιμοποιήσετε την αναζήτηση για να φιλτράρετε πόλεις (π.χ. "Αθήνα") ή τμήματα.</p>
+        <hr style="margin: 25px 0; border: 0; border-top: 1px solid var(--border);">
+
+        <h2 style="color: var(--primary);">Βήμα 5: Επεξήγηση Πρόβλεψης (XAI)</h2>
+        <p>Για κάθε σχολή που σας ενδιαφέρει, κάντε κλικ στο κουμπί <strong>"Επεξήγηση Πρόβλεψης"</strong>. Θα μεταφερθείτε σε ένα αναλυτικό Dashboard (Explainable AI) το οποίο σας εξηγεί με διαγράμματα, κείμενο φυσικής γλώσσας, και αναλύσεις περιθωρίων ασφαλείας, πώς ακριβώς προέκυψε το συγκεκριμένο ποσοστό επιτυχίας!</p>
     </div>
 </div>
 

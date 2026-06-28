@@ -14,7 +14,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Πανελλήνιες 2026 - 1ο Πεδίο (Ανθρωπιστικών Σπουδών)</title>
+    <title>Πανελλήνιες 2026 - Υπολογιστής & Πρόβλεψη</title>
     <!-- Chart.js for data visualization -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="styles.css">
@@ -29,15 +29,15 @@
   gtag('config', 'G-1HNT272ZT3');
 </script>
 </head>
-<body data-field="1">
+<body>
 <nav class="top-navbar">
     <div class="navbar-container">
         <a href="index.html" class="nav-logo">Panhellenic</a>
         <div class="nav-links" id="navLinks">
-            <a href="field_1.html">1ο Πεδίο</a>
-            <a href="field_2.html">2ο Πεδίο</a>
-            <a href="field_3.html">3ο Πεδίο</a>
-            <a href="field_4.html">4ο Πεδίο</a>
+            <a href="field.html?id=1">1ο Πεδίο</a>
+            <a href="field.html?id=2">2ο Πεδίο</a>
+            <a href="field.html?id=3">3ο Πεδίο</a>
+            <a href="field.html?id=4">4ο Πεδίο</a>
         </div>
         <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" style="background:none; border:none; font-size:1.25rem; cursor:pointer; padding:0.25rem;">🌙</button>
         <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">
@@ -79,48 +79,13 @@
 <div class="container">
     <header style="position: relative;">
         <a href="index.html" class="btn-sm" style="position: absolute; top: 0; right: 0; text-decoration: none;">&larr; Αρχική</a>
-        <h1>1ο Πεδίο</h1>
-        <p class="subtitle">Ανθρωπιστικών, Νομικών & Κοινωνικών Σπουδών</p>
+        <h1 id="fieldTitle"></h1>
+        <p class="subtitle" id="fieldSubtitle"></p>
     </header>
 
     <div class="card">
-        <div class="input-grid">
-            <div class="input-group">
-                <label for="gradeLang">Νεοελληνική Γλώσσα</label>
-                <div class="stepper-wrapper">
-                    <button class="stepper-btn minus" data-target="gradeLang">-</button>
-                    <input type="number" id="gradeLang" min="0" max="20" step="0.1" value="18.5">
-                    <button class="stepper-btn plus" data-target="gradeLang">+</button>
-                </div>
-                <span class="zscore-badge" id="zBadgeLang"></span>
-            </div>
-            <div class="input-group">
-                <label for="gradeArx">Αρχαία Ελληνικά</label>
-                <div class="stepper-wrapper">
-                    <button class="stepper-btn minus" data-target="gradeArx">-</button>
-                    <input type="number" id="gradeArx" min="0" max="20" step="0.1" value="17.0">
-                    <button class="stepper-btn plus" data-target="gradeArx">+</button>
-                </div>
-                <span class="zscore-badge" id="zBadgeArx"></span>
-            </div>
-            <div class="input-group">
-                <label for="gradeIst">Ιστορία</label>
-                <div class="stepper-wrapper">
-                    <button class="stepper-btn minus" data-target="gradeIst">-</button>
-                    <input type="number" id="gradeIst" min="0" max="20" step="0.1" value="18.0">
-                    <button class="stepper-btn plus" data-target="gradeIst">+</button>
-                </div>
-                <span class="zscore-badge" id="zBadgeIst"></span>
-            </div>
-            <div class="input-group">
-                <label for="gradeLat">Λατινικά</label>
-                <div class="stepper-wrapper">
-                    <button class="stepper-btn minus" data-target="gradeLat">-</button>
-                    <input type="number" id="gradeLat" min="0" max="20" step="0.1" value="19.0">
-                    <button class="stepper-btn plus" data-target="gradeLat">+</button>
-                </div>
-                <span class="zscore-badge" id="zBadgeLat"></span>
-            </div>
+        <div class="input-grid" id="subjectsGrid">
+            <!-- Subjects will be dynamically injected here -->
         </div>
 
         <div class="controls">

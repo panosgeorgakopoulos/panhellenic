@@ -4,16 +4,113 @@ let activeCharts = {};
 let normalizationData = {};
 let schoolWeightsData = {};
 
+// Field configurations
+const fieldConfigs = {
+    '1': {
+        title: '1ο Πεδίο',
+        subtitle: 'Ανθρωπιστικών, Νομικών & Κοινωνικών Σπουδών',
+        docTitle: 'Πανελλήνιες 2026 - 1ο Πεδίο (Ανθρωπιστικών Σπουδών)',
+        subjects: [
+            { id: 'gradeLang', label: 'Νεοελληνική Γλώσσα', value: '18.5' },
+            { id: 'gradeArx', label: 'Αρχαία Ελληνικά', value: '17.0' },
+            { id: 'gradeIst', label: 'Ιστορία', value: '18.0' },
+            { id: 'gradeLat', label: 'Λατινικά', value: '19.0' }
+        ]
+    },
+    '2': {
+        title: '2ο Πεδίο',
+        subtitle: 'Θετικών & Τεχνολογικών Επιστημών',
+        docTitle: 'Πανελλήνιες 2026 - 2ο Πεδίο (Θετικών Σπουδών)',
+        subjects: [
+            { id: 'gradeLang', label: 'Νεοελληνική Γλώσσα', value: '18.5' },
+            { id: 'gradePhy', label: 'Φυσική', value: '19.0' },
+            { id: 'gradeChem', label: 'Χημεία', value: '18.8' },
+            { id: 'gradeMath', label: 'Μαθηματικά', value: '17.5' }
+        ]
+    },
+    '3': {
+        title: '3ο Πεδίο',
+        subtitle: 'Επιστημών Υγείας & Ζωής',
+        docTitle: 'Πανελλήνιες 2026 - 3ο Πεδίο (Σπουδών Υγείας)',
+        subjects: [
+            { id: 'gradeLang', label: 'Νεοελληνική Γλώσσα', value: '18.5' },
+            { id: 'gradePhy', label: 'Φυσική', value: '19.0' },
+            { id: 'gradeChem', label: 'Χημεία', value: '18.8' },
+            { id: 'gradeBio', label: 'Βιολογία', value: '19.2' }
+        ]
+    },
+    '4': {
+        title: '4ο Πεδίο',
+        subtitle: 'Επιστημών Οικονομίας & Πληροφορικής',
+        docTitle: 'Πανελλήνιες 2026 - 4ο Πεδίο (Οικονομίας & Πληροφορικής)',
+        subjects: [
+            { id: 'gradeLang', label: 'Νεοελληνική Γλώσσα', value: '18.5' },
+            { id: 'gradeMath', label: 'Μαθηματικά', value: '16.5' },
+            { id: 'gradePli', label: 'Πληροφορική', value: '18.8' },
+            { id: 'gradeOik', label: 'Οικονομία', value: '19.2' }
+        ]
+    }
+};
+
+function injectFieldLayout(fieldId) {
+    const config = fieldConfigs[fieldId];
+    if (!config) return;
+
+    document.title = config.docTitle;
+    
+    const titleEl = document.getElementById('fieldTitle');
+    if (titleEl) titleEl.textContent = config.title;
+
+    const subtitleEl = document.getElementById('fieldSubtitle');
+    if (subtitleEl) subtitleEl.textContent = config.subtitle;
+
+    const gridEl = document.getElementById('subjectsGrid');
+    if (gridEl) {
+        let html = '';
+        config.subjects.forEach(sub => {
+            const zBadgeId = 'zBadge' + sub.id.replace('grade', '');
+            html += `
+            <div class="input-group">
+                <label for="${sub.id}">${sub.label}</label>
+                <div class="stepper-wrapper">
+                    <button class="stepper-btn minus" data-target="${sub.id}">-</button>
+                    <input type="number" id="${sub.id}" min="0" max="20" step="0.1" value="${sub.value}">
+                    <button class="stepper-btn plus" data-target="${sub.id}">+</button>
+                </div>
+                <span class="zscore-badge" id="${zBadgeId}"></span>
+            </div>
+            `;
+        });
+        gridEl.innerHTML = html;
+    }
+}
+
 let activeFieldId = document.body.getAttribute('data-field');
+
+const urlParams = new URLSearchParams(window.location.search);
+const fieldParam = urlParams.get('id') || urlParams.get('field');
+
+if (window.location.pathname.endsWith('field.html')) {
+    if (['1', '2', '3', '4'].includes(fieldParam)) {
+        injectFieldLayout(fieldParam);
+        document.body.setAttribute('data-field', fieldParam);
+        activeFieldId = fieldParam;
+    } else {
+        window.location.href = 'index.html';
+    }
+} else if (fieldParam) {
+    activeFieldId = fieldParam;
+}
+
 
 // Load data from external JSON files
 async function loadData() {
     try {
         const [schoolsRes, statsRes, normRes, weightsRes] = await Promise.all([
-            fetch('schools_data_final.json?v=' + new Date().getTime()),
-            fetch('stats_data.json'),
-            fetch('normalization_factors.json'),
-            fetch('weights_data.json')
+            fetch('../data/processed/schools.json?v=' + new Date().getTime()),
+            fetch('../data/processed/stats_data.json'),
+            fetch('../data/processed/normalization_factors.json'),
+            fetch('../data/processed/weights_data.json')
         ]);
         schools = await schoolsRes.json();
         statsData = await statsRes.json();
