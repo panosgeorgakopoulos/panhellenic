@@ -1,20 +1,32 @@
 import { supabase } from './supabaseClient.js';
 
-export async function signUp(email, password) {
+export async function signUp(email, password, captchaToken) {
     const { data, error } = await supabase.auth.signUp({
         email,
         password,
+        options: { captchaToken }
     });
-    if (error) throw error;
+    if (error) {
+        if (error.code === 'CAPTCHA_REQUIRED') {
+            error.message = 'Παρακαλώ επιβεβαιώστε ότι δεν είστε ρομπότ επιλύοντας το hCaptcha.';
+        }
+        throw error;
+    }
     return data;
 }
 
-export async function signIn(email, password) {
+export async function signIn(email, password, captchaToken) {
     const { data, error } = await supabase.auth.signInWithPassword({
         email,
         password,
+        options: { captchaToken }
     });
-    if (error) throw error;
+    if (error) {
+        if (error.code === 'CAPTCHA_REQUIRED') {
+            error.message = 'Παρακαλώ επιβεβαιώστε ότι δεν είστε ρομπότ επιλύοντας το hCaptcha.';
+        }
+        throw error;
+    }
     return data;
 }
 

@@ -2046,3 +2046,8 @@ tbody tr:hover {
     box-shadow: 0 0 10px var(--accent-neon-glow);
 }
 
+.h-captcha {
+    display: flex;
+    justify-content: center;
+    margin: 1.5rem 0;
+}

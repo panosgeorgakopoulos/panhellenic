@@ -734,9 +734,14 @@ document.addEventListener('DOMContentLoaded', async () => {
             const originalText = authSubmitBtn.innerText;
             authSubmitBtn.innerText = 'Φόρτωση...';
             
+            let captchaToken = '';
+            if (typeof hcaptcha !== 'undefined') {
+                captchaToken = hcaptcha.getResponse();
+            }
+
             let user;
             if (isRegisterMode) {
-                const data = await signUp(email, password);
+                const data = await signUp(email, password, captchaToken);
                 user = data.user;
                 if (!user && data.session) user = data.session.user;
                 if (!user) {
@@ -744,12 +749,13 @@ document.addEventListener('DOMContentLoaded', async () => {
                         authError.innerText = 'Ελέγξτε το email σας για επιβεβαίωση (αν απαιτείται) ή δοκιμάστε ξανά.';
                         authError.style.display = 'block';
                     }
+                    if (typeof hcaptcha !== 'undefined') hcaptcha.reset();
                     authSubmitBtn.disabled = false;
                     authSubmitBtn.innerText = originalText;
                     return;
                 }
             } else {
-                const data = await signIn(email, password);
+                const data = await signIn(email, password, captchaToken);
                 user = data.user;
             }
             
@@ -758,6 +764,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 handleLoginSuccess(user);
             }
             
+            if (typeof hcaptcha !== 'undefined') hcaptcha.reset();
             authSubmitBtn.disabled = false;
             authSubmitBtn.innerText = originalText;
         } catch (error) {
@@ -765,6 +772,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 authError.innerText = error.message;
                 authError.style.display = 'block';
             }
+            if (typeof hcaptcha !== 'undefined') hcaptcha.reset();
             authSubmitBtn.disabled = false;
             authSubmitBtn.innerText = isRegisterMode ? 'Εγγραφή' : 'Σύνδεση';
         }
