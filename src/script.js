@@ -17,7 +17,7 @@ if ('serviceWorker' in navigator) {
   } else {
     // Register only in production
     window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/service-worker.js').catch(err => {
+      navigator.serviceWorker.register('./service-worker.js').catch(err => {
         console.log('SW registration failed: ', err);
       });
     });
@@ -134,10 +134,10 @@ if (window.location.pathname.endsWith('field.html')) {
 async function loadData() {
     try {
         const [schoolsRes, statsRes, normRes, weightsRes] = await Promise.all([
-            fetch('/data/processed/schools.json?v=' + new Date().getTime()),
-            fetch('/data/processed/stats_data.json'),
-            fetch('/data/processed/normalization_factors.json'),
-            fetch('/data/processed/weights_data.json')
+            fetch('./data/processed/schools.json?v=' + new Date().getTime()),
+            fetch('./data/processed/stats_data.json'),
+            fetch('./data/processed/normalization_factors.json'),
+            fetch('./data/processed/weights_data.json')
         ]);
         schools = await schoolsRes.json();
         statsData = await statsRes.json();
@@ -615,7 +615,7 @@ if (userDropdownToggle && userDropdown && !userDropdownToggle.dataset.listenerAt
 
 // Google Analytics - Theme Toggle Tracking
 document.addEventListener('DOMContentLoaded', () => {
-    checkActiveSession();
+
 
     const themeBtn = document.getElementById('themeToggle');
     if (themeBtn) {

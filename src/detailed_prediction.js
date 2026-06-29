@@ -44,8 +44,8 @@ async function loadDetailedPrediction() {
 
     try {
         const [schoolsRes, normRes] = await Promise.all([
-            fetch('/data/processed/schools.json?v=' + new Date().getTime()),
-            fetch('/data/processed/normalization_factors.json')
+            fetch('./data/processed/schools.json?v=' + new Date().getTime()),
+            fetch('./data/processed/normalization_factors.json')
         ]);
         const schoolsData = await schoolsRes.json();
         const normData = await normRes.json();

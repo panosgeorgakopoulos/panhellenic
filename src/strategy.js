@@ -112,8 +112,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     // 2. Load Data
     try {
         const [schoolsRes, weightsRes] = await Promise.all([
-            fetch('/data/processed/schools.json?v=' + new Date().getTime()),
-            fetch('/data/processed/weights_data.json')
+            fetch('./data/processed/schools.json?v=' + new Date().getTime()),
+            fetch('./data/processed/weights_data.json')
         ]);
         schoolsData = await schoolsRes.json();
         const weightsData = await weightsRes.json();
