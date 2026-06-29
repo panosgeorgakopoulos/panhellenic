@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <script>
+    (function() {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+    })();
+</script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Πανελλήνιες 2026 - Decision Platform</title>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1HNT272ZT3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1HNT272ZT3');
+</script>
+  <script type="module" crossorigin src="/assets/modulepreload-polyfill-Dezn_h7o.js"></script>
+  <script type="module" crossorigin src="/assets/script-BTpHVH1d.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/styles-DKRAY1Wq.css">
+</head>
+<body>
+<nav class="top-navbar">
+    <div class="navbar-container">
+        <a href="index.html" class="nav-logo">Panhellenic</a>
+        <div class="nav-links" id="navLinks">
+            <a href="field.html?id=1">1ο Πεδίο</a>
+            <a href="field.html?id=2">2ο Πεδίο</a>
+            <a href="field.html?id=3">3ο Πεδίο</a>
+            <a href="field.html?id=4">4ο Πεδίο</a>
+        </div>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" style="background:none; border:none; font-size:1.25rem; cursor:pointer; padding:0.25rem;">🌙</button>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+</nav>
+<script>
+    document.getElementById('hamburgerBtn').addEventListener('click', function() {
+        document.getElementById('navLinks').classList.toggle('active');
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const themeBtn = document.getElementById('themeToggle');
+        if (!themeBtn) return;
+        
+        const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+        themeBtn.textContent = currentTheme === 'dark' ? '☀️' : '🌙';
+
+        themeBtn.addEventListener('click', () => {
+            let theme = document.documentElement.getAttribute('data-theme');
+            if (theme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+                themeBtn.textContent = '🌙';
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                themeBtn.textContent = '☀️';
+            }
+        });
+    });
+
+</script>
+
+
+<div class="container">
+    <div class="hero">
+        <h1>Panhellenic Probabilistic Decision Platform</h1>
+        <p>Ένα προηγμένο σύστημα λήψης αποφάσεων και πρόβλεψης πιθανοτήτων εισαγωγής στην Τριτοβάθμια Εκπαίδευση, βασισμένο σε ανάλυση ιστορικών δεδομένων και συστημικών τάσεων.</p>
+    </div>
+
+    <div class="welcome-grid">
+        <a href="field.html?id=1" class="welcome-card">
+            <span class="field-icon">🏛️</span>
+            <h2>1ο Πεδίο</h2>
+            <p>Ανθρωπιστικών, Νομικών & Κοινωνικών Σπουδών</p>
+        </a>
+        
+        <a href="field.html?id=2" class="welcome-card">
+            <span class="field-icon">📐</span>
+            <h2>2ο Πεδίο</h2>
+            <p>Θετικών & Τεχνολογικών Επιστημών</p>
+        </a>
+
+        <a href="field.html?id=3" class="welcome-card">
+            <span class="field-icon">⚕️</span>
+            <h2>3ο Πεδίο</h2>
+            <p>Επιστημών Υγείας & Ζωής</p>
+        </a>
+
+        <a href="field.html?id=4" class="welcome-card">
+            <span class="field-icon">💻</span>
+            <h2>4ο Πεδίο</h2>
+            <p>Επιστημών Οικονομίας & Πληροφορικής</p>
+        </a>
+    </div>
+
+    <footer class="ethics-footer">
+        <p>⚠️ <strong>Αποποίηση Ευθύνης (Ethics Layer):</strong> Οι προβλέψεις αποτελούν <span class="highlight">στατιστικές εκτιμήσεις (probabilistic estimates)</span>. Σε καμία περίπτωση δεν αποτελούν εγγύηση εισαγωγής.</p>
+    </footer>
+</div>
+
+<!-- Only loading script.js so it can execute basic logic if needed, but the main logic relies on data-field attribute -->
+
+<footer class="site-footer">
+    <div class="footer-container">
+        <div class="footer-col">
+            <h4>Σχετικά</h4>
+            <p>Panhellenic Probabilistic Decision Platform: Ενδυνάμωση μαθητών με δεδομένα και προβλέψεις για καλύτερες αποφάσεις.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Γρήγοροι Σύνδεσμοι</h4>
+            <ul>
+                <li><a href="index.html">Αρχική</a></li>
+                <li><a href="about.html">Σχετικά με εμάς</a></li>
+                <li><a href="guide.html">Οδηγίες Χρήσης</a></li>
+                <li><a href="faq.html">Συχνές Ερωτήσεις (FAQ)</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Επικοινωνία</h4>
+            <form action="https://formspree.io/f/xrewpyaj" method="POST" class="contact-form">
+                <input type="text" name="name" placeholder="Όνομα" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <textarea name="message" placeholder="Το μήνυμά σας" rows="3" required></textarea>
+                <button type="submit" class="primary-btn">Αποστολή</button>
+            </form>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026. All rights reserved. | Developed by <a href="https://panosgeorgakopoulos.gr" target="_blank" style="color: var(--primary); text-decoration: none; font-weight: bold;">Panos Georgakopoulos</a></p>
+    </div>
+</footer>
+
+</body>
+</html>

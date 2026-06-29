@@ -66,3 +66,18 @@ The static JSON files consumed by the frontend are generated via robust Python s
  ┣ 📜 normalization_factors.json# Generated Database: Subject Statistics
  ┣ 📜 weights_data.json         # Generated Database: School Coefficients
  ┗ 📜 .nojekyll                 # Bypasses GitHub Pages build errors
+
+---
+
+## 🚀 Deployment (GitHub Pages)
+
+This project is configured to automatically deploy to GitHub Pages using Vite and GitHub Actions.
+
+> [!IMPORTANT]
+> **Administrator Setup Required**: Before the GitHub Actions workflow can successfully build the project, you must add the following environment variables to your GitHub Repository Secrets (`Settings` -> `Secrets and variables` -> `Actions` -> `New repository secret`):
+> 
+> *   `VITE_SUPABASE_URL`
+> *   `VITE_SUPABASE_ANON_KEY`
+> *   `VITE_GROQ_API_KEY`
+> 
+> Failing to set these secrets will cause the build step to fail or the deployed site to lose authentication and AI features.

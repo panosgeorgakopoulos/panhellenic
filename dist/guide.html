@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <script>
+    (function() {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+    })();
+</script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Οδηγίες Χρήσης - Panhellenic Probabilistic Decision Platform</title>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1HNT272ZT3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1HNT272ZT3');
+</script>
+  <link rel="stylesheet" crossorigin href="/assets/styles-DKRAY1Wq.css">
+</head>
+<body>
+<nav class="top-navbar">
+    <div class="navbar-container">
+        <a href="index.html" class="nav-logo">Panhellenic</a>
+        <div class="nav-links" id="navLinks">
+            <a href="field.html?id=1">1ο Πεδίο</a>
+            <a href="field.html?id=2">2ο Πεδίο</a>
+            <a href="field.html?id=3">3ο Πεδίο</a>
+            <a href="field.html?id=4">4ο Πεδίο</a>
+        </div>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" style="background:none; border:none; font-size:1.25rem; cursor:pointer; padding:0.25rem;">🌙</button>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+</nav>
+<script>
+    document.getElementById('hamburgerBtn').addEventListener('click', function() {
+        document.getElementById('navLinks').classList.toggle('active');
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const themeBtn = document.getElementById('themeToggle');
+        if (!themeBtn) return;
+        
+        const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+        themeBtn.textContent = currentTheme === 'dark' ? '☀️' : '🌙';
+
+        themeBtn.addEventListener('click', () => {
+            let theme = document.documentElement.getAttribute('data-theme');
+            if (theme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+                themeBtn.textContent = '🌙';
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                themeBtn.textContent = '☀️';
+            }
+        });
+    });
+
+</script>
+
+
+<div class="container">
+    <header style="position: relative;">
+        <a href="index.html" class="btn-sm" style="position: absolute; top: 0; right: 0; text-decoration: none;">&larr; Αρχική</a>
+        <h1>Οδηγίες Χρήσης</h1>
+        <p class="subtitle">Πώς να αξιοποιήσετε στο έπακρο την πλατφόρμα</p>
+    </header>
+
+    <div class="card">
+        <h2 style="color: var(--primary);">Βήμα 1: Επιλογή Επιστημονικού Πεδίου</h2>
+        <p>Από την αρχική οθόνη (Dashboard), επιλέξτε το Επιστημονικό Πεδίο που σας ενδιαφέρει (π.χ. 1ο Πεδίο Ανθρωπιστικών Σπουδών). Η πλατφόρμα θα σας μεταφέρει στον αντίστοιχο, προσαρμοσμένο υπολογιστή μορίων.</p>
+        <hr style="margin: 25px 0; border: 0; border-top: 1px solid var(--border);">
+        
+        <h2 style="color: var(--primary);">Βήμα 2: Εισαγωγή Βαθμολογιών (Άμεσο Feedback)</h2>
+        <p>Χρησιμοποιήστε τα ειδικά πεδία με τα κουμπιά (+) και (-) για να εισάγετε τις βαθμολογίες σας στα τέσσερα πανελλαδικώς εξεταζόμενα μαθήματα. Καθώς πληκτρολογείτε, η πλατφόρμα θα υπολογίζει <strong>αυτόματα</strong> τον Z-Score σας, δείχνοντάς σας πού βρίσκεστε σε σχέση με τον μέσο όρο (μ) της χρονιάς για το εκάστοτε μάθημα!</p>
+        <hr style="margin: 25px 0; border: 0; border-top: 1px solid var(--border);">
+
+        <h2 style="color: var(--primary);">Βήμα 3: Ρύθμιση Μακροοικονομικών Μοντέλων</h2>
+        <p>Η πλατφόρμα μας επιτρέπει "what-if" αναλύσεις. Αν πιστεύετε ότι τα θέματα φέτος ήταν γενικά δυσκολότερα, μπορείτε να εισάγετε μια αρνητική μεταβολή στο πεδίο <em>Μεταβολή Εθνικών Επιδόσεων</em> (π.χ. -2%). Αντίστοιχα, αν ακούσατε για αύξηση των εισακτέων, προσθέστε ένα θετικό ποσοστό στο <em>Μεταβολή Θέσεων Εισακτέων</em>. Ο αλγόριθμος θα προσαρμόσει την εκτιμώμενη βάση αναλόγως.</p>
+        <hr style="margin: 25px 0; border: 0; border-top: 1px solid var(--border);">
+
+        <h2 style="color: var(--primary);">Βήμα 4: Ανάλυση Σχολών</h2>
+        <p>Ο πίνακας στο κάτω μέρος ανανεώνεται άμεσα δείχνοντας τα μόρια σας για τη συγκεκριμένη σχολή, τη βάση του προηγούμενου έτους, την απόκλιση, και την <strong>Πρόβλεψη Πιθανότητας Εισαγωγής (%)</strong>. Μπορείτε να χρησιμοποιήσετε την αναζήτηση για να φιλτράρετε πόλεις (π.χ. "Αθήνα") ή τμήματα.</p>
+        <hr style="margin: 25px 0; border: 0; border-top: 1px solid var(--border);">
+
+        <h2 style="color: var(--primary);">Βήμα 5: Επεξήγηση Πρόβλεψης (XAI)</h2>
+        <p>Για κάθε σχολή που σας ενδιαφέρει, κάντε κλικ στο κουμπί <strong>"Επεξήγηση Πρόβλεψης"</strong>. Θα μεταφερθείτε σε ένα αναλυτικό Dashboard (Explainable AI) το οποίο σας εξηγεί με διαγράμματα, κείμενο φυσικής γλώσσας, και αναλύσεις περιθωρίων ασφαλείας, πώς ακριβώς προέκυψε το συγκεκριμένο ποσοστό επιτυχίας!</p>
+    </div>
+</div>
+
+
+<footer class="site-footer">
+    <div class="footer-container">
+        <div class="footer-col">
+            <h4>Σχετικά</h4>
+            <p>Panhellenic Probabilistic Decision Platform: Ενδυνάμωση μαθητών με δεδομένα και προβλέψεις για καλύτερες αποφάσεις.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Γρήγοροι Σύνδεσμοι</h4>
+            <ul>
+                <li><a href="index.html">Αρχική</a></li>
+                <li><a href="about.html">Σχετικά με εμάς</a></li>
+                <li><a href="guide.html">Οδηγίες Χρήσης</a></li>
+                <li><a href="faq.html">Συχνές Ερωτήσεις (FAQ)</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Επικοινωνία</h4>
+            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="contact-form">
+                <input type="text" name="name" placeholder="Όνομα" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <textarea name="message" placeholder="Το μήνυμά σας" rows="3" required></textarea>
+                <button type="submit" class="primary-btn">Αποστολή</button>
+            </form>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026. All rights reserved. | Developed by <a href="https://panosgeorgakopoulos.gr" target="_blank" style="color: var(--primary); text-decoration: none; font-weight: bold;">Panos Georgakopoulos</a></p>
+    </div>
+</footer>
+
+</body>
+</html>

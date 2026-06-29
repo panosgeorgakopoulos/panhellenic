@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <script>
+    (function() {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+    })();
+</script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Σχετικά με την Πλατφόρμα - Panhellenic Probabilistic Decision Platform</title>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1HNT272ZT3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1HNT272ZT3');
+</script>
+  <link rel="stylesheet" crossorigin href="/assets/styles-DKRAY1Wq.css">
+</head>
+<body>
+<nav class="top-navbar">
+    <div class="navbar-container">
+        <a href="index.html" class="nav-logo">Panhellenic</a>
+        <div class="nav-links" id="navLinks">
+            <a href="field.html?id=1">1ο Πεδίο</a>
+            <a href="field.html?id=2">2ο Πεδίο</a>
+            <a href="field.html?id=3">3ο Πεδίο</a>
+            <a href="field.html?id=4">4ο Πεδίο</a>
+        </div>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" style="background:none; border:none; font-size:1.25rem; cursor:pointer; padding:0.25rem;">🌙</button>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+</nav>
+<script>
+    document.getElementById('hamburgerBtn').addEventListener('click', function() {
+        document.getElementById('navLinks').classList.toggle('active');
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const themeBtn = document.getElementById('themeToggle');
+        if (!themeBtn) return;
+        
+        const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+        themeBtn.textContent = currentTheme === 'dark' ? '☀️' : '🌙';
+
+        themeBtn.addEventListener('click', () => {
+            let theme = document.documentElement.getAttribute('data-theme');
+            if (theme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+                themeBtn.textContent = '🌙';
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                themeBtn.textContent = '☀️';
+            }
+        });
+    });
+
+</script>
+
+
+<div class="container">
+    <header style="position: relative;">
+        <a href="index.html" class="btn-sm" style="position: absolute; top: 0; right: 0; text-decoration: none;">&larr; Αρχική</a>
+        <h1>Σχετικά με την Πλατφόρμα</h1>
+        <p class="subtitle">Γνωρίστε την ομάδα και το όραμά μας</p>
+    </header>
+
+    <div class="card">
+        <h2 style="color: var(--primary); margin-bottom: 1rem;">Το Όραμά μας</h2>
+        <p>Η <strong>Panhellenic Probabilistic Decision Platform</strong> δημιουργήθηκε με έναν ξεκάθαρο στόχο: να εκδημοκρατίσει την πρόσβαση σε προηγμένα εργαλεία ανάλυσης δεδομένων για τους μαθητές που συμμετέχουν στις Πανελλαδικές Εξετάσεις.</p>
+        <p style="margin-top: 1rem;">Σε μια εποχή όπου οι βάσεις και οι συντελεστές βαρύτητας αλλάζουν ραγδαία, οι παραδοσιακοί "πίνακες μορίων" δεν αρκούν πλέον. Η πλατφόρμα μας γεφυρώνει το χάσμα, προσφέροντας πληροφορίες επιπέδου data science με τρόπο απλό, κατανοητό και προσβάσιμο σε όλους.</p>
+        <br><br>
+        <h2 style="color: var(--primary); margin-bottom: 1rem;">Πώς Λειτουργούμε</h2>
+        <p>Χρησιμοποιούμε ιστορικά δεδομένα βάσεων (από το 2020 έως σήμερα), συνδυασμένα με προηγμένους αλγορίθμους μηχανικής μάθησης και μοντέλα μεταβλητότητας (volatility index) για να εκτιμήσουμε την πιθανότητα εισαγωγής σε κάθε σχολή. Η προσέγγισή μας είναι καθαρά πιθανοθεωρητική και προσφέρει <strong>Explainable AI (XAI)</strong>, δηλαδή δεν δίνει απλά ένα νούμερο, αλλά εξηγεί λεπτομερώς <em>γιατί</em> προκύπτει αυτό το νούμερο.</p>
+        <p style="margin-top: 1rem;">Παράλληλα, τα στατιστικά δεδομένα κανονικοποιούνται (Z-score normalization) επιτρέποντας στους υποψηφίους να δουν την πραγματική τους θέση (percentile) ανάλογα με την επίδοσή τους σε κάθε μάθημα.</p>
+        <br><br>
+        <h2 style="color: var(--primary); margin-bottom: 1rem;">Η Ομάδα</h2>
+        <p>Είμαι 3ο ετής φοιτητής Πληροφορικής με ενδιαφέρον στο software engineering. Δημιούργησα το Panhellenic ως ένα εργαλείο υποστήριξης αποφάσεων για υποψηφίους των Πανελληνίων, με στόχο να μετατρέψει τα ιστορικά δεδομένα βάσεων και τις επιδόσεις των μαθητών σε πιο κατανοητές και ποσοτικοποιημένες εκτιμήσεις πιθανότητας εισαγωγής. Το project συνδυάζει προγραμματισμό και στατιστική λογική για να προσφέρει μια πιο ρεαλιστική και τεκμηριωμένη εικόνα των επιλογών σχολών.</p>
+    </div>
+</div>
+
+
+<footer class="site-footer">
+    <div class="footer-container">
+        <div class="footer-col">
+            <h4>Σχετικά</h4>
+            <p>Panhellenic Probabilistic Decision Platform: Ενδυνάμωση μαθητών με δεδομένα και προβλέψεις για καλύτερες αποφάσεις.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Γρήγοροι Σύνδεσμοι</h4>
+            <ul>
+                <li><a href="index.html">Αρχική</a></li>
+                <li><a href="about.html">Σχετικά με εμάς</a></li>
+                <li><a href="guide.html">Οδηγίες Χρήσης</a></li>
+                <li><a href="faq.html">Συχνές Ερωτήσεις (FAQ)</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Επικοινωνία</h4>
+            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="contact-form">
+                <input type="text" name="name" placeholder="Όνομα" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <textarea name="message" placeholder="Το μήνυμά σας" rows="3" required></textarea>
+                <button type="submit" class="primary-btn">Αποστολή</button>
+            </form>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026. All rights reserved. | Developed by <a href="https://panosgeorgakopoulos.gr" target="_blank" style="color: var(--primary); text-decoration: none; font-weight: bold;">Panos Georgakopoulos</a></p>
+    </div>
+</footer>
+
+</body>
+</html>
