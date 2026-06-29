@@ -136,6 +136,7 @@ export function calculateStrategy(activeFieldId, currentGrades, preferences, sch
  */
 export async function fetchAdvisorSummary(strategyData, semanticInput = '') {
     const apiKey = import.meta.env.VITE_GROQ_API_KEY;
+    console.log('Groq API Key Check:', apiKey ? apiKey.substring(0, 4) : 'undefined');
     if (!apiKey || apiKey === 'YOUR_GROQ_KEY_HERE') {
         return "⚠️ Παρακαλώ προσθέστε το API Key της Groq στο αρχείο .env (VITE_GROQ_API_KEY) για να δείτε την AI σύνοψη.";
     }
